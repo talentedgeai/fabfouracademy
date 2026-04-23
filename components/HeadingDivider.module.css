@@ -1,0 +1,40 @@
+.heading {
+  display: block;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.h1 { font-size: 56px; line-height: 1.0; }
+.h2 { font-size: 36px; line-height: 1.1; }
+.h3 { font-size: 24px; line-height: 1.2; }
+.h4 { font-size: 18px; line-height: 1.3; }
+
+/* orange-blue: word1 = orange label, word2 = blue subject */
+.orange-blue .word1 { color: #CF4B27; }
+.orange-blue .word2 { color: #2E758D; }
+
+/* blue-orange: word1 = blue label, word2 = orange subject */
+.blue-orange .word1 { color: #2E758D; }
+.blue-orange .word2 { color: #CF4B27; }
+
+/* on-dark: both words white */
+.on-dark .word1,
+.on-dark .word2 { color: #FFFFFF; }
+
+.brush {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  background: url('/images/heading-divider.png') left center / 100% 100% no-repeat;
+}
+
+.h1 .brush { height: 24px; }
+.h2 .brush { height: 18px; }
+.h3 .brush { height: 14px; }
+.h4 .brush { height: 12px; }
+
+@media (max-width: 768px) {
+  .h1 { font-size: 36px; }
+  .h2 { font-size: 28px; }
+}
