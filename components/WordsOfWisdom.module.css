@@ -64,10 +64,11 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 260px;
+  width: 390px;
   height: auto;
   pointer-events: none;
   z-index: 0;
+  filter: grayscale(100%);
 }
 
 /* ── Left: heading + divider ─────────────── */
@@ -82,10 +83,10 @@
 
 .wowHeading {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 800;
   line-height: 1.1;
-  color: #38393A;
+  color: #000000;
 }
 
 .wowDivider {
