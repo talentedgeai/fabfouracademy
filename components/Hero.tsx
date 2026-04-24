@@ -1,9 +1,25 @@
+'use client'
+
+import { useRef, useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './Hero.module.css'
 
-
 export default function Hero() {
+  const textRef = useRef<HTMLSpanElement>(null)
+  const [dividerWidth, setDividerWidth] = useState<number | null>(null)
+
+  useEffect(() => {
+    function measure() {
+      if (textRef.current) {
+        setDividerWidth(textRef.current.getBoundingClientRect().width)
+      }
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+
   return (
     <section className={styles.hero}>
       <div className={`container ${styles.inner}`}>
@@ -11,12 +27,16 @@ export default function Hero() {
         <div className={styles.content}>
           <h1 className={styles.h1}>
             The Fab Four<br />
-            <span className={styles.h1Line2}>
-              Pillars of Impact
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/divider-orange.png" alt="" aria-hidden="true" className={styles.divider} />
-            </span>
+            <span ref={textRef}>Pillars of Impact</span>
           </h1>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/divider-orange.png"
+            alt=""
+            aria-hidden="true"
+            className={styles.divider}
+            style={dividerWidth ? { width: dividerWidth } : { visibility: 'hidden' }}
+          />
 
           <p className={styles.subtitle}>
             Seeing the Beatles — Their Music — Their Business — More Clearly
