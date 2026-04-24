@@ -13,7 +13,8 @@ export default function Hero() {
             The Fab Four<br />
             <span className={styles.h1Line2}>
               Pillars of Impact
-              <span className={styles.divider} aria-hidden="true" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/divider.png" alt="" aria-hidden="true" className={styles.divider} />
             </span>
           </h1>
 
