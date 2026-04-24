@@ -37,8 +37,10 @@ export default function Leadership() {
           <span className="eyebrow">Leadership Philosophy</span>
           <h2 className={styles.h2}>Leadership, Harmony, and Human-Centered Excellence</h2>
           <p className={styles.intro}>
-            Dan's work explores leadership not as performance, but as identity — built
-            deliberately through people, trust, and shared purpose.
+            Dan's work explores leadership not as performance, but as identity. His writing
+            and teaching draw on real-world experience and cultural storytelling to show how
+            excellence is built deliberately — through people, trust, and shared purpose —
+            and sustained over time.
           </p>
 
           <div className={styles.pillars}>

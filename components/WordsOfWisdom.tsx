@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PhotoStrip from './PhotoStrip'
 import styles from './WordsOfWisdom.module.css'
 
 export default function WordsOfWisdom() {
@@ -11,10 +12,16 @@ export default function WordsOfWisdom() {
           <p className={styles.tagline}>One song. One insight. Every day.</p>
           <p className={styles.desc}>
             Each day, a single Beatles song becomes a starting point for reflection on
-            creativity, collaboration, relationships, and life. Discover new meaning within
-            the music you love — one song at a time.
+            creativity, collaboration, relationships, and life. These brief insights help
+            you reconnect with the music you love and discover new meaning within it —
+            one song at a time.
           </p>
         </div>
+      </div>
+
+      <PhotoStrip />
+
+      <div className={`container ${styles.inner}`}>
 
         <div className={styles.card}>
           <span className={styles.badge}>Today&apos;s Reflection</span>

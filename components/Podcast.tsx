@@ -19,9 +19,9 @@ export default function Podcast() {
 
           <blockquote className={styles.quote}>
             <p>
-              "I think the book is really going to be enlightening for a lot of people — Beatles
-              fans and people who are not necessarily Beatles fans, but looking for knowledge and
-              insight into running successful organizations."
+              "I think the book is really going to be enlightening for a lot of people, you know,
+              Beatles fans and people who are not necessarily Beatles fans, but looking for gaining
+              that knowledge and insight into running successful organizations."
             </p>
             <cite>— Jonathan Pretus, Host of Ranking The Beatles Podcast</cite>
           </blockquote>
