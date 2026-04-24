@@ -15,7 +15,8 @@ export default function Hero() {
         setDividerWidth(textRef.current.getBoundingClientRect().width)
       }
     }
-    measure()
+    // Wait for fonts before first measurement so Roboto 800 is loaded
+    document.fonts.ready.then(measure)
     window.addEventListener('resize', measure)
     return () => window.removeEventListener('resize', measure)
   }, [])
