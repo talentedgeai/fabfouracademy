@@ -30,6 +30,7 @@ export default function Footer() {
               height={48}
               style={{ width: '140px', height: 'auto' }}
             />
+            <p className={styles.copyright}>© 2025 by Fab Four Academy</p>
           </div>
 
           <nav className={styles.nav} aria-label="Footer navigation">
@@ -56,9 +57,6 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className={styles.bottom}>
-          <p className={styles.copyright}>© 2025 by Fab Four Academy</p>
-        </div>
       </div>
     </footer>
   )

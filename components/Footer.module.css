@@ -6,7 +6,6 @@
 .inner {
   display: flex;
   flex-direction: column;
-  gap: 48px;
 }
 
 .top {
@@ -62,11 +61,6 @@
 
 .socialLink:hover {
   color: #CF4B27;
-}
-
-.bottom {
-  border-top: 1px solid #d9d9d9;
-  padding-top: 24px;
 }
 
 .copyright {
