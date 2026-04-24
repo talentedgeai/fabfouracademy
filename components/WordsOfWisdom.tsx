@@ -1,9 +1,26 @@
-import Link from 'next/link'
+'use client'
+
+import { useRef, useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import PhotoStrip from './PhotoStrip'
 import styles from './WordsOfWisdom.module.css'
 
 export default function WordsOfWisdom() {
+  const textRef = useRef<HTMLSpanElement>(null)
+  const [dividerWidth, setDividerWidth] = useState<number | null>(null)
+
+  useEffect(() => {
+    function measure() {
+      if (textRef.current) {
+        setDividerWidth(textRef.current.getBoundingClientRect().width)
+      }
+    }
+    document.fonts.ready.then(measure)
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+
   return (
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
@@ -23,40 +40,45 @@ export default function WordsOfWisdom() {
 
       <div className={`container ${styles.cardSection}`}>
 
-        {/* "Today's Words of Wisdom" label */}
-        <h3 className={styles.todayHeading}>
-          <span className={styles.todayOrange}>Today&apos;s </span>
-          <span className={styles.todayBlue}>Words of Wisdom</span>
-        </h3>
+        {/* Left: "Today's Words of Wisdom" heading + divider */}
+        <div className={styles.wowLeft}>
+          <h3 className={styles.wowHeading}>
+            Today&apos;s<br />
+            <span ref={textRef}>Words of Wisdom</span>
+          </h3>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/divider-blue.png"
+            alt=""
+            aria-hidden="true"
+            className={styles.wowDivider}
+            style={dividerWidth ? { width: dividerWidth } : { visibility: 'hidden' }}
+          />
+        </div>
 
-        {/* Amber card */}
-        <div className={styles.card}>
-          <div className={styles.cardLeft}>
-            <span className={styles.cardDate}>April 24</span>
-            <h4 className={styles.cardTitle}>End of the Line</h4>
-            <p className={styles.cardBody}>
-              There is something quietly extraordinary about the circumstances surrounding this
-              song&apos;s music video — a meditation on endings, legacy, and the quiet grace of
-              arriving somewhere worth being.
-            </p>
+        {/* Right: post card */}
+        <div className={styles.postCard}>
+          <div className={styles.postImageWrap}>
+            <Image
+              src="/images/wow-forgive-me.png"
+              alt="(Forgive Me) My Little Flower Princess"
+              fill
+              className={styles.postImage}
+            />
           </div>
-          <div className={styles.cardRight}>
-            <div className={styles.cardImageWrap}>
-              <Image
-                src="/images/home-carousel-1.webp"
-                alt="Song artwork"
-                fill
-                className={styles.cardImage}
-              />
-            </div>
+          <div className={styles.postContent}>
+            <h4 className={styles.postTitle}>(Forgive Me) My Little Flower Princess</h4>
+            <p className={styles.postBody}>
+              John poured his devotion into this song for Yoko, released posthumously in 1984...
+            </p>
             <Link
               href="https://www.fabfouracademy.com/words-of-wisdom-content/end-of-the-line"
-              className={styles.cardBtn}
+              className="btn btn-primary"
               target="_blank"
               rel="noopener"
+              style={{ width: 'fit-content' }}
             >
               Read Full Reflection
-              <span className={styles.cardBtnArrow}>→</span>
             </Link>
           </div>
         </div>

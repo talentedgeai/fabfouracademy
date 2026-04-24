@@ -36,7 +36,7 @@
   line-height: 1.1;
 }
 
-.word1 { color: #CF4B27; }
+.word1 { color: #38393A; }
 .word2 { color: #38393A; }
 
 .divider {
@@ -60,19 +60,30 @@
 }
 
 .quote {
-  border-left: 4px solid #1B4F9E;
-  padding: 24px 20px;
-  background: #f4f8fe;
-  border-radius: 0 8px 8px 0;
+  position: relative;
+  padding: 8px 0 0 0;
+  background: none;
+  border: none;
+}
+
+.quote::before {
+  content: '\201C';
+  display: block;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 96px;
+  line-height: 0.75;
+  color: #2E758D;
+  margin-bottom: 16px;
+  margin-left: -4px;
 }
 
 .quote p {
   font-family: Arial, sans-serif;
   font-style: italic;
-  font-size: 15px;
-  color: #444444;
-  line-height: 1.6;
-  margin-bottom: 12px;
+  font-size: 16px;
+  color: #333333;
+  line-height: 1.7;
+  margin-bottom: 16px;
 }
 
 .quote cite {
