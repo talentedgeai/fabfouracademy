@@ -29,15 +29,21 @@
 
 .h1 {
   font-size: 56px;
-  line-height: 1.0;
+  line-height: 1.1;
   color: #000000;
 }
 
+.h1Line2 {
+  display: inline-block;
+  position: relative;
+}
+
 .divider {
+  display: block;
   position: relative;
   width: 100%;
-  height: 16px;
-  margin-top: -8px;
+  height: 14px;
+  margin-top: 2px;
 }
 
 .subtitle {
@@ -71,15 +77,13 @@
 }
 
 .heroImgContainer {
-  position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
-  border-radius: 12px;
-  overflow: hidden;
 }
 
 .heroImg {
-  object-fit: cover;
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 12px;
 }
 
 .qrRow {

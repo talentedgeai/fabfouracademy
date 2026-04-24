@@ -9,11 +9,14 @@ export default function Hero() {
         {/* Left: text content */}
         <div className={styles.content}>
           <h1 className={styles.h1}>
-            The Fab Four<br />Pillars of Impact
+            The Fab Four<br />
+            <span className={styles.h1Line2}>
+              Pillars of Impact
+              <span className={styles.divider} aria-hidden="true">
+                <Image src="/images/divider.svg" alt="" fill style={{ objectFit: 'fill' }} />
+              </span>
+            </span>
           </h1>
-          <div className={styles.divider} aria-hidden="true">
-            <Image src="/images/divider.svg" alt="" fill style={{ objectFit: 'fill' }} />
-          </div>
 
           <p className={styles.subtitle}>
             Seeing the Beatles — Their Music — Their Business — More Clearly
@@ -50,7 +53,8 @@ export default function Hero() {
             <Image
               src="/images/home-hero.png"
               alt="The Fab Four Pillars of Impact"
-              fill
+              width={600}
+              height={800}
               className={styles.heroImg}
               priority
             />
