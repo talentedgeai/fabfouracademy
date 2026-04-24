@@ -34,13 +34,12 @@ export default function Leadership() {
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.left}>
-          <span className="eyebrow">Leadership Philosophy</span>
           <h2 className={styles.h2}>Leadership, Harmony, and Human-Centered Excellence</h2>
           <p className={styles.intro}>
-            Dan's work explores leadership not as performance, but as identity. His writing
+            Dan&apos;s work explores leadership not as performance, but as identity. His writing
             and teaching draw on real-world experience and cultural storytelling to show how
-            excellence is built deliberately — through people, trust, and shared purpose —
-            and sustained over time.
+            excellence is built deliberately through people, trust, and shared purpose and
+            sustained over time.
           </p>
 
           <div className={styles.pillars}>
@@ -49,7 +48,6 @@ export default function Leadership() {
                 <span className={styles.num}>{p.num}</span>
                 <div>
                   <div className={styles.stepTitle}>{p.title}</div>
-                  <div className={styles.stepDesc}>{p.desc}</div>
                 </div>
               </div>
             ))}

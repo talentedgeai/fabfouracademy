@@ -19,8 +19,7 @@ export default function WhatDanBrings() {
         </div>
 
         <div className={styles.content}>
-          <span className="eyebrow">Why Dan Absher</span>
-          <HeadingDivider word1="What Dan " word2="Absher Brings" />
+          <HeadingDivider word1="What Dan " word2="Absher Brings" variant="on-dark" />
           <p className={styles.body}>
             Dan Absher brings a rare combination of executive leadership, teaching experience,
             and cultural insight. His work bridges business and storytelling, using the
@@ -45,9 +44,6 @@ export default function WhatDanBrings() {
               rel="noopener"
             >
               Download Press Kit
-            </Link>
-            <Link href="/dan-absher-keynote-speaker" className="btn btn-blue">
-              View Keynotes
             </Link>
           </div>
         </div>

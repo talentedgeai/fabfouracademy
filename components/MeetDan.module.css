@@ -16,6 +16,22 @@
   gap: 20px;
 }
 
+.h2 {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.word1 { color: #CF4B27; }
+.word2 { color: #38393A; }
+
+.divider {
+  display: block;
+  height: auto;
+  margin-top: -12px;
+}
+
 .body {
   font-family: Arial, sans-serif;
   font-size: 15px;
