@@ -51,6 +51,7 @@
 
 /* ── Card section: 1:2 grid ──────────────── */
 .cardSection {
+  position: relative;
   padding-top: 56px;
   padding-bottom: 96px;
   display: grid;
@@ -59,8 +60,20 @@
   align-items: start;
 }
 
+.decorBottomLeft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 260px;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* ── Left: heading + divider ─────────────── */
 .wowLeft {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -83,6 +96,8 @@
 
 /* ── Right: post card ────────────────────── */
 .postCard {
+  position: relative;
+  z-index: 1;
   background: #F9AD3E;
   border-radius: 12px;
   overflow: hidden;

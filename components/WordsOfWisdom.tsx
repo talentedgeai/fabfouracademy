@@ -53,6 +53,15 @@ export default function WordsOfWisdom() {
 
       <div className={`container ${styles.cardSection}`}>
 
+        {/* Bottom-left decoration */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/home-daily.png"
+          alt=""
+          aria-hidden="true"
+          className={styles.decorBottomLeft}
+        />
+
         {/* Left: "Today's Words of Wisdom" heading + divider */}
         <div className={styles.wowLeft}>
           <h3 className={styles.wowHeading}>
