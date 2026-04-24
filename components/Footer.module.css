@@ -76,14 +76,23 @@
   height: 18px;
 }
 
+.socialIcon svg polygon {
+  fill: #38393A;
+}
+
 .socialIcon:hover {
   background: #CF4B27;
+}
+
+.socialIcon:hover svg polygon {
+  fill: #CF4B27;
 }
 
 .copyright {
   font-family: Arial, sans-serif;
   font-size: 13px;
   color: #888888;
+  margin-top: 16px;
 }
 
 @media (max-width: 768px) {
