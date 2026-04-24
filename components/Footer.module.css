@@ -52,15 +52,32 @@
   color: #888888;
 }
 
-.socialLink {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  color: #555555;
-  transition: color 0.2s ease;
+.socialIcons {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
 }
 
-.socialLink:hover {
-  color: #CF4B27;
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #38393A;
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+
+.socialIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.socialIcon:hover {
+  background: #CF4B27;
 }
 
 .copyright {
