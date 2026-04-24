@@ -74,16 +74,17 @@
   line-height: 0.75;
   color: #2E758D;
   margin-bottom: 16px;
-  margin-left: -4px;
+  text-align: center;
 }
 
 .quote p {
   font-family: Arial, sans-serif;
   font-style: italic;
-  font-size: 16px;
-  color: #333333;
-  line-height: 1.7;
+  font-size: 20px;
+  color: #2E758D;
+  line-height: 1.6;
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .quote cite {
@@ -92,6 +93,8 @@
   font-weight: 700;
   color: #888888;
   font-style: normal;
+  display: block;
+  text-align: center;
 }
 
 @media (max-width: 768px) {

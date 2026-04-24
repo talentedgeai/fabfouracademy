@@ -28,7 +28,7 @@ export default function WhatDanBrings() {
         </div>
 
         <div className={styles.content}>
-          <HeadingDivider word1="What Dan " word2="Absher Brings" variant="on-dark" />
+          <HeadingDivider word1="What Dan " word2="Absher Brings" variant="on-dark" hideBrush />
           <p className={styles.body}>
             Dan Absher brings a rare combination of executive leadership, teaching experience,
             and cultural insight. His work bridges business and storytelling, using the

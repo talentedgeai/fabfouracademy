@@ -7,14 +7,16 @@ import PhotoStrip from './PhotoStrip'
 import styles from './WordsOfWisdom.module.css'
 
 export default function WordsOfWisdom() {
-  const textRef = useRef<HTMLSpanElement>(null)
-  const [dividerWidth, setDividerWidth] = useState<number | null>(null)
+  const headerRef = useRef<HTMLSpanElement>(null)
+  const [headerDivWidth, setHeaderDivWidth] = useState<number | null>(null)
+
+  const cardRef = useRef<HTMLSpanElement>(null)
+  const [cardDivWidth, setCardDivWidth] = useState<number | null>(null)
 
   useEffect(() => {
     function measure() {
-      if (textRef.current) {
-        setDividerWidth(textRef.current.getBoundingClientRect().width)
-      }
+      if (headerRef.current) setHeaderDivWidth(headerRef.current.getBoundingClientRect().width)
+      if (cardRef.current)   setCardDivWidth(cardRef.current.getBoundingClientRect().width)
     }
     document.fonts.ready.then(measure)
     window.addEventListener('resize', measure)
@@ -25,7 +27,18 @@ export default function WordsOfWisdom() {
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.header}>
-          <h2 className={styles.h2}>Daily Words of Wisdom</h2>
+          <h2 className={styles.h2}>
+            Daily<br />
+            <span ref={headerRef}>Words of Wisdom</span>
+          </h2>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/divider-yellow.png"
+            alt=""
+            aria-hidden="true"
+            className={styles.headerDivider}
+            style={headerDivWidth ? { width: headerDivWidth } : { visibility: 'hidden' }}
+          />
           <p className={styles.tagline}>One song. One insight. Every day.</p>
           <p className={styles.desc}>
             Each day, a single Beatles song becomes a starting point for reflection on
@@ -44,7 +57,7 @@ export default function WordsOfWisdom() {
         <div className={styles.wowLeft}>
           <h3 className={styles.wowHeading}>
             Today&apos;s<br />
-            <span ref={textRef}>Words of Wisdom</span>
+            <span ref={cardRef}>Words of Wisdom</span>
           </h3>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -52,7 +65,7 @@ export default function WordsOfWisdom() {
             alt=""
             aria-hidden="true"
             className={styles.wowDivider}
-            style={dividerWidth ? { width: dividerWidth } : { visibility: 'hidden' }}
+            style={cardDivWidth ? { width: cardDivWidth } : { visibility: 'hidden' }}
           />
         </div>
 

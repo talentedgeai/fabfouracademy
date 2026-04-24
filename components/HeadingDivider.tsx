@@ -5,6 +5,7 @@ interface Props {
   word2: string
   variant?: 'orange-blue' | 'blue-orange' | 'on-dark'
   size?: 'h1' | 'h2' | 'h3' | 'h4'
+  hideBrush?: boolean
 }
 
 export default function HeadingDivider({
@@ -12,12 +13,13 @@ export default function HeadingDivider({
   word2,
   variant = 'orange-blue',
   size = 'h2',
+  hideBrush = false,
 }: Props) {
   return (
     <div className={`${styles.heading} ${styles[variant]} ${styles[size]}`}>
       <span className={styles.word1}>{word1}</span>
       <span className={styles.word2}>{word2}</span>
-      <span className={styles.brush} />
+      {!hideBrush && <span className={styles.brush} />}
     </div>
   )
 }
