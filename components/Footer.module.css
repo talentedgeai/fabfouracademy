@@ -1,5 +1,5 @@
 .footer {
-  background: #38393A;
+  background: #ebebeb;
   padding: 64px 0 32px;
 }
 
@@ -21,14 +21,6 @@
   gap: 16px;
 }
 
-.tagline {
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.6;
-  max-width: 300px;
-}
-
 .nav {
   display: flex;
   flex-direction: column;
@@ -38,12 +30,12 @@
 .link {
   font-family: Arial, sans-serif;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.65);
+  color: #555555;
   transition: color 0.2s ease;
 }
 
 .link:hover {
-  color: #F9AD3E;
+  color: #CF4B27;
 }
 
 .social {
@@ -58,29 +50,29 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.35);
+  color: #888888;
 }
 
 .socialLink {
   font-family: Arial, sans-serif;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.65);
+  color: #555555;
   transition: color 0.2s ease;
 }
 
 .socialLink:hover {
-  color: #F9AD3E;
+  color: #CF4B27;
 }
 
 .bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #d9d9d9;
   padding-top: 24px;
 }
 
 .copyright {
   font-family: Arial, sans-serif;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.35);
+  color: #888888;
 }
 
 @media (max-width: 768px) {

@@ -30,10 +30,6 @@ export default function Footer() {
               height={48}
               style={{ width: '140px', height: 'auto' }}
             />
-            <p className={styles.tagline}>
-              Leadership, harmony, and human-centered excellence — through the lens of The
-              Beatles.
-            </p>
           </div>
 
           <nav className={styles.nav} aria-label="Footer navigation">
