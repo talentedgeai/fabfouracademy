@@ -80,6 +80,10 @@
   top: 96px;
 }
 
+.imgOuter {
+  position: relative;
+}
+
 .imgContainer {
   position: relative;
   width: 100%;
@@ -90,6 +94,16 @@
 
 .img {
   object-fit: cover;
+}
+
+.decorBottomLeft {
+  position: absolute;
+  bottom: -24px;
+  left: -24px;
+  width: 120px;
+  height: auto;
+  pointer-events: none;
+  z-index: 2;
 }
 
 @media (max-width: 768px) {

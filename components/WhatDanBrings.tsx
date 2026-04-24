@@ -8,12 +8,21 @@ export default function WhatDanBrings() {
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.imageWrap}>
-          <div className={styles.imgContainer}>
-            <Image
-              src="/images/home-what-dan-brings.jpeg"
-              alt="Dan Absher presenting"
-              fill
-              className={styles.img}
+          <div className={styles.imgOuter}>
+            <div className={styles.imgContainer}>
+              <Image
+                src="/images/home-what-dan-brings.jpeg"
+                alt="Dan Absher presenting"
+                fill
+                className={styles.img}
+              />
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/decor-line.png"
+              alt=""
+              aria-hidden="true"
+              className={styles.decorBottomRight}
             />
           </div>
         </div>

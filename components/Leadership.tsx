@@ -55,12 +55,21 @@ export default function Leadership() {
         </div>
 
         <div className={styles.right}>
-          <div className={styles.imgContainer}>
-            <Image
-              src="/images/home-leadership.png"
-              alt="Leadership through The Beatles"
-              fill
-              className={styles.img}
+          <div className={styles.imgOuter}>
+            <div className={styles.imgContainer}>
+              <Image
+                src="/images/home-leadership.png"
+                alt="Leadership through The Beatles"
+                fill
+                className={styles.img}
+              />
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/decor-line.png"
+              alt=""
+              aria-hidden="true"
+              className={styles.decorBottomLeft}
             />
           </div>
         </div>
