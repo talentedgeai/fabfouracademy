@@ -43,7 +43,7 @@
   width: 100%;
   height: 14px;
   margin-top: 4px;
-  background: url('/images/divider.svg') left center / 100% 100% no-repeat;
+  background: url('/images/divider.png') left center / 100% 100% no-repeat;
 }
 
 .subtitle {
