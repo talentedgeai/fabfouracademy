@@ -13,7 +13,6 @@ const SPEAKING_ITEMS = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [speakingOpen, setSpeakingOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const speakingRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -26,16 +25,9 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClick)
   }, [])
 
-  useEffect(() => {
-    function handleScroll() {
-      setScrolled(window.scrollY > 10)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   return (
-    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
+    <nav className={styles.nav}>
       <div className={`container ${styles.inner}`}>
         <Link href="/" className={styles.logo}>
           <Image

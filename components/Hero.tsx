@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from './Hero.module.css'
 
+
 export default function Hero() {
   return (
     <section className={styles.hero}>
@@ -12,9 +13,7 @@ export default function Hero() {
             The Fab Four<br />
             <span className={styles.h1Line2}>
               Pillars of Impact
-              <span className={styles.divider} aria-hidden="true">
-                <Image src="/images/divider.svg" alt="" fill style={{ objectFit: 'fill' }} />
-              </span>
+              <span className={styles.divider} aria-hidden="true" />
             </span>
           </h1>
 

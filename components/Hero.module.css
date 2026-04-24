@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  background: url('/images/home-hero-background.png') center center / cover no-repeat;
+  background: url('/images/home-hero-background-updated.png') center bottom / cover no-repeat;
   padding: 80px 0 96px;
   overflow: hidden;
 }
@@ -40,10 +40,10 @@
 
 .divider {
   display: block;
-  position: relative;
   width: 100%;
   height: 14px;
-  margin-top: 2px;
+  margin-top: 4px;
+  background: url('/images/divider.svg') left center / 100% 100% no-repeat;
 }
 
 .subtitle {
