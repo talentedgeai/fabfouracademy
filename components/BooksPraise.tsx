@@ -35,12 +35,11 @@ export default function BooksPraise() {
           <DynamicHeading
             line1="Early "
             line2="Praise"
-            dividerSrc="/images/divider-yellow.png"
-            line1Color="#000000"
-            line2Color="#000000"
+            dividerSrc="/images/divider-white.png"
+            line1Color="#ffffff"
+            line2Color="#ffffff"
             centered
             singleLine
-            dividerSpacing="12px"
           />
         </div>
 
@@ -63,11 +62,10 @@ export default function BooksPraise() {
           <DynamicHeading
             line1="Come Together with"
             line2="The Fab Four Community"
-            dividerSrc="/images/divider-yellow.png"
+            dividerSrc="/images/divider-white.png"
             line1Color="#ffffff"
             line2Color="#ffffff"
             centered
-            dividerSpacing="12px"
           />
           <p className={styles.ctaBody}>
             Join the Fab Four Community to get exclusive previews and early-bird offers.

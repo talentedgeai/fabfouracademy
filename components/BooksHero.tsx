@@ -16,7 +16,6 @@ export default function BooksHero() {
           line2Color="#000000"
           centered
           singleLine
-          dividerSpacing="12px"
         />
         <p className={styles.subtitle}>
           Be the first to be inspired by the most iconic band of our generation.

@@ -31,7 +31,6 @@ export default function BooksShowcase() {
               dividerSrc="/images/divider-blue.png"
               line1Color="#000000"
               line2Color="#000000"
-              dividerSpacing="12px"
             />
             <p className={styles.body}>
               What if the secret formula for organizational excellence has been hiding in plain
@@ -94,7 +93,6 @@ export default function BooksShowcase() {
               dividerSrc="/images/divider-blue.png"
               line1Color="#000000"
               line2Color="#000000"
-              dividerSpacing="12px"
             />
             <p className={styles.body}>
               The Daily Words of Wisdom book offers 365 days of carefully crafted insights for
