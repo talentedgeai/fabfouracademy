@@ -5,9 +5,8 @@ import styles from './WOWPageHero.module.css'
 const TODAY_POST = {
   date: 'April 28, 2026',
   title: "I'll Get You",
-  subtitle: "Believing you'll succeed changes how you show up",
   teaser:
-    'You can feel the infectious optimism in every note of this playful B-side to "She Loves You." John and Paul wrote it quickly in 1963, expressing confident romantic pursuit. The song demonstrates how believing in positive outcomes can change your energy completely.',
+    'You can feel the infectious optimism in every note of this playful B-side to "She Loves You."...',
   imageUrl:
     'https://static.wixstatic.com/media/6e1415_82e28dcd29c94ae296722998eb17b208~mv2.png',
   imageAlt:
@@ -46,9 +45,8 @@ export default function WOWPageHero() {
           <div className={styles.postContentCol}>
             <span className={styles.dateBadge}>{TODAY_POST.date}</span>
             <h2 className={styles.postTitle}>{TODAY_POST.title}</h2>
-            <p className={styles.postSubtitle}>{TODAY_POST.subtitle}</p>
             <p className={styles.postTeaser}>{TODAY_POST.teaser}</p>
-            <Link href={TODAY_POST.href} className="btn btn-yellow" style={{ width: 'fit-content' }}>
+            <Link href={TODAY_POST.href} className="btn btn-primary" style={{ width: 'fit-content' }}>
               Read Full Reflection
             </Link>
           </div>
