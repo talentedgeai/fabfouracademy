@@ -1,6 +1,9 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Navbar from '@/components/Navbar'
+import WOWCTA from '@/components/WOWCTA'
+import Footer from '@/components/Footer'
 import { POSTS, getPostBySlug } from '../posts'
 import styles from './page.module.css'
 
@@ -26,7 +29,9 @@ export default async function WOWPostPage({ params }: Props) {
   if (!post) notFound()
 
   return (
-    <main>
+    <>
+      <Navbar />
+      <main>
       {/* ── Hero ───────────────────────────────── */}
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
@@ -75,6 +80,9 @@ export default async function WOWPostPage({ params }: Props) {
 
         </div>
       </article>
-    </main>
+      </main>
+      <WOWCTA />
+      <Footer />
+    </>
   )
 }
