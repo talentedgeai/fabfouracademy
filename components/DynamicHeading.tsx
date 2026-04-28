@@ -14,7 +14,7 @@ interface Props {
   tag?: 'h1' | 'h2' | 'h3'
   /** Render line1 + line2 on a single line; divider width matches full heading */
   singleLine?: boolean
-  /** marginTop applied to the divider image; default '-12px' */
+  /** marginTop applied to the divider image; default '6px' */
   dividerSpacing?: string
 }
 
@@ -28,7 +28,7 @@ export default function DynamicHeading({
   centered = false,
   tag = 'h2',
   singleLine = false,
-  dividerSpacing = '-12px',
+  dividerSpacing = '6px',
 }: Props) {
   const headingRef = useRef<HTMLHeadingElement>(null)
   const line2Ref = useRef<HTMLSpanElement>(null)
