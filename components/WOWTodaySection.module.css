@@ -1,6 +1,6 @@
 .section {
   padding: 96px 0;
-  background: url('/images/home-daily-background.png') top center / cover no-repeat;
+  background: #f5f5f5;
 }
 
 .inner {
