@@ -19,6 +19,7 @@ export type MonthlyPost = {
   intro: string[]
   sections: Section[]
   faq: { q: string; a: string }[]
+  closingCta: string
   relatedLinks: { label: string; href: string }[]
 }
 
@@ -99,6 +100,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
       { q: 'What\'s the biggest mistake leaders make applying Beatles wisdom about new beginnings?', a: 'Attempting superficial positivity instead of honest acknowledgment before renewal. Waiting for perfect conditions instead of starting imperfectly now. Focusing only on dramatic transformation while missing incremental melting moments. Treating new beginnings as single event rather than ongoing practice.' },
       { q: 'How do Beatles principles about renewal differ from standard change management?', a: 'Standard approaches often skip emotional acknowledgment or push unrealistic timelines. Beatles framework honors difficulty before articulating hope, celebrates incremental progress sustaining long transformation, and embraces imperfect starting over perfect planning. This human-centered approach achieves higher engagement and sustainability.' },
     ],
+    closingCta: 'Get comprehensive implementation guides, measurement tools, and monthly deep dives on Beatles business wisdom by [joining the Fab Four Academy Community](https://www.fabfouracademy.com/join-fab-four-community) and [pre-ordering The Fab Four Pillars of Excellence](/dan-absher-books).',
     relatedLinks: [
       { label: 'December 2025 Attitude & Perspective', href: 'https://www.fabfouracademy.com/attitude-perspective/december-2025' },
       { label: 'Join the Fab Four Academy Community', href: '/join-fab-four-community' },
@@ -196,6 +198,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
       { q: "What's the biggest mistake leaders make applying Beatles relationship wisdom?", a: 'Attempting all principles simultaneously instead of mastering one first. Start with authentic expression for 30 days, then add daily recognition. Sequential implementation ensures sustainable adoption rather than overwhelmed abandonment.' },
       { q: 'How do you balance vulnerability with maintaining leadership authority?', a: 'George\'s "I Need You" demonstrates the distinction between admitting need and showing incompetence. Stating "I need your expertise on this" while maintaining overall direction preserves authority while inviting contribution. Vulnerability about limitations differs from uncertainty about vision.' },
     ],
+    closingCta: 'Get comprehensive relationship assessment tools and implementation guides by [pre-ordering The Fab Four Pillars of Impact](/dan-absher-books).',
     relatedLinks: [
       { label: 'January 2026 Attitude & Perspective', href: '/attitude-perspective/january-2026' },
       { label: 'Pre-order The Fab Four Pillars of Impact', href: '/dan-absher-books' },
@@ -291,6 +294,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
       { q: 'Can these lessons work in traditional corporate environments?', a: "These are evidence-based wellness practices, not countercultural rebellion. Sanctuary sessions, honest expression, and rest protection enhance performance while respecting professional contexts and organizational structures." },
       { q: "What's the biggest mistake professionals make applying Beatles mental health wisdom?", a: 'Attempting all principles simultaneously instead of mastering one first. Start with sanctuary sessions for 30 days, then add other techniques. Sequential implementation ensures sustainable adoption.' },
     ],
+    closingCta: 'Get comprehensive mental wellness tools and implementation guides by [pre-ordering The Fab Four Pillars of Excellence](/dan-absher-books).',
     relatedLinks: [
       { label: 'February 2026 Attitude & Perspective', href: '/attitude-perspective/february-2026' },
       { label: 'Pre-order The Fab Four Pillars of Excellence', href: '/dan-absher-books' },
@@ -372,6 +376,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
       { q: "What's the biggest mistake leaders make when trying to apply Beatles wisdom about new beginnings?", a: 'Attempting all principles simultaneously instead of mastering one thoroughly. Start with strategic retreat if you\'re facing burnout. Begin with honest transition management if you\'re navigating organizational change. Choose optimism as discipline if team morale is suffering. Sequential implementation ensures sustainable adoption rather than overwhelming yourself and reverting to old patterns.' },
       { q: 'How do I balance honoring the past while embracing new beginnings?', a: "Follow the Abbey Road approach: create excellence in current work while acknowledging transition. Don't pretend endings aren't happening, but don't abandon quality because something's concluding. The Beatles' final album demonstrates this perfectly — sophisticated artistry combined with honest acceptance of their partnership's end. This integrated approach serves organizations better than either clinging to past glories or completely abandoning previous identity." },
     ],
+    closingCta: 'Discover how timeless music translates into practical leadership principles at [Fab Four Academy](https://www.fabfouracademy.com/), where Beatles wisdom meets contemporary business challenges. Learn more about transforming transitions into opportunities through lessons from The Beatles.',
     relatedLinks: [
       { label: 'March 2026 Attitude & Perspective', href: '/attitude-perspective/march-2026' },
       { label: 'Fab Four Academy Home', href: '/' },

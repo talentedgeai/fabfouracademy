@@ -91,49 +91,55 @@ export default async function MonthlyPostPage({ params }: Props) {
     <>
       <Navbar />
       <main>
-        <article className={styles.article}>
-          <div className={`container ${styles.articleInner}`}>
 
-            {/* ── Header image ─────────────────────── */}
-            <div className={styles.imageWrap}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={post.imageUrl}
-                alt="The Beatles colored drawing"
-                className={styles.featuredImg}
-              />
+        {/* 1. Full-width cover image */}
+        <div className={styles.coverWrap}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={post.imageUrl}
+            alt="The Beatles colored drawing"
+            className={styles.coverImg}
+          />
+        </div>
+
+        {/* 2. Month / Title / Subtitle */}
+        <div className={styles.headerSection}>
+          <div className={`container ${styles.headerInner}`}>
+            <span className={styles.month}>{post.month}</span>
+            <h1 className={styles.title}>{post.title}</h1>
+            <p className={styles.subtitle}>{post.subtitle}</p>
+          </div>
+        </div>
+
+        {/* 3. Two-column: video (1) | intro (2) */}
+        <div className={styles.introSection}>
+          <div className={`container ${styles.introGrid}`}>
+            <div className={styles.videoCol}>
+              <div className={styles.videoWrap}>
+                <iframe
+                  src={`https://www.youtube.com/embed/${post.youtubeId}`}
+                  title="YouTube video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className={styles.video}
+                />
+              </div>
             </div>
-
-            {/* ── Month + Title + Subtitle ──────────── */}
-            <header className={styles.header}>
-              <span className={styles.month}>{post.month}</span>
-              <h1 className={styles.title}>{post.title}</h1>
-              <p className={styles.subtitle}><strong>{post.subtitle}</strong></p>
-            </header>
-
-            <hr className={styles.divider} />
-
-            {/* ── YouTube embed ─────────────────────── */}
-            <div className={styles.videoWrap}>
-              <iframe
-                src={`https://www.youtube.com/embed/${post.youtubeId}`}
-                title="YouTube video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className={styles.video}
-              />
-            </div>
-
-            {/* ── Intro paragraphs ──────────────────── */}
-            <div className={styles.intro}>
+            <div className={styles.introCol}>
               {post.intro.map((para, i) => (
                 <p key={i} className={styles.paragraph}>
                   {renderInline(para)}
                 </p>
               ))}
             </div>
+          </div>
+        </div>
 
-            {/* ── Sections ──────────────────────────── */}
+        {/* 4. Rest of content */}
+        <article className={styles.article}>
+          <div className={`container ${styles.articleInner}`}>
+
+            {/* Sections */}
             {post.sections.map((section, si) => (
               <section key={si} className={styles.section}>
                 <h2 className={styles.sectionHeading}>{section.heading}</h2>
@@ -147,13 +153,18 @@ export default async function MonthlyPostPage({ params }: Props) {
               </section>
             ))}
 
-            {/* ── FAQ ───────────────────────────────── */}
+            {/* FAQ */}
             <section className={styles.faqSection}>
               <h2 className={styles.faqHeading}>Frequently Asked Questions</h2>
               <MonthlyFAQ items={post.faq} />
             </section>
 
-            {/* ── Back link ─────────────────────────── */}
+            {/* 5. Closing CTA sentence */}
+            <p className={styles.closingCta}>
+              {renderInline(post.closingCta)}
+            </p>
+
+            {/* Back link */}
             <div className={styles.backLink}>
               <Link href="/daily-words-of-wisdom" className={styles.back}>
                 ← Back to Words of Wisdom
@@ -162,8 +173,10 @@ export default async function MonthlyPostPage({ params }: Props) {
 
           </div>
         </article>
+
       </main>
 
+      {/* 6. Today's Words of Wisdom */}
       <WOWFeatured />
       <WOWCTA />
       <Footer />
