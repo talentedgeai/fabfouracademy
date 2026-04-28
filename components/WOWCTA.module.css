@@ -1,0 +1,24 @@
+.section {
+  padding: 96px 0;
+  background: #2E758D;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.body {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+}
