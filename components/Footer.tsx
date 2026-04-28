@@ -5,7 +5,7 @@ import styles from './Footer.module.css'
 const NAV_LINKS = [
   { label: 'Words of Wisdom', href: '/daily-words-of-wisdom' },
   { label: 'Books', href: '/dan-absher-books' },
-  { label: 'Keynotes', href: '/keynotes' },
+  { label: 'Keynotes', href: '/dan-absher-keynote-speaker' },
   { label: 'Book Dan', href: '/book-dan-absher' },
   { label: 'Join The Community', href: '/join-fab-four-community' },
   { label: 'Blog', href: '/blog' },

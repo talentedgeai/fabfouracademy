@@ -6,7 +6,7 @@ import Link from 'next/link'
 import styles from './Navbar.module.css'
 
 const SPEAKING_ITEMS = [
-  { label: 'Keynotes', href: '/keynotes' },
+  { label: 'Keynotes', href: '/dan-absher-keynote-speaker' },
   { label: 'Book Dan', href: '/book-dan-absher' },
 ]
 

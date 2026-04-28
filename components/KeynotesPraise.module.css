@@ -1,0 +1,99 @@
+/* ── Praise section ─────────────────── */
+.section {
+  padding: 96px 0;
+  background: #2E758D;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+/* ── Continuous slider ────────────────────── */
+.sliderWrap {
+  overflow: hidden;
+}
+
+.sliderTrack {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: slide 32s linear infinite;
+}
+
+.sliderTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.sliderCard {
+  width: 380px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid #e8e8e8;
+}
+
+.mark {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 56px;
+  line-height: 0.8;
+  color: #CF4B27;
+  display: block;
+}
+
+.text {
+  font-family: Arial, sans-serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #444444;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.source {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #888888;
+  font-style: normal;
+}
+
+/* ── CTA section ───────────────────────── */
+.cta {
+  padding: 96px 0;
+  background: #CF4B27;
+}
+
+.ctaInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.ctaBody {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .sliderCard { width: 300px; }
+  .cta { padding: 64px 0; }
+}
