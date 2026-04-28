@@ -7,7 +7,7 @@ export default function BooksHero() {
       <span className={styles.watermark} aria-hidden="true">Books</span>
       <div className={`container ${styles.inner}`}>
         <DynamicHeading
-          line1="The Wisdom of"
+          line1="The Wisdom of "
           line2="The Beatles"
           dividerSrc="/images/divider-orange.png"
           tag="h1"
@@ -15,6 +15,8 @@ export default function BooksHero() {
           line1Color="#000000"
           line2Color="#000000"
           centered
+          singleLine
+          dividerSpacing="12px"
         />
         <p className={styles.subtitle}>
           Be the first to be inspired by the most iconic band of our generation.

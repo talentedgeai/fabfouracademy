@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   padding: 120px 0 100px;
-  background: #ffffff;
+  background: url('/images/home-hero-background-updated.png') center bottom / cover no-repeat;
   overflow: hidden;
 }
 
@@ -34,7 +34,6 @@
 .subtitle {
   font-family: Arial, sans-serif;
   font-size: 18px;
-  font-style: italic;
   color: #555555;
   line-height: 1.5;
   max-width: 520px;

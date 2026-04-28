@@ -39,6 +39,8 @@ export default function BooksPraise() {
             line1Color="#000000"
             line2Color="#000000"
             centered
+            singleLine
+            dividerSpacing="12px"
           />
         </div>
 
@@ -65,6 +67,7 @@ export default function BooksPraise() {
             line1Color="#ffffff"
             line2Color="#ffffff"
             centered
+            dividerSpacing="12px"
           />
           <p className={styles.ctaBody}>
             Join the Fab Four Community to get exclusive previews and early-bird offers.

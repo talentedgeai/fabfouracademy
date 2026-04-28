@@ -11,8 +11,9 @@ export default function BooksAuthor() {
             line1="About "
             line2="the Author"
             dividerSrc="/images/divider-blue.png"
-            line1Color="#CF4B27"
+            line1Color="#000000"
             line2Color="#000000"
+            dividerSpacing="12px"
           />
           <p className={styles.body}>
             Dan Absher is a business leader, coach, author, and professional speaker with over
