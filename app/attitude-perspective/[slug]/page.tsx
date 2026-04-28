@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
-import WOWFeatured from '@/components/WOWFeatured'
+import WOWTodaySection from '@/components/WOWTodaySection'
 import WOWCTA from '@/components/WOWCTA'
 import Footer from '@/components/Footer'
 import MonthlyFAQ from '@/components/MonthlyFAQ'
@@ -177,7 +177,7 @@ export default async function MonthlyPostPage({ params }: Props) {
       </main>
 
       {/* 6. Today's Words of Wisdom */}
-      <WOWFeatured />
+      <WOWTodaySection />
       <WOWCTA />
       <Footer />
     </>
