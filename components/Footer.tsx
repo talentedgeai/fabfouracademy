@@ -69,8 +69,7 @@ export default function Footer() {
           </nav>
 
           <div className={styles.social}>
-            <p className={styles.socialLabel}>Follow Along</p>
-            <div className={styles.socialIcons}>
+<div className={styles.socialIcons}>
               {SOCIAL_LINKS.map((link) => (
                 <a
                   key={link.href}
