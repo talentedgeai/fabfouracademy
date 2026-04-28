@@ -1,7 +1,6 @@
 'use client'
 
 import { useRef, useEffect, useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import PhotoStrip from './PhotoStrip'
 import styles from './WordsOfWisdom.module.css'
@@ -85,23 +84,22 @@ export default function WordsOfWisdom() {
         {/* Right: post card */}
         <div className={styles.postCard}>
           <div className={styles.postImageWrap}>
-            <Image
-              src="/images/wow-forgive-me.png"
-              alt="(Forgive Me) My Little Flower Princess"
-              fill
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://static.wixstatic.com/media/6e1415_82e28dcd29c94ae296722998eb17b208~mv2.png"
+              alt="I'll Get You"
               className={styles.postImage}
             />
           </div>
           <div className={styles.postContent}>
-            <h4 className={styles.postTitle}>(Forgive Me) My Little Flower Princess</h4>
+            <span className={styles.postDate}>April 28, 2026</span>
+            <h4 className={styles.postTitle}>I&apos;ll Get You</h4>
             <p className={styles.postBody}>
-              John poured his devotion into this song for Yoko, released posthumously in 1984...
+              You can feel the infectious optimism in every note of this playful B-side to &quot;She Loves You.&quot;...
             </p>
             <Link
-              href="https://www.fabfouracademy.com/words-of-wisdom-content/end-of-the-line"
+              href="/words-of-wisdom-content/ill-get-you"
               className="btn btn-primary"
-              target="_blank"
-              rel="noopener"
               style={{ width: 'fit-content' }}
             >
               Read Full Reflection

@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import WOWCTA from '@/components/WOWCTA'
+import WOWMonthlyFeature from '@/components/WOWMonthlyFeature'
 import Footer from '@/components/Footer'
 import { POSTS, getPostBySlug } from '../posts'
 import styles from './page.module.css'
@@ -81,6 +82,7 @@ export default async function WOWPostPage({ params }: Props) {
         </div>
       </article>
       </main>
+      <WOWMonthlyFeature />
       <WOWCTA />
       <Footer />
     </>

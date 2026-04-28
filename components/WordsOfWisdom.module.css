@@ -108,13 +108,26 @@
 }
 
 .postImageWrap {
-  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #ffffff;
 }
 
 .postImage {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.postDate {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #38393A;
 }
 
 .postContent {
