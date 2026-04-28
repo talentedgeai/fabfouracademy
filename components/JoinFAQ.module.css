@@ -18,14 +18,17 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
-.faqItem summary {
-  list-style: none;
+.question {
+  width: 100%;
+  background: none;
+  border: none;
   cursor: pointer;
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
+  text-align: left;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 15px;
   font-weight: 700;
@@ -33,29 +36,43 @@
   line-height: 1.4;
 }
 
-.faqItem summary::-webkit-details-marker {
-  display: none;
-}
-
-.faqItem summary::after {
-  content: '+';
+.icon {
   font-size: 22px;
   font-weight: 400;
   color: #CF4B27;
   flex-shrink: 0;
   line-height: 1;
   margin-top: 2px;
+  transition: transform 0.3s ease;
+  display: inline-block;
 }
 
-.faqItem[open] summary::after {
-  content: '−';
+.iconOpen {
+  transform: rotate(45deg);
 }
 
-.faqAnswer {
-  padding-bottom: 20px;
+/* Smooth slide using grid-template-rows */
+.body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.bodyOpen {
+  grid-template-rows: 1fr;
+}
+
+.bodyInner {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding-bottom: 0;
+  transition: padding-bottom 0.35s ease;
+}
+
+.bodyOpen .bodyInner {
+  padding-bottom: 20px;
 }
 
 .answer {

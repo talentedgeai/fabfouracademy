@@ -35,6 +35,7 @@ export default function BookDanFAQ() {
           dividerSrc="/images/divider-blue.png"
           line1Color="#000000"
           line2Color="#000000"
+          singleLine
         />
 
         <div className={styles.faqList}>
