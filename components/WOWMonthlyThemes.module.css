@@ -25,7 +25,7 @@
 /* ── Cards ───────────────────────────────── */
 .card {
   flex-shrink: 0;
-  background: #2E758D;
+  background: #758d3c;
   border-radius: 8px;
   padding: 32px;
   display: flex;
@@ -80,18 +80,18 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 2px solid #2E758D;
+  border: 2px solid #758d3c;
   background: #ffffff;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2E758D;
+  color: #758d3c;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .arrow:hover:not(:disabled) {
-  background: #2E758D;
+  background: #758d3c;
   color: #ffffff;
 }
 
