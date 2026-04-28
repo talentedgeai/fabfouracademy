@@ -1,4 +1,3 @@
-import DynamicHeading from './DynamicHeading'
 import styles from './JoinSignup.module.css'
 
 const BENEFITS = [
@@ -12,32 +11,18 @@ export default function JoinSignup() {
   return (
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
+
+        {/* ── Left: benefits bullets ─────────────── */}
         <div className={styles.content}>
-          <DynamicHeading
-            line1="What You Get "
-            line2="When You Join"
-            dividerSrc="/images/divider-yellow.png"
-            line1Color="#000000"
-            line2Color="#000000"
-          />
           <ul className={styles.bullets}>
             {BENEFITS.map((b) => (
               <li key={b} className={styles.bullet}>{b}</li>
             ))}
           </ul>
-          <p className={styles.note}>
-            The first 100 people to sign up will get a free digital copy of <em>Daily Words of Wisdom</em>.
-          </p>
         </div>
 
+        {/* ── Right: sign-up form ────────────────── */}
         <div className={styles.formSide}>
-          <DynamicHeading
-            line1="Sign "
-            line2="Up"
-            dividerSrc="/images/divider-blue.png"
-            line1Color="#000000"
-            line2Color="#000000"
-          />
           <form className={styles.form}>
             <div className={styles.row}>
               <div className={styles.formGroup}>
@@ -82,6 +67,7 @@ export default function JoinSignup() {
             </button>
           </form>
         </div>
+
       </div>
     </section>
   )

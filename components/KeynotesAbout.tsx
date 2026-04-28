@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import DynamicHeading from './DynamicHeading'
 import styles from './KeynotesAbout.module.css'
 
@@ -24,9 +23,6 @@ export default function KeynotesAbout() {
           <p className={styles.note}>
             Dan only accepts one keynote speech per month. To ensure availability, get in touch early and reserve your date for an unforgettable experience.
           </p>
-          <Link href="/book-dan-absher" className="btn btn-primary" style={{ width: 'fit-content' }}>
-            Book Dan Now
-          </Link>
         </div>
 
         <div className={styles.imageWrap}>

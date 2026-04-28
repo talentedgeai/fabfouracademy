@@ -11,37 +11,40 @@ export default function JoinFAQ() {
           dividerSrc="/images/divider-blue.png"
           line1Color="#000000"
           line2Color="#000000"
+          singleLine
         />
 
         <div className={styles.faqList}>
 
-          <div className={styles.faqItem}>
-            <h3 className={styles.question}>What will I get when I join the Fab Four Community?</h3>
-            <p className={styles.answer}>
-              When you join, you&apos;ll receive the Daily Words of Wisdom email every morning — a short, Beatles-inspired message designed to start your day with purpose and positivity. You&apos;ll also be the first to know about new books, workshops, and events from Fab Four Academy, and you&apos;ll be part of a growing community of Beatles fans who are passionate about leadership, creativity, and living well.
-            </p>
-          </div>
+          <details className={styles.faqItem}>
+            <summary className={styles.question}>What will I get when I join the Fab Four Community?</summary>
+            <div className={styles.faqAnswer}>
+              <p className={styles.answer}>When you join, you&apos;ll receive the <strong>Daily Words of Wisdom</strong> email every morning — featuring Beatles-inspired insights to start your day. You&apos;ll also get <strong>early access</strong> to book releases, new workshop announcements, and occasional <strong>special offers</strong> from Fab Four Academy.</p>
+            </div>
+          </details>
 
-          <div className={styles.faqItem}>
-            <h3 className={styles.question}>What is the Daily Words of Wisdom email?</h3>
-            <p className={styles.answer}>
-              The Daily Words of Wisdom email is a short, inspiring message delivered to your inbox each morning. Each edition features a meaningful quote from The Beatles, a brief reflection on what that quote means for your life or leadership, and a simple action or question to carry with you through the day. It&apos;s the kind of thing you can read in two minutes but think about all day long.
-            </p>
-          </div>
+          <details className={styles.faqItem}>
+            <summary className={styles.question}>What is the Daily Words of Wisdom email?</summary>
+            <div className={styles.faqAnswer}>
+              <p className={styles.answer}>The <strong>Daily Words of Wisdom</strong> email is a short, inspiring message delivered to your inbox every morning. Each email features a Beatles song, a behind-the-scenes story about its creation, and a powerful life or leadership insight. You&apos;ll also get a personal affirmation and a reflection question to carry with you through the day.</p>
+              <p className={styles.answer}>Think of it as your daily dose of Beatles-inspired clarity, creativity, and connection.</p>
+            </div>
+          </details>
 
-          <div className={styles.faqItem}>
-            <h3 className={styles.question}>Is the Fab Four Community free to join?</h3>
-            <p className={styles.answer}>
-              Yes — it&apos;s completely free! Just sign up with your name and email and you&apos;ll be subscribed to the Daily Words of Wisdom. As a bonus, the first 100 people to join will receive a free digital copy of Dan Absher&apos;s book <em>Daily Words of Wisdom</em> when it launches in Summer 2026.
-            </p>
-          </div>
+          <details className={styles.faqItem}>
+            <summary className={styles.question}>Is the Fab Four Community free to join?</summary>
+            <div className={styles.faqAnswer}>
+              <p className={styles.answer}>Yes — it&apos;s completely free! Just sign up with your name, email, and favorite Beatles song to get started. Once you subscribe, you&apos;ll receive the <em>Daily Words of Wisdom</em> in your inbox every morning, along with updates on book releases, upcoming workshops, and exclusive special offers.</p>
+            </div>
+          </details>
 
-          <div className={styles.faqItem}>
-            <h3 className={styles.question}>Do I need to be a Beatles fan to get value from this?</h3>
-            <p className={styles.answer}>
-              Not at all. The Daily Words of Wisdom draws on the timeless themes of The Beatles&apos; music and journey — creativity, collaboration, resilience, purpose, joy — that resonate with anyone who cares about living and leading well. But don&apos;t be surprised if you walk away humming a Beatles song or two.
-            </p>
-          </div>
+          <details className={styles.faqItem}>
+            <summary className={styles.question}>Do I need to be a Beatles fan to get value from this?</summary>
+            <div className={styles.faqAnswer}>
+              <p className={styles.answer}>Not at all. But don&apos;t be surprised if you walk away humming a Beatles song.</p>
+              <p className={styles.answer}>Fab Four Academy uses the story and music of The Beatles as a lens to explore life, leadership, teamwork, and creativity. Whether you&apos;re a fan or not, you&apos;ll leave with fresh insights and practical takeaways.</p>
+            </div>
+          </details>
 
         </div>
       </div>

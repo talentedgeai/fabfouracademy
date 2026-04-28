@@ -1,7 +1,7 @@
 /* ── Praise section ─────────────────── */
 .section {
   padding: 96px 0;
-  background: #2E758D;
+  background: #CF4B27;
   overflow: hidden;
 }
 
@@ -73,7 +73,7 @@
 /* ── CTA section ───────────────────────── */
 .cta {
   padding: 96px 0;
-  background: #CF4B27;
+  background: #2E758D;
 }
 
 .ctaInner {

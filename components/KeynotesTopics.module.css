@@ -1,27 +1,29 @@
-.topicSection {
+.section {
   padding: 96px 0;
   background: #ffffff;
 }
 
-.topicSectionAlt {
-  background: #f5f5f5;
-}
-
-.topicInner {
+.inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+  gap: 64px;
+  align-items: start;
 }
 
-.topicInnerReverse {
-  /* image left, content right — natural DOM order handles this */
-}
-
-.topicContent {
+.topic {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.tag {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #CF4B27;
 }
 
 .eyebrow {
@@ -30,8 +32,8 @@
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #CF4B27;
+  letter-spacing: 1.5px;
+  color: #888888;
 }
 
 .body {
@@ -70,41 +72,7 @@
   flex-shrink: 0;
 }
 
-.topicImg {
-  width: 100% !important;
-  height: auto !important;
-  max-width: 460px;
-  border-radius: 12px;
-}
-
-.topicImageWrap {
-  display: flex;
-  justify-content: center;
-}
-
-.portraitWrap {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.portraitContainer {
-  position: relative;
-  width: 100%;
-  max-width: 380px;
-  aspect-ratio: 4 / 5;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.portrait {
-  object-fit: cover;
-}
-
 @media (max-width: 768px) {
-  .topicSection { padding: 64px 0; }
-  .topicInner { grid-template-columns: 1fr; gap: 48px; }
-  .topicImageWrap { order: -1; }
-  .portraitWrap { justify-content: center; order: -1; }
-  .portraitContainer { max-width: 300px; margin: 0 auto; }
-  .topicImg { max-width: 100%; }
+  .section { padding: 64px 0; }
+  .inner { grid-template-columns: 1fr; gap: 56px; }
 }

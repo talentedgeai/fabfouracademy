@@ -7,9 +7,9 @@ export default function BookDanHero() {
       <span className={styles.watermark} aria-hidden="true">Book Dan</span>
       <div className={`container ${styles.inner}`}>
         <DynamicHeading
-          line1="Book Dan"
+          line1="Book Dan "
           line2="Absher"
-          dividerSrc="/images/divider-blue.png"
+          dividerSrc="/images/divider-orange.png"
           tag="h1"
           fontSize={56}
           line1Color="#000000"

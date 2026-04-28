@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import BookDanHero from '@/components/BookDanHero'
 import BookDanForm from '@/components/BookDanForm'
-import BookDanFAQ from '@/components/BookDanFAQ'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
@@ -17,7 +16,6 @@ export default function BookDanPage() {
       <main>
         <BookDanHero />
         <BookDanForm />
-        <BookDanFAQ />
       </main>
       <Footer />
     </>
