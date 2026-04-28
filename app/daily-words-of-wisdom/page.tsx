@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
-import WOWHero from '@/components/WOWHero'
-import WOWFeatured from '@/components/WOWFeatured'
+import Navbar from '@/components/Navbar'
+import WOWPageHero from '@/components/WOWPageHero'
 import WOWMonthlyThemes from '@/components/WOWMonthlyThemes'
-import WOWCTA from '@/components/WOWCTA'
 import WOWRecent from '@/components/WOWRecent'
+import WOWCTA from '@/components/WOWCTA'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Daily Words of Wisdom | Fab Four Academy',
@@ -13,12 +14,15 @@ export const metadata: Metadata = {
 
 export default function DailyWordsOfWisdomPage() {
   return (
-    <main>
-      <WOWHero />
-      <WOWFeatured />
-      <WOWMonthlyThemes />
-      <WOWCTA />
-      <WOWRecent />
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <WOWPageHero />
+        <WOWMonthlyThemes />
+        <WOWRecent />
+        <WOWCTA />
+      </main>
+      <Footer />
+    </>
   )
 }

@@ -1,30 +1,10 @@
 import Link from 'next/link'
 import DynamicHeading from './DynamicHeading'
 import styles from './WOWRecent.module.css'
+import { POSTS } from '@/app/words-of-wisdom-content/posts'
 
-const RECENT = [
-  {
-    date: 'May 31',
-    title: 'End of the Line',
-    teaser:
-      'There is something quietly extraordinary about the circumstances surrounding this song\'s music video...',
-    href: 'https://www.fabfouracademy.com/words-of-wisdom-content/end-of-the-line',
-  },
-  {
-    date: 'May 30',
-    title: 'Waterfalls',
-    teaser:
-      'Caring about someone and being able to protect them from their own choices are two very different things...',
-    href: 'https://www.fabfouracademy.com/words-of-wisdom-content/waterfalls',
-  },
-  {
-    date: 'May 29',
-    title: "Isn't it a Pity?",
-    teaser:
-      "Perhaps no other song in George's catalog carries quite this quality of sorrow: not the sharp ache of a specific hurt, but the diffuse, aching bewilderment of watching people consistently fail to love each other well...",
-    href: "https://www.fabfouracademy.com/words-of-wisdom-content/isn't-it-a-pity?",
-  },
-]
+// Previous 3 days: April 25, 26, 27 (first 3 entries in POSTS array)
+const RECENT_POSTS = POSTS.slice(0, 3)
 
 export default function WOWRecent() {
   return (
@@ -41,20 +21,27 @@ export default function WOWRecent() {
         />
 
         <div className={styles.grid}>
-          {RECENT.map((post) => (
-            <div key={post.href} className={styles.card}>
-              <span className={styles.date}>{post.date}</span>
-              <h3 className={styles.title}>{post.title}</h3>
-              <p className={styles.teaser}>{post.teaser}</p>
-              <Link
-                href={post.href}
-                className={styles.readMore}
-                target="_blank"
-                rel="noopener"
-              >
-                Read Full Reflection →
-              </Link>
-            </div>
+          {RECENT_POSTS.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/words-of-wisdom-content/${post.slug}`}
+              className={styles.card}
+            >
+              <div className={styles.imageWrap}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={post.imageUrl}
+                  alt={post.imageAlt}
+                  className={styles.image}
+                />
+              </div>
+              <div className={styles.content}>
+                <span className={styles.date}>{post.published}</span>
+                <h3 className={styles.title}>{post.title}</h3>
+                <p className={styles.teaser}>{post.content[0]}</p>
+                <span className={styles.readMore}>Read Full Reflection →</span>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

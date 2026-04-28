@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import DynamicHeading from './DynamicHeading'
 import styles from './WOWMonthlyThemes.module.css'
 
 const THEMES = [
@@ -28,7 +27,7 @@ const THEMES = [
     month: 'September',
     theme: 'Attitude & Perspective Journey',
     description:
-      'The Beatles generated over $1 billion in revenue and influenced millions worldwide, but the most valuable lessons from The Beatles aren\'t about music. When John Lennon penned "Rain" during the revolutionary Revolver sessions, he captured a profound leadership truth: perspective, not circumstances, determines success.',
+      'The Beatles generated over $1 billion in revenue and influenced millions worldwide, but the most valuable lessons aren\'t about music. When John Lennon penned "Rain" during the revolutionary Revolver sessions, he captured a profound leadership truth: perspective, not circumstances, determines success.',
     href: 'https://www.fabfouracademy.com/attitude-perspective/september-2025',
   },
   {
@@ -82,23 +81,15 @@ const THEMES = [
   },
 ]
 
+const DOUBLED = [...THEMES, ...THEMES]
+
 export default function WOWMonthlyThemes() {
   return (
     <section className={styles.section}>
-      <div className={`container ${styles.inner}`}>
-        <DynamicHeading
-          line1="Monthly Journey "
-          line2="Themes"
-          dividerSrc="/images/divider-blue.png"
-          line1Color="#000000"
-          line2Color="#000000"
-          centered
-          singleLine
-        />
-
-        <div className={styles.grid}>
-          {THEMES.map((t) => (
-            <div key={t.month} className={styles.card}>
+      <div className={styles.sliderWrap}>
+        <div className={styles.sliderTrack}>
+          {DOUBLED.map((t, i) => (
+            <div key={i} className={styles.card}>
               <span className={styles.monthBadge}>{t.month}</span>
               <h3 className={styles.themeName}>{t.theme}</h3>
               <p className={styles.description}>{t.description}</p>

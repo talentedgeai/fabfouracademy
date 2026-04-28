@@ -1,0 +1,79 @@
+.section {
+  padding-top: 56px;
+  background: url('/images/home-daily-background.png') top center / cover no-repeat;
+}
+
+/* ── Card section: 2fr : 3fr ─────────────── */
+.cardSection {
+  position: relative;
+  padding-top: 56px;
+  padding-bottom: 96px;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ── Left: heading + divider ─────────────── */
+.wowLeft {
+  position: relative;
+  z-index: 1;
+  padding-top: 8px;
+}
+
+/* ── Right: post card ────────────────────── */
+.postCard {
+  position: relative;
+  z-index: 1;
+  background: #F9AD3E;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.10);
+}
+
+.postImageWrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.postImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.postContent {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.postTitle {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #38393A;
+  line-height: 1.2;
+}
+
+.postBody {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .cardSection {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section { padding-top: 32px; }
+  .cardSection { padding-top: 40px; padding-bottom: 64px; }
+}
