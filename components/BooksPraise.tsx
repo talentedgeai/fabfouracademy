@@ -70,7 +70,7 @@ export default function BooksPraise() {
           <p className={styles.ctaBody}>
             Join the Fab Four Community to get exclusive previews and early-bird offers.
           </p>
-          <Link href="/join-fab-four-community" className="btn btn-yellow">
+          <Link href="/join-fab-four-community" className="btn btn-primary">
             Join the Community
           </Link>
         </div>

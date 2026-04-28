@@ -17,7 +17,7 @@ export default function WOWCTA() {
         <p className={styles.body}>
           Get your daily dose of Beatles-inspired wisdom, straight to your inbox.
         </p>
-        <Link href="/join-fab-four-community" className="btn btn-yellow">
+        <Link href="/join-fab-four-community" className="btn btn-primary">
           Join the Community
         </Link>
       </div>

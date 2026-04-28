@@ -66,7 +66,7 @@ export default function KeynotesPraise() {
           <p className={styles.ctaBody}>
             Bring Beatles-style insight to your team, enhancing collaboration, energizing culture, and inspiring next-level performance.
           </p>
-          <Link href="/book-dan-absher" className="btn btn-yellow">
+          <Link href="/book-dan-absher" className="btn btn-primary">
             Inquire About Availability
           </Link>
         </div>
