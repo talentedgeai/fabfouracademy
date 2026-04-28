@@ -1,40 +1,28 @@
 .section {
-  padding-top: 56px;
-  background: url('/images/home-daily-background.png') top center / cover no-repeat;
+  padding: 100px 0;
+  background: url('/images/home-hero-background-updated.png') center bottom / cover no-repeat;
 }
 
-/* ── Card section: 2fr : 3fr ─────────────── */
-.cardSection {
-  position: relative;
-  padding-top: 56px;
-  padding-bottom: 96px;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  gap: 64px;
-  align-items: start;
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
 }
 
-/* ── Left: heading + divider ─────────────── */
-.wowLeft {
-  position: relative;
-  z-index: 1;
-  padding-top: 8px;
-}
-
-/* ── Right: post card ────────────────────── */
+/* ── Post card: image left, content right ── */
 .postCard {
-  position: relative;
-  z-index: 1;
-  background: #F9AD3E;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
 }
 
-.postImageWrap {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
+.postImageCol {
+  position: relative;
+  min-height: 380px;
 }
 
 .postImage {
@@ -44,36 +32,55 @@
   display: block;
 }
 
-.postContent {
-  padding: 32px;
+.postContentCol {
+  background: #CF4B27;
+  padding: 56px 48px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  justify-content: center;
+}
+
+.dateBadge {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .postTitle {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  font-size: 22px;
+  font-size: 32px;
   font-weight: 800;
-  color: #38393A;
-  line-height: 1.2;
+  color: #ffffff;
+  line-height: 1.15;
 }
 
-.postBody {
+.postSubtitle {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.postTeaser {
   font-family: Arial, sans-serif;
   font-size: 15px;
-  color: #555555;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.65;
 }
 
 @media (max-width: 900px) {
-  .cardSection {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+  .postCard { grid-template-columns: 1fr; }
+  .postImageCol { min-height: 280px; }
+  .postContentCol { padding: 40px 32px; }
+  .postTitle { font-size: 26px; }
 }
 
 @media (max-width: 768px) {
-  .section { padding-top: 32px; }
-  .cardSection { padding-top: 40px; padding-bottom: 64px; }
+  .section { padding: 64px 0; }
+  .inner { gap: 40px; }
 }

@@ -1,34 +1,29 @@
 .section {
   padding: 72px 0;
   background: #ffffff;
-  overflow: hidden;
 }
 
-/* ── Marquee slider ──────────────────────── */
-.sliderWrap {
-  overflow: hidden;
+/* ── Slider layout ───────────────────────── */
+.sliderArea {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.sliderTrack {
+.viewport {
+  flex: 1;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.track {
   display: flex;
   gap: 24px;
-  width: max-content;
-  animation: slide 50s linear infinite;
-  padding: 8px 0;
-}
-
-.sliderTrack:hover {
-  animation-play-state: paused;
-}
-
-@keyframes slide {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  transition: transform 0.4s ease;
 }
 
 /* ── Cards ───────────────────────────────── */
 .card {
-  width: 360px;
   flex-shrink: 0;
   background: #2E758D;
   border-radius: 8px;
@@ -36,6 +31,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-sizing: border-box;
 }
 
 .monthBadge {
@@ -76,4 +72,37 @@
 
 .link:hover {
   color: #ffffff;
+}
+
+/* ── Arrow buttons ───────────────────────── */
+.arrow {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #2E758D;
+  background: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2E758D;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.arrow:hover:not(:disabled) {
+  background: #2E758D;
+  color: #ffffff;
+}
+
+.arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #bbbbbb;
+  color: #bbbbbb;
+}
+
+.arrow svg {
+  width: 20px;
+  height: 20px;
 }

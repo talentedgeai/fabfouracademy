@@ -1,10 +1,11 @@
 import Link from 'next/link'
-import PhotoStrip from './PhotoStrip'
 import DynamicHeading from './DynamicHeading'
 import styles from './WOWPageHero.module.css'
 
 const TODAY_POST = {
+  date: 'April 28, 2026',
   title: "I'll Get You",
+  subtitle: "Believing you'll succeed changes how you show up",
   teaser:
     'You can feel the infectious optimism in every note of this playful B-side to "She Loves You." John and Paul wrote it quickly in 1963, expressing confident romantic pursuit. The song demonstrates how believing in positive outcomes can change your energy completely.',
   imageUrl:
@@ -17,25 +18,24 @@ const TODAY_POST = {
 export default function WOWPageHero() {
   return (
     <section className={styles.section}>
-      <PhotoStrip />
+      <div className={`container ${styles.inner}`}>
 
-      <div className={`container ${styles.cardSection}`}>
+        {/* Centered heading */}
+        <DynamicHeading
+          line1="Today's Words of "
+          line2="Wisdom"
+          dividerSrc="/images/divider-orange.png"
+          tag="h1"
+          fontSize={56}
+          line1Color="#000000"
+          line2Color="#000000"
+          centered
+          singleLine
+        />
 
-        {/* Left: heading + divider */}
-        <div className={styles.wowLeft}>
-          <DynamicHeading
-            line1="Today's"
-            line2="Words of Wisdom"
-            dividerSrc="/images/divider-blue.png"
-            line1Color="#000000"
-            line2Color="#000000"
-            tag="h1"
-          />
-        </div>
-
-        {/* Right: post card */}
+        {/* Post card: image left, content right */}
         <div className={styles.postCard}>
-          <div className={styles.postImageWrap}>
+          <div className={styles.postImageCol}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={TODAY_POST.imageUrl}
@@ -43,14 +43,12 @@ export default function WOWPageHero() {
               className={styles.postImage}
             />
           </div>
-          <div className={styles.postContent}>
+          <div className={styles.postContentCol}>
+            <span className={styles.dateBadge}>{TODAY_POST.date}</span>
             <h2 className={styles.postTitle}>{TODAY_POST.title}</h2>
-            <p className={styles.postBody}>{TODAY_POST.teaser}</p>
-            <Link
-              href={TODAY_POST.href}
-              className="btn btn-primary"
-              style={{ width: 'fit-content' }}
-            >
+            <p className={styles.postSubtitle}>{TODAY_POST.subtitle}</p>
+            <p className={styles.postTeaser}>{TODAY_POST.teaser}</p>
+            <Link href={TODAY_POST.href} className="btn btn-yellow" style={{ width: 'fit-content' }}>
               Read Full Reflection
             </Link>
           </div>
