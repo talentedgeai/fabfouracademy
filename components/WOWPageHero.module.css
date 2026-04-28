@@ -22,7 +22,6 @@
 
 .postImageCol {
   position: relative;
-  min-height: 380px;
 }
 
 .postImage {
@@ -30,6 +29,8 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  position: absolute;
+  inset: 0;
 }
 
 .postContentCol {
