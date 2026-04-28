@@ -14,7 +14,7 @@ interface Props {
   tag?: 'h1' | 'h2' | 'h3'
   /** Render line1 + line2 on a single line; divider width matches full heading */
   singleLine?: boolean
-  /** marginTop applied to the divider image; default '0px' */
+  /** marginTop applied to the divider image; default '6px' */
   dividerSpacing?: string
 }
 
@@ -28,7 +28,7 @@ export default function DynamicHeading({
   centered = false,
   tag = 'h2',
   singleLine = false,
-  dividerSpacing = '0px',
+  dividerSpacing = '6px',
 }: Props) {
   const headingRef = useRef<HTMLHeadingElement>(null)
   const line2Ref = useRef<HTMLSpanElement>(null)
@@ -70,6 +70,7 @@ export default function DynamicHeading({
           display: 'block',
           height: 'auto',
           marginTop: dividerSpacing,
+          marginBottom: 0,
           ...(centered ? { marginLeft: 'auto', marginRight: 'auto' } : {}),
           ...(dividerWidth ? { width: dividerWidth } : { visibility: 'hidden' }),
         }}
