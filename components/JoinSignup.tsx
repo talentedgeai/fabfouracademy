@@ -1,10 +1,11 @@
+import Image from 'next/image'
 import styles from './JoinSignup.module.css'
 
 const BENEFITS = [
-  'Beatles-inspired insights delivered to your inbox',
-  'Connect with Beatles fans around the world',
-  'Early access to books and workshops',
-  'One great song to start your day!',
+  { text: 'Beatles-inspired insights delivered to your inbox', img: '/images/point1.png' },
+  { text: 'Connect with Beatles fans around the world', img: '/images/point2.png' },
+  { text: 'Early access to books and workshops', img: '/images/point3.png' },
+  { text: 'One great song to start your day!', img: '/images/point4.png' },
 ]
 
 export default function JoinSignup() {
@@ -12,14 +13,23 @@ export default function JoinSignup() {
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
 
-        {/* ── Left: benefits bullets ─────────────── */}
-        <div className={styles.content}>
-          <ul className={styles.bullets}>
-            {BENEFITS.map((b) => (
-              <li key={b} className={styles.bullet}>{b}</li>
-            ))}
-          </ul>
-        </div>
+        {/* ── Left: benefits with images ─────────── */}
+        <ul className={styles.benefits}>
+          {BENEFITS.map((b) => (
+            <li key={b.text} className={styles.benefit}>
+              <div className={styles.benefitImg}>
+                <Image
+                  src={b.img}
+                  alt=""
+                  aria-hidden="true"
+                  fill
+                  className={styles.img}
+                />
+              </div>
+              <span className={styles.benefitText}>{b.text}</span>
+            </li>
+          ))}
+        </ul>
 
         {/* ── Right: sign-up form ────────────────── */}
         <div className={styles.formSide}>

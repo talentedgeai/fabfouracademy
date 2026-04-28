@@ -7,7 +7,7 @@ export default function KeynotesHero() {
       <span className={styles.watermark} aria-hidden="true">Keynotes</span>
       <div className={`container ${styles.inner}`}>
         <DynamicHeading
-          line1="Keynotes That Build"
+          line1="Keynotes That Build "
           line2="Stronger Teams"
           dividerSrc="/images/divider-orange.png"
           tag="h1"

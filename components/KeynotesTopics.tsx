@@ -20,7 +20,7 @@ export default function KeynotesTopics() {
           <DynamicHeading
             line1="From Passion "
             line2="to Purpose"
-            dividerSrc="/images/divider-blue.png"
+            dividerSrc="/images/divider-yellow.png"
             line1Color="#000000"
             line2Color="#000000"
           />
@@ -42,7 +42,7 @@ export default function KeynotesTopics() {
           <DynamicHeading
             line1="The Fab Four Pillars "
             line2="of Excellence"
-            dividerSrc="/images/divider-blue.png"
+            dividerSrc="/images/divider-yellow.png"
             line1Color="#000000"
             line2Color="#000000"
           />

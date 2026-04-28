@@ -4,7 +4,7 @@ import styles from './BookDanHero.module.css'
 export default function BookDanHero() {
   return (
     <section className={styles.hero}>
-      <span className={styles.watermark} aria-hidden="true">Book Dan</span>
+      <span className={styles.watermark} aria-hidden="true">Dan Absher</span>
       <div className={`container ${styles.inner}`}>
         <DynamicHeading
           line1="Book Dan "
