@@ -32,7 +32,7 @@
 .headerDivider {
   display: block;
   height: auto;
-  margin-top: -10px;
+  margin-top: 6px;
 }
 
 .tagline {
@@ -92,7 +92,7 @@
 .wowDivider {
   display: block;
   height: auto;
-  margin-top: -8px;
+  margin-top: 6px;
 }
 
 /* ── Right: post card ────────────────────── */
