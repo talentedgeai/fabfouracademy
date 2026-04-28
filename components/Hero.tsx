@@ -26,18 +26,20 @@ export default function Hero() {
       <div className={`container ${styles.inner}`}>
         {/* Left: text content */}
         <div className={styles.content}>
-          <h1 className={styles.h1}>
-            The Fab Four<br />
-            <span ref={textRef}>Pillars of Impact</span>
-          </h1>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/divider-orange.png"
-            alt=""
-            aria-hidden="true"
-            className={styles.divider}
-            style={dividerWidth ? { width: dividerWidth } : { visibility: 'hidden' }}
-          />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <h1 className={styles.h1}>
+              The Fab Four<br />
+              <span ref={textRef}>Pillars of Impact</span>
+            </h1>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/divider-orange.png"
+              alt=""
+              aria-hidden="true"
+              className={styles.divider}
+              style={dividerWidth ? { width: dividerWidth } : { visibility: 'hidden' }}
+            />
+          </div>
 
           <p className={styles.subtitle}>
             Seeing the Beatles — Their Music — Their Business — More Clearly

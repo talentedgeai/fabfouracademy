@@ -24,18 +24,20 @@ export default function MeetDan() {
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.content}>
-          <h2 className={styles.h2}>
-            <span className={styles.word1}>Meet</span><br />
-            <span className={styles.word2} ref={textRef}>Dan Absher</span>
-          </h2>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/divider-blue.png"
-            alt=""
-            aria-hidden="true"
-            className={styles.divider}
-            style={dividerWidth ? { width: dividerWidth } : { visibility: 'hidden' }}
-          />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <h2 className={styles.h2}>
+              <span className={styles.word1}>Meet</span><br />
+              <span className={styles.word2} ref={textRef}>Dan Absher</span>
+            </h2>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/divider-blue.png"
+              alt=""
+              aria-hidden="true"
+              className={styles.divider}
+              style={dividerWidth ? { width: dividerWidth } : { visibility: 'hidden' }}
+            />
+          </div>
 
           <p className={styles.body}>
             Dan Absher is a business leader, educator, and author with more than three decades

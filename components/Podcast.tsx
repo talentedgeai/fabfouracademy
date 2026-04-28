@@ -37,18 +37,20 @@ export default function Podcast() {
 
         {/* Row 2 col 1: heading + divider + body + button */}
         <div className={styles.content}>
-          <h2 className={styles.h2}>
-            <span className={styles.word1}>Ranking The</span><br />
-            <span className={styles.word2} ref={textRef}>Beatles Podcast</span>
-          </h2>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/divider-blue.png"
-            alt=""
-            aria-hidden="true"
-            className={styles.divider}
-            style={dividerWidth ? { width: dividerWidth } : { visibility: 'hidden' }}
-          />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <h2 className={styles.h2}>
+              <span className={styles.word1}>Ranking The</span><br />
+              <span className={styles.word2} ref={textRef}>Beatles Podcast</span>
+            </h2>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/divider-blue.png"
+              alt=""
+              aria-hidden="true"
+              className={styles.divider}
+              style={dividerWidth ? { width: dividerWidth } : { visibility: 'hidden' }}
+            />
+          </div>
           <p className={styles.body}>
             Dan Absher recently appeared on the <strong>Ranking The Beatles</strong> podcast,
             joining a thoughtful conversation about the band&apos;s creative evolution and the

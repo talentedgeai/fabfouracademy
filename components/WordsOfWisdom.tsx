@@ -27,18 +27,20 @@ export default function WordsOfWisdom() {
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.header}>
-          <h2 className={styles.h2}>
-            Daily<br />
-            <span ref={headerRef}>Words of Wisdom</span>
-          </h2>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/divider-yellow.png"
-            alt=""
-            aria-hidden="true"
-            className={styles.headerDivider}
-            style={headerDivWidth ? { width: headerDivWidth } : { visibility: 'hidden' }}
-          />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <h2 className={styles.h2}>
+              Daily<br />
+              <span ref={headerRef}>Words of Wisdom</span>
+            </h2>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/divider-yellow.png"
+              alt=""
+              aria-hidden="true"
+              className={styles.headerDivider}
+              style={headerDivWidth ? { width: headerDivWidth } : { visibility: 'hidden' }}
+            />
+          </div>
           <p className={styles.tagline}>One song. One insight. Every day.</p>
           <p className={styles.desc}>
             Each day, a single Beatles song becomes a starting point for reflection on
@@ -64,18 +66,20 @@ export default function WordsOfWisdom() {
 
         {/* Left: "Today's Words of Wisdom" heading + divider */}
         <div className={styles.wowLeft}>
-          <h3 className={styles.wowHeading}>
-            Today&apos;s<br />
-            <span ref={cardRef}>Words of Wisdom</span>
-          </h3>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/divider-blue.png"
-            alt=""
-            aria-hidden="true"
-            className={styles.wowDivider}
-            style={cardDivWidth ? { width: cardDivWidth } : { visibility: 'hidden' }}
-          />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <h3 className={styles.wowHeading}>
+              Today&apos;s<br />
+              <span ref={cardRef}>Words of Wisdom</span>
+            </h3>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/divider-blue.png"
+              alt=""
+              aria-hidden="true"
+              className={styles.wowDivider}
+              style={cardDivWidth ? { width: cardDivWidth } : { visibility: 'hidden' }}
+            />
+          </div>
         </div>
 
         {/* Right: post card */}
