@@ -1,5 +1,7 @@
+'use client'
+
 import Link from 'next/link'
-import HeadingDivider from './HeadingDivider'
+import DynamicHeading from './DynamicHeading'
 import styles from './BooksPraise.module.css'
 
 const QUOTES = [
@@ -21,18 +23,29 @@ const QUOTES = [
   },
 ]
 
+// Double the array so the CSS marquee loop is seamless
+const DOUBLED = [...QUOTES, ...QUOTES]
+
 export default function BooksPraise() {
   return (
     <>
-      {/* ── Praise ──────────────────────────────── */}
+      {/* ── Early Praise ──────────────────────── */}
       <section className={styles.section}>
-        <div className={`container ${styles.inner}`}>
-          <div className={styles.header}>
-            <HeadingDivider word1="Early " word2="Praise" />
-          </div>
-          <div className={styles.grid}>
-            {QUOTES.map((q) => (
-              <blockquote key={q.source} className={styles.card}>
+        <div className={`container ${styles.header}`}>
+          <DynamicHeading
+            line1="Early "
+            line2="Praise"
+            dividerSrc="/images/divider-yellow.png"
+            line1Color="#000000"
+            line2Color="#000000"
+            centered
+          />
+        </div>
+
+        <div className={styles.sliderWrap}>
+          <div className={styles.sliderTrack}>
+            {DOUBLED.map((q, i) => (
+              <blockquote key={i} className={styles.sliderCard}>
                 <span className={styles.mark}>&ldquo;</span>
                 <p className={styles.text}>{q.text}</p>
                 <cite className={styles.source}>— {q.source}</cite>
@@ -45,7 +58,14 @@ export default function BooksPraise() {
       {/* ── Community CTA ───────────────────────── */}
       <section className={styles.cta}>
         <div className={`container ${styles.ctaInner}`}>
-          <HeadingDivider word1="Come Together with " word2="The Fab Four Community" variant="on-dark" />
+          <DynamicHeading
+            line1="Come Together with"
+            line2="The Fab Four Community"
+            dividerSrc="/images/divider-yellow.png"
+            line1Color="#ffffff"
+            line2Color="#ffffff"
+            centered
+          />
           <p className={styles.ctaBody}>
             Join the Fab Four Community to get exclusive previews and early-bird offers.
           </p>

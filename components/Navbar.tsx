@@ -55,7 +55,7 @@ export default function Navbar() {
           <Link href="/daily-words-of-wisdom" className={styles.link}>
             Words of Wisdom
           </Link>
-          <Link href="/books" className={styles.link}>
+          <Link href="/dan-absher-books" className={styles.link}>
             Books
           </Link>
 

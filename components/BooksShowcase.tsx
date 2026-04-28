@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import HeadingDivider from './HeadingDivider'
+import DynamicHeading from './DynamicHeading'
 import styles from './BooksShowcase.module.css'
 
 const PILLARS_BULLETS = [
@@ -25,7 +25,11 @@ export default function BooksShowcase() {
         <div className={`container ${styles.bookInner}`}>
           <div className={styles.bookContent}>
             <span className={styles.releaseBadge}>Release Date: February 3, 2026</span>
-            <HeadingDivider word1="Fab Four " word2="Pillars of Impact" />
+            <DynamicHeading
+              line1="Fab Four "
+              line2="Pillars of Impact"
+              dividerSrc="/images/divider-blue.png"
+            />
             <p className={styles.body}>
               What if the secret formula for organizational excellence has been hiding in plain
               sight for over sixty years, embedded in the remarkable story of the most successful
@@ -68,7 +72,7 @@ export default function BooksShowcase() {
 
       {/* ── Book 2: Daily Words of Wisdom ─────────── */}
       <section className={`${styles.bookSection} ${styles.bookSectionAlt}`}>
-        <div className={`container ${styles.bookInner} ${styles.bookInnerReverse}`}>
+        <div className={`container ${styles.bookInner}`}>
           <div className={styles.bookImageWrap}>
             <Image
               src="/images/books-Daily-Words-of-Wisdom.png"
@@ -81,7 +85,11 @@ export default function BooksShowcase() {
 
           <div className={styles.bookContent}>
             <span className={styles.releaseBadge}>Release Date: Summer 2026</span>
-            <HeadingDivider word1="Daily " word2="Words of Wisdom" />
+            <DynamicHeading
+              line1="Daily "
+              line2="Words of Wisdom"
+              dividerSrc="/images/divider-blue.png"
+            />
             <p className={styles.body}>
               The Daily Words of Wisdom book offers 365 days of carefully crafted insights for
               self growth. Each day includes:
@@ -92,9 +100,12 @@ export default function BooksShowcase() {
               ))}
             </ul>
             <p className={styles.note}>
-              The first 100 people to sign up for the community will get a free digital copy.
-              This book is your daily companion to inspire reflection, action, and meaningful
-              change throughout the year.
+              The first 100 people to{' '}
+              <Link href="/join-fab-four-community" className={styles.noteLink}>
+                sign up for the community
+              </Link>
+              {' '}will get a free digital copy. This book is your daily companion to inspire
+              reflection, action, and meaningful change throughout the year.
             </p>
             <div className={styles.ctas}>
               <Link href="/join-fab-four-community" className="btn btn-primary">

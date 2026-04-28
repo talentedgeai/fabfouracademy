@@ -49,6 +49,17 @@
   font-style: italic;
 }
 
+.noteLink {
+  color: #2E758D;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-style: italic;
+}
+
+.noteLink:hover {
+  color: #CF4B27;
+}
+
 .bullets {
   list-style: none;
   display: flex;

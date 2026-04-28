@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import HeadingDivider from './HeadingDivider'
+import DynamicHeading from './DynamicHeading'
 import styles from './BooksAuthor.module.css'
 
 export default function BooksAuthor() {
@@ -7,7 +7,13 @@ export default function BooksAuthor() {
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.content}>
-          <HeadingDivider word1="About " word2="the Author" />
+          <DynamicHeading
+            line1="About "
+            line2="the Author"
+            dividerSrc="/images/divider-blue.png"
+            line1Color="#CF4B27"
+            line2Color="#000000"
+          />
           <p className={styles.body}>
             Dan Absher is a business leader, coach, author, and professional speaker with over
             32 years of experience leading his family&apos;s construction company. But the real

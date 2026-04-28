@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Fab Four Academy — Leadership Through The Beatles',
   description:
     "Dan Absher teaches leadership and teamwork through the lens of The Beatles' remarkable story.",
-  icons: { icon: '/logo.png' },
+  icons: { icon: '/favicon.jpg' },
   openGraph: {
     title: 'Fab Four Academy',
     description:

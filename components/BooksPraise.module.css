@@ -1,28 +1,41 @@
-/* ── Praise section ──────────────────────── */
+/* ── Early Praise section ─────────────────── */
 .section {
   padding: 96px 0;
   background: #f5f5f5;
-}
-
-.inner {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
+  overflow: hidden;
 }
 
 .header {
-  text-align: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* ── Continuous slider ────────────────────── */
+.sliderWrap {
+  overflow: hidden;
+}
+
+.sliderTrack {
+  display: flex;
   gap: 24px;
+  width: max-content;
+  animation: slide 32s linear infinite;
 }
 
-.card {
+.sliderTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.sliderCard {
+  width: 380px;
+  flex-shrink: 0;
   background: #ffffff;
   border-radius: 8px;
   padding: 32px;
@@ -30,11 +43,6 @@
   flex-direction: column;
   gap: 16px;
   border: 1px solid #e8e8e8;
-  transition: box-shadow 0.2s ease;
-}
-
-.card:hover {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
 .mark {
@@ -86,6 +94,6 @@
 
 @media (max-width: 768px) {
   .section { padding: 64px 0; }
-  .grid { grid-template-columns: 1fr; }
+  .sliderCard { width: 300px; }
   .cta { padding: 64px 0; }
 }
