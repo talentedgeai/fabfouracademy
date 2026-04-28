@@ -59,28 +59,28 @@ const THEMES = [
     theme: 'New Beginnings and Renewal',
     description:
       "When George escaped a tense business meeting in 1969 and retreated to Eric's garden, he created space for breakthrough. That afternoon produced \"Here Comes the Sun,\" teaching us that renewal doesn't require perfect conditions. The Beatles mastered fresh starts during difficult transitions.",
-    href: 'https://www.fabfouracademy.com/attitude-perspective/january-2026',
+    href: '/attitude-perspective/january-2026',
   },
   {
     month: 'February',
     theme: 'Silly Love Songs',
     description:
       'When Paul defended "Silly Love Songs" in 1976, asking critics "What\'s wrong with that?" he was championing authentic connection in a world increasingly comfortable with cynical detachment. Throughout February, we\'ll explore how their wisdom about love and partnerships provides actionable frameworks for leaders.',
-    href: 'https://www.fabfouracademy.com/attitude-perspective/february-2026',
+    href: '/attitude-perspective/february-2026',
   },
   {
     month: 'March',
     theme: 'Mental Health Lessons',
     description:
       'When John Lennon admitted "Help! I need somebody" in 1965, he shattered expectations for rock stars by choosing vulnerability over invincibility. That radical honesty revealed how The Beatles understood that acknowledging struggle doesn\'t diminish strength — it creates the foundation for sustainable success.',
-    href: 'https://www.fabfouracademy.com/attitude-perspective/march-2026',
+    href: '/attitude-perspective/march-2026',
   },
   {
     month: 'April',
     theme: 'New Beginnings Lessons',
     description:
       "When George Harrison walked out of a contentious business meeting in 1969 and into Eric Clapton's garden, he discovered the strategic power of renewal. The song he wrote that afternoon, \"Here Comes the Sun,\" would become The Beatles' most-streamed track and a masterclass in navigating transitions.",
-    href: 'https://www.fabfouracademy.com/attitude-perspective/april-2026',
+    href: '/attitude-perspective/april-2026',
   },
 ]
 
@@ -143,8 +143,7 @@ export default function WOWMonthlyThemes() {
                 <Link
                   href={t.href}
                   className={styles.link}
-                  target="_blank"
-                  rel="noopener"
+                  {...(t.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 >
                   Full Post →
                 </Link>
