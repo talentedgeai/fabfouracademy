@@ -16,8 +16,6 @@ export default function WOWMonthlyFeature() {
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
 
-        <span className={styles.eyebrow}>{THIS_MONTH.label}</span>
-
         <div className={styles.grid}>
 
           {/* Left: YouTube video */}
