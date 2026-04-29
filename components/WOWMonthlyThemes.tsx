@@ -30,7 +30,7 @@ export default function WOWMonthlyThemes() {
   const measure = useCallback(() => {
     if (!viewportRef.current) return
     const w = viewportRef.current.clientWidth
-    const vc = w < 640 ? 1 : w < 900 ? 2 : 3
+    const vc = w < 640 ? 1 : 2
     setItemWidth((w - (vc - 1) * GAP) / vc)
     setVisibleCount(vc)
     setIndex(getInitialIndex(vc))
