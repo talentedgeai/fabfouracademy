@@ -62,6 +62,7 @@ export default function KeynotesPraise() {
             line1Color="#ffffff"
             line2Color="#ffffff"
             centered
+            singleLine
           />
           <p className={styles.ctaBody}>
             Bring Beatles-style insight to your team, enhancing collaboration, energizing culture, and inspiring next-level performance.
