@@ -11,7 +11,10 @@ export default function BlogRecentPosts({ posts }: Props) {
   return (
     <section className={styles.section}>
       <div className="container">
-        <h2 className={styles.heading}>More from the Blog</h2>
+        <div className={styles.header}>
+          <h2 className={styles.heading}>Recent Posts</h2>
+          <Link href="/blog" className={styles.ctaLink}>View all posts →</Link>
+        </div>
         <div className={styles.grid}>
           {posts.map((post) => (
             <Link key={post.slug} href={post.href} className={styles.card}>
@@ -31,9 +34,6 @@ export default function BlogRecentPosts({ posts }: Props) {
               </div>
             </Link>
           ))}
-        </div>
-        <div className={styles.cta}>
-          <Link href="/blog" className={styles.ctaLink}>View all posts →</Link>
         </div>
       </div>
     </section>

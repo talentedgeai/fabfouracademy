@@ -3,12 +3,19 @@
   background: #f9f9f9;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
 .heading {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 28px;
   font-weight: 800;
   color: #38393A;
-  margin: 0 0 40px;
+  margin: 0;
 }
 
 /* ── Grid ──────────────────────────────────── */
@@ -90,11 +97,6 @@
 }
 
 /* ── View all CTA ──────────────────────────── */
-.cta {
-  margin-top: 48px;
-  text-align: center;
-}
-
 .ctaLink {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 15px;
