@@ -74,6 +74,16 @@
   object-fit: cover;
 }
 
+/* ── Card category tag (All view only) ─────────────── */
+.cardCategory {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #CF4B27;
+}
+
 /* ── Card body ─────────────────────────────────────── */
 .body {
   display: flex;
@@ -102,6 +112,46 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* ── Pagination ────────────────────────────────────── */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 56px;
+}
+
+.pageBtn {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 2px solid #e8e8e8;
+  background: transparent;
+  color: #38393A;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.pageBtn:hover:not(:disabled) {
+  border-color: #2E758D;
+  color: #2E758D;
+}
+
+.pageBtn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.pageBtnActive {
+  background: #2E758D;
+  border-color: #2E758D;
+  color: #ffffff;
 }
 
 /* ── Responsive ────────────────────────────────────── */

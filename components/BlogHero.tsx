@@ -7,7 +7,7 @@ export default function BlogHero() {
       <span className={styles.watermark} aria-hidden="true">Blog</span>
       <div className={`container ${styles.inner}`}>
         <DynamicHeading
-          line1="The Beatles"
+          line1="The Beatles "
           line2="Blog"
           dividerSrc="/images/divider-orange.png"
           tag="h1"
