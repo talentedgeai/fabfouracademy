@@ -5,8 +5,13 @@ import Link from 'next/link'
 import { MONTHLY_POSTS } from '@/app/attitude-perspective/posts'
 import styles from './WOWMonthlyThemes.module.css'
 
-// Automatically derived from MONTHLY_POSTS — add a new post there and it appears here
-const THEMES = MONTHLY_POSTS.map((p) => ({
+const MONTH_NAMES = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+]
+
+// Keep newest 12 posts, ordered newest → oldest
+const THEMES = MONTHLY_POSTS.slice(-12).reverse().map((p) => ({
   month: p.month,
   theme: p.subtitle,
   description: p.intro[0].length > 200 ? p.intro[0].slice(0, 200) + '…' : p.intro[0],
@@ -14,6 +19,15 @@ const THEMES = MONTHLY_POSTS.map((p) => ({
 }))
 
 const GAP = 24
+
+/** Returns the carousel index that places the current month's card first (leftmost). */
+function getInitialIndex(vc: number): number {
+  const now = new Date()
+  const currentMonth = `${MONTH_NAMES[now.getMonth()]} ${now.getFullYear()}`
+  const pos = THEMES.findIndex((t) => t.month === currentMonth)
+  const target = pos >= 0 ? pos : 0
+  return Math.min(target, Math.max(0, THEMES.length - vc))
+}
 
 export default function WOWMonthlyThemes() {
   const [index, setIndex] = useState(0)
@@ -27,7 +41,7 @@ export default function WOWMonthlyThemes() {
     const vc = w < 640 ? 1 : w < 900 ? 2 : 3
     setItemWidth((w - (vc - 1) * GAP) / vc)
     setVisibleCount(vc)
-    setIndex(0)
+    setIndex(getInitialIndex(vc))
   }, [])
 
   useEffect(() => {
