@@ -13,7 +13,7 @@ export default function BlogRecentPosts({ posts }: Props) {
       <div className="container">
         <div className={styles.header}>
           <h2 className={styles.heading}>Recent Posts</h2>
-          <Link href="/blog" className={styles.ctaLink}>View all posts →</Link>
+          <Link href="/blog" className={styles.ctaLink}>View All Posts →</Link>
         </div>
         <div className={styles.grid}>
           {posts.map((post) => (
