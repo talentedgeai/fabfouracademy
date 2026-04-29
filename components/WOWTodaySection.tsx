@@ -2,18 +2,11 @@
 
 import { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
+import { getTodaysPost } from '@/lib/wow-utils'
 import styles from './WOWTodaySection.module.css'
 
-const TODAY_POST = {
-  date: 'April 28, 2026',
-  title: "I'll Get You",
-  teaser:
-    'You can feel the infectious optimism in every note of this playful B-side to "She Loves You."...',
-  imageUrl:
-    'https://static.wixstatic.com/media/6e1415_82e28dcd29c94ae296722998eb17b208~mv2.png',
-  imageAlt: "I'll Get You – The Beatles",
-  href: '/words-of-wisdom-content/ill-get-you',
-}
+// Resolved at module init time (server-side during SSR, or on first client load)
+const post = getTodaysPost()
 
 export default function WOWTodaySection() {
   const headingRef = useRef<HTMLSpanElement>(null)
@@ -29,6 +22,12 @@ export default function WOWTodaySection() {
     window.addEventListener('resize', measure)
     return () => window.removeEventListener('resize', measure)
   }, [])
+
+  if (!post) return null
+
+  const teaser = post.content[0].length > 160
+    ? post.content[0].slice(0, 160) + '…'
+    : post.content[0]
 
   return (
     <section className={styles.section}>
@@ -66,17 +65,17 @@ export default function WOWTodaySection() {
           <div className={styles.cardImageWrap}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={TODAY_POST.imageUrl}
-              alt={TODAY_POST.imageAlt}
+              src={post.imageUrl}
+              alt={post.imageAlt}
               className={styles.cardImage}
             />
           </div>
           <div className={styles.cardContent}>
-            <span className={styles.dateBadge}>{TODAY_POST.date}</span>
-            <h3 className={styles.cardTitle}>{TODAY_POST.title}</h3>
-            <p className={styles.cardTeaser}>{TODAY_POST.teaser}</p>
+            <span className={styles.dateBadge}>{post.published}</span>
+            <h3 className={styles.cardTitle}>{post.title}</h3>
+            <p className={styles.cardTeaser}>{teaser}</p>
             <Link
-              href={TODAY_POST.href}
+              href={`/words-of-wisdom-content/${post.slug}`}
               className="btn btn-primary"
               style={{ width: 'fit-content' }}
             >

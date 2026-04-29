@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import DynamicHeading from './DynamicHeading'
+import { getRecentPosts } from '@/lib/wow-utils'
 import styles from './WOWRecent.module.css'
-import { POSTS } from '@/app/words-of-wisdom-content/posts'
-
-// Previous 3 days: April 25, 26, 27 (first 3 entries in POSTS array)
-const RECENT_POSTS = POSTS.slice(0, 3)
 
 export default function WOWRecent() {
+  const posts = getRecentPosts(3)
+  if (posts.length === 0) return null
+
   return (
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
@@ -21,7 +21,7 @@ export default function WOWRecent() {
         />
 
         <div className={styles.grid}>
-          {RECENT_POSTS.map((post) => (
+          {posts.map((post) => (
             <Link
               key={post.slug}
               href={`/words-of-wisdom-content/${post.slug}`}

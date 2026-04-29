@@ -3,7 +3,11 @@
 import { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 import PhotoStrip from './PhotoStrip'
+import { getTodaysPost } from '@/lib/wow-utils'
 import styles from './WordsOfWisdom.module.css'
+
+// Resolved at module init (server-side during SSR, client on first load)
+const todaysPost = getTodaysPost()
 
 export default function WordsOfWisdom() {
   const headerRef = useRef<HTMLSpanElement>(null)
@@ -21,6 +25,13 @@ export default function WordsOfWisdom() {
     window.addEventListener('resize', measure)
     return () => window.removeEventListener('resize', measure)
   }, [])
+
+  const post = todaysPost
+  const teaser = post
+    ? post.content[0].length > 160
+      ? post.content[0].slice(0, 160) + '…'
+      : post.content[0]
+    : ''
 
   return (
     <section className={styles.section}>
@@ -82,30 +93,30 @@ export default function WordsOfWisdom() {
         </div>
 
         {/* Right: post card */}
-        <div className={styles.postCard}>
-          <div className={styles.postImageWrap}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://static.wixstatic.com/media/6e1415_82e28dcd29c94ae296722998eb17b208~mv2.png"
-              alt="I'll Get You"
-              className={styles.postImage}
-            />
+        {post && (
+          <div className={styles.postCard}>
+            <div className={styles.postImageWrap}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={post.imageUrl}
+                alt={post.imageAlt}
+                className={styles.postImage}
+              />
+            </div>
+            <div className={styles.postContent}>
+              <span className={styles.postDate}>{post.published}</span>
+              <h4 className={styles.postTitle}>{post.title}</h4>
+              <p className={styles.postBody}>{teaser}</p>
+              <Link
+                href={`/words-of-wisdom-content/${post.slug}`}
+                className="btn btn-primary"
+                style={{ width: 'fit-content' }}
+              >
+                Read Full Reflection
+              </Link>
+            </div>
           </div>
-          <div className={styles.postContent}>
-            <span className={styles.postDate}>April 28, 2026</span>
-            <h4 className={styles.postTitle}>I&apos;ll Get You</h4>
-            <p className={styles.postBody}>
-              You can feel the infectious optimism in every note of this playful B-side to &quot;She Loves You.&quot;...
-            </p>
-            <Link
-              href="/words-of-wisdom-content/ill-get-you"
-              className="btn btn-primary"
-              style={{ width: 'fit-content' }}
-            >
-              Read Full Reflection
-            </Link>
-          </div>
-        </div>
+        )}
 
       </div>
     </section>

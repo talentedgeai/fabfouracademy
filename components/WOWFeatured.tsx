@@ -1,8 +1,12 @@
 import Link from 'next/link'
 import DynamicHeading from './DynamicHeading'
+import { getTodaysPost } from '@/lib/wow-utils'
 import styles from './WOWFeatured.module.css'
 
 export default function WOWFeatured() {
+  const post = getTodaysPost()
+  if (!post) return null
+
   return (
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
@@ -17,16 +21,12 @@ export default function WOWFeatured() {
         />
 
         <div className={styles.card}>
-          <span className={styles.badge}>May 30, 2026</span>
-          <h2 className={styles.title}>End of the Line</h2>
-          <p className={styles.teaser}>
-            There is something quietly extraordinary about the circumstances surrounding this song&apos;s music video...
-          </p>
+          <span className={styles.badge}>{post.published}</span>
+          <h2 className={styles.title}>{post.title}</h2>
+          <p className={styles.teaser}>{post.content[0].slice(0, 160)}…</p>
           <Link
-            href="https://www.fabfouracademy.com/words-of-wisdom-content/end-of-the-line"
+            href={`/words-of-wisdom-content/${post.slug}`}
             className="btn btn-primary"
-            target="_blank"
-            rel="noopener"
           >
             Read Full Reflection
           </Link>

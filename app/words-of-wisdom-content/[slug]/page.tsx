@@ -82,7 +82,7 @@ export default async function WOWPostPage({ params }: Props) {
         </div>
       </article>
       </main>
-      <WOWMonthlyFeature />
+      <WOWMonthlyFeature published={post.published} />
       <WOWCTA />
       <Footer />
     </>

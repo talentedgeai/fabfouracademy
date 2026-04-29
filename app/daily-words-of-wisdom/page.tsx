@@ -1,3 +1,6 @@
+// Revalidate every hour so today's post and recent posts update daily
+export const revalidate = 3600
+
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import WOWPageHero from '@/components/WOWPageHero'

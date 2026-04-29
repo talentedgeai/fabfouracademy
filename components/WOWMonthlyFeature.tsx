@@ -1,17 +1,18 @@
 import Link from 'next/link'
+import { getMonthlyPostForDate, getTodaysMonthlyPost } from '@/lib/wow-utils'
 import styles from './WOWMonthlyFeature.module.css'
 
-const THIS_MONTH = {
-  label: 'Monthly Deep Dive',
-  month: 'April 2026',
-  title: 'Transformational Lessons from The Beatles: New Beginnings and Hope',
-  subtitle:
-    'A Month of Strategic Renewal, Leadership Transitions, and Beatles Wisdom for Sustainable Growth',
-  youtubeId: 'KQetemT1sWc',
-  href: '/attitude-perspective/april-2026',
-}
+/**
+ * Pass `published` (e.g. "April 28, 2026") from the daily WOW post to show
+ * the matching monthly theme. Omit to show the current month's theme.
+ */
+export default function WOWMonthlyFeature({ published }: { published?: string }) {
+  const monthly = published
+    ? getMonthlyPostForDate(published)
+    : getTodaysMonthlyPost()
 
-export default function WOWMonthlyFeature() {
+  if (!monthly) return null
+
   return (
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
@@ -22,8 +23,8 @@ export default function WOWMonthlyFeature() {
           <div className={styles.videoCol}>
             <div className={styles.videoWrap}>
               <iframe
-                src={`https://www.youtube.com/embed/${THIS_MONTH.youtubeId}`}
-                title="Monthly Deep Dive video"
+                src={`https://www.youtube.com/embed/${monthly.youtubeId}`}
+                title="Monthly theme video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className={styles.video}
@@ -33,10 +34,10 @@ export default function WOWMonthlyFeature() {
 
           {/* Right: text + button */}
           <div className={styles.textCol}>
-            <span className={styles.month}>{THIS_MONTH.month}</span>
-            <h2 className={styles.title}>{THIS_MONTH.title}</h2>
-            <p className={styles.subtitle}>{THIS_MONTH.subtitle}</p>
-            <Link href={THIS_MONTH.href} className="btn btn-primary" style={{ width: 'fit-content' }}>
+            <span className={styles.month}>{monthly.month}</span>
+            <h2 className={styles.title}>{monthly.title}</h2>
+            <p className={styles.subtitle}>{monthly.subtitle}</p>
+            <Link href={`/attitude-perspective/${monthly.slug}`} className="btn btn-primary" style={{ width: 'fit-content' }}>
               Read Full Article
             </Link>
           </div>

@@ -1,3 +1,6 @@
+// Revalidate every hour so "Today's Words of Wisdom" updates daily
+export const revalidate = 3600
+
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import MeetDan from '@/components/MeetDan'

@@ -1,25 +1,20 @@
 import Link from 'next/link'
 import DynamicHeading from './DynamicHeading'
+import { getTodaysPost } from '@/lib/wow-utils'
 import styles from './WOWPageHero.module.css'
 
-const TODAY_POST = {
-  date: 'April 28, 2026',
-  title: "I'll Get You",
-  teaser:
-    'You can feel the infectious optimism in every note of this playful B-side to "She Loves You."...',
-  imageUrl:
-    'https://static.wixstatic.com/media/6e1415_82e28dcd29c94ae296722998eb17b208~mv2.png',
-  imageAlt:
-    'Person confidently walking forward with determined stride, positive energy radiating outward',
-  href: '/words-of-wisdom-content/ill-get-you',
-}
-
 export default function WOWPageHero() {
+  const post = getTodaysPost()
+  if (!post) return null
+
+  const teaser = post.content[0].length > 120
+    ? post.content[0].slice(0, 120) + '…'
+    : post.content[0]
+
   return (
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
 
-        {/* Centered heading */}
         <DynamicHeading
           line1="Today's Words of "
           line2="Wisdom"
@@ -32,21 +27,20 @@ export default function WOWPageHero() {
           singleLine
         />
 
-        {/* Post card: image left, content right */}
         <div className={styles.postCard}>
           <div className={styles.postImageCol}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={TODAY_POST.imageUrl}
-              alt={TODAY_POST.imageAlt}
+              src={post.imageUrl}
+              alt={post.imageAlt}
               className={styles.postImage}
             />
           </div>
           <div className={styles.postContentCol}>
-            <span className={styles.dateBadge}>{TODAY_POST.date}</span>
-            <h2 className={styles.postTitle}>{TODAY_POST.title}</h2>
-            <p className={styles.postTeaser}>{TODAY_POST.teaser}</p>
-            <Link href={TODAY_POST.href} className="btn btn-primary" style={{ width: 'fit-content' }}>
+            <span className={styles.dateBadge}>{post.published}</span>
+            <h2 className={styles.postTitle}>{post.title}</h2>
+            <p className={styles.postTeaser}>{teaser}</p>
+            <Link href={`/words-of-wisdom-content/${post.slug}`} className="btn btn-primary" style={{ width: 'fit-content' }}>
               Read Full Reflection
             </Link>
           </div>
