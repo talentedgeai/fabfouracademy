@@ -46,8 +46,6 @@ export default function BlogList() {
             <a
               key={post.title}
               href={post.href}
-              target="_blank"
-              rel="noopener noreferrer"
               className={styles.card}
             >
               {/* 16:9 cover image */}
