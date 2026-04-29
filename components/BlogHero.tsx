@@ -7,8 +7,8 @@ export default function BlogHero() {
       <span className={styles.watermark} aria-hidden="true">Blog</span>
       <div className={`container ${styles.inner}`}>
         <DynamicHeading
-          line1="Lessons on Leadership "
-          line2="from The Beatles"
+          line1="The Beatles"
+          line2="Blog"
           dividerSrc="/images/divider-orange.png"
           tag="h1"
           fontSize={56}
@@ -17,9 +17,6 @@ export default function BlogHero() {
           centered
           singleLine
         />
-        <p className={styles.subtitle}>
-          Stories, insights, and reflections drawn from the world's greatest band.
-        </p>
       </div>
     </section>
   )
