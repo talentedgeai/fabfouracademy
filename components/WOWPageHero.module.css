@@ -34,7 +34,7 @@
 }
 
 .postContentCol {
-  background: #CF4B27;
+  background: #F9AD3E;
   padding: 56px 48px;
   display: flex;
   flex-direction: column;
@@ -48,21 +48,21 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.75);
+  color: #38393A;
 }
 
 .postTitle {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 32px;
   font-weight: 800;
-  color: #ffffff;
+  color: #38393A;
   line-height: 1.15;
 }
 
 .postTeaser {
   font-family: Arial, sans-serif;
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.8);
+  color: #38393A;
   line-height: 1.65;
 }
 

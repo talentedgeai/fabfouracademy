@@ -7,7 +7,7 @@ export default function JoinHero() {
       <span className={styles.watermark} aria-hidden="true">Community</span>
       <div className={`container ${styles.inner}`}>
         <DynamicHeading
-          line1="Join The Fab Four"
+          line1="Join The Fab Four "
           line2="Community"
           dividerSrc="/images/divider-orange.png"
           tag="h1"
@@ -15,6 +15,7 @@ export default function JoinHero() {
           line1Color="#000000"
           line2Color="#000000"
           centered
+          singleLine
         />
       </div>
     </section>
