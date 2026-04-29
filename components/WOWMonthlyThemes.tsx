@@ -11,6 +11,7 @@ const THEMES = MONTHLY_POSTS.slice(-12).map((p) => ({
   theme: p.subtitle,
   description: p.intro[0].length > 200 ? p.intro[0].slice(0, 200) + '…' : p.intro[0],
   href: `/attitude-perspective/${p.slug}`,
+  youtubeId: p.youtubeId,
 }))
 
 const GAP = 24
@@ -71,16 +72,29 @@ export default function WOWMonthlyThemes() {
                 className={styles.card}
                 style={{ width: itemWidth }}
               >
-                <span className={styles.monthBadge}>{t.month}</span>
-                <h3 className={styles.themeName}>{t.theme}</h3>
-                <p className={styles.description}>{t.description}</p>
-                <Link
-                  href={t.href}
-                  className={styles.link}
-                  {...(t.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                >
-                  Full Post →
-                </Link>
+                {/* 16:9 YouTube embed */}
+                <div className={styles.videoWrap}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${t.youtubeId}`}
+                    title={t.theme}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className={styles.videoFrame}
+                  />
+                </div>
+
+                <div className={styles.cardBody}>
+                  <span className={styles.monthBadge}>{t.month}</span>
+                  <h3 className={styles.themeName}>{t.theme}</h3>
+                  <p className={styles.description}>{t.description}</p>
+                  <Link
+                    href={t.href}
+                    className={styles.link}
+                    {...(t.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
+                    Full Post →
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

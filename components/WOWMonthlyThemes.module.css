@@ -27,11 +27,36 @@
   flex-shrink: 0;
   background: #CF4B27;
   border-radius: 8px;
-  padding: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* ── Video embed ─────────────────────────── */
+.videoWrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  background: #000;
+  flex-shrink: 0;
+}
+
+.videoFrame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ── Card body (below video) ─────────────── */
+.cardBody {
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  box-sizing: border-box;
+  flex: 1;
 }
 
 .monthBadge {
