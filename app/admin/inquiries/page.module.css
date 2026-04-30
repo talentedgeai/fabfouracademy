@@ -1,0 +1,300 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 32px 80px;
+  font-family: var(--font-body);
+  color: var(--charcoal);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--gray-mid);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.barLink {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.barLink:hover { color: var(--orange); }
+
+.barTitle {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0;
+  color: var(--black);
+  line-height: 1.1;
+}
+
+.count {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.exportBtn {
+  flex-shrink: 0;
+}
+
+.error {
+  padding: 12px 16px;
+  border-radius: 6px;
+  background: #fef0ed;
+  border: 1px solid #f5b7a5;
+  color: #a83b1e;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.filters {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  padding: 16px;
+  background: var(--gray-light);
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+.filterField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filterLabel {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.filterField select {
+  padding: 9px 12px;
+  border: 1px solid var(--gray-border);
+  border-radius: 6px;
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--black);
+  min-width: 160px;
+}
+
+.filters button {
+  height: 38px;
+}
+
+.clearLink {
+  padding: 9px 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.clearLink:hover { color: var(--orange); }
+
+.sectionHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0;
+  color: var(--black);
+}
+
+.sectionMeta {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ── Beatles song mix ──────────────────────────────────────── */
+.songSection {
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--gray-mid);
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+.songList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.songItem {
+  display: grid;
+  grid-template-columns: 200px 1fr 40px;
+  gap: 12px;
+  align-items: center;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.songName {
+  font-weight: 600;
+  color: var(--black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.songBar {
+  height: 10px;
+  background: linear-gradient(90deg, var(--orange) 0%, var(--yellow) 100%);
+  border-radius: 4px;
+  min-width: 4px;
+  transition: width 0.3s ease;
+}
+
+.songCount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--charcoal);
+  text-align: right;
+}
+
+/* ── Table ─────────────────────────────────────────────────── */
+.tableSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--gray-mid);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--gray-light);
+  text-align: left;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--gray-mid);
+}
+
+.table tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--gray-light);
+  vertical-align: top;
+  color: var(--charcoal);
+}
+
+.table tbody tr:hover {
+  background: #fbfaf7;
+}
+
+.cellDate {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.cellTime {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+.cellEmail {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+.cellSource {
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.cellMessage {
+  white-space: pre-wrap;
+  max-width: 320px;
+  font-size: 13px;
+  color: var(--charcoal);
+}
+
+.empty {
+  padding: 32px !important;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--gray-light);
+  color: var(--charcoal);
+  white-space: nowrap;
+}
+
+.badge_newsletter   { background: #e9f3f6; color: var(--blue); }
+.badge_keynote      { background: #fdebe6; color: var(--orange); }
+.badge_consultation { background: #fef4e3; color: var(--yellow-dark); }
+.badge_general      { background: var(--gray-light); color: var(--charcoal); }
+
+@media (max-width: 768px) {
+  .page { padding: 16px 16px 64px; }
+  .title { font-size: 28px; }
+  .header { flex-direction: column; align-items: stretch; }
+  .songItem { grid-template-columns: 140px 1fr 32px; font-size: 13px; }
+  .songName { white-space: normal; }
+  .filters { flex-direction: column; align-items: stretch; }
+  .filterField select { min-width: 0; width: 100%; }
+}

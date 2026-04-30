@@ -38,6 +38,7 @@ begin
 end;
 $$ language plpgsql;
 
+drop trigger if exists set_people_updated_at on public.people;
 create trigger set_people_updated_at
   before update on public.people
   for each row
@@ -61,10 +62,10 @@ create table if not exists public.inquiries (
   created_at      timestamptz not null default now()
 );
 
-create index idx_inquiries_person on public.inquiries (person_id);
-create index idx_inquiries_type   on public.inquiries (type);
-create index idx_inquiries_status on public.inquiries (status);
-create index idx_inquiries_source on public.inquiries (source_site);
+create index if not exists idx_inquiries_person on public.inquiries (person_id);
+create index if not exists idx_inquiries_type   on public.inquiries (type);
+create index if not exists idx_inquiries_status on public.inquiries (status);
+create index if not exists idx_inquiries_source on public.inquiries (source_site);
 
 -- ────────────────────────────────────────────────────────────
 -- ACTIVITY LOG: tracks CRM actions
@@ -78,8 +79,8 @@ create table if not exists public.activity_log (
   created_at      timestamptz not null default now()
 );
 
-create index idx_activity_inquiry on public.activity_log (inquiry_id);
-create index idx_activity_person  on public.activity_log (person_id);
+create index if not exists idx_activity_inquiry on public.activity_log (inquiry_id);
+create index if not exists idx_activity_person  on public.activity_log (person_id);
 
 -- ============================================================
 -- ROW LEVEL SECURITY
@@ -90,10 +91,12 @@ alter table public.inquiries enable row level security;
 alter table public.activity_log enable row level security;
 
 -- Anon can insert people and inquiries (needed by RPC submit functions)
+drop policy if exists "Anon can insert people" on public.people;
 create policy "Anon can insert people"
   on public.people for insert
   with check (true);
 
+drop policy if exists "Anon can insert inquiries" on public.inquiries;
 create policy "Anon can insert inquiries"
   on public.inquiries for insert
   with check (true);
