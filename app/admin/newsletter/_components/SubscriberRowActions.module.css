@@ -1,0 +1,36 @@
+.btn {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--gray-border);
+  background: var(--white);
+  cursor: pointer;
+  transition: background 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.optOut {
+  color: var(--orange);
+  border-color: var(--gray-border);
+}
+
+.optOut:hover:not(:disabled) {
+  background: #fef0ed;
+  border-color: var(--orange);
+}
+
+.optIn {
+  color: var(--blue);
+  border-color: var(--gray-border);
+}
+
+.optIn:hover:not(:disabled) {
+  background: #eaf2f6;
+  border-color: var(--blue);
+}

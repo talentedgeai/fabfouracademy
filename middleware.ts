@@ -37,5 +37,8 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin/:path*'],
+  // /admin/* covers the dashboard pages; /api/admin/* covers admin-only API
+  // routes (read/edit/delete). Public form-submit /api/contacts (POST) stays
+  // open by design.
+  matcher: ['/admin/:path*', '/api/admin/:path*'],
 }

@@ -1,0 +1,23 @@
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--gray-light);
+  font-family: var(--font-body);
+  color: var(--charcoal);
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  overflow-x: hidden;
+  padding: 32px 32px 80px;
+}
+
+@media (max-width: 768px) {
+  .shell {
+    flex-direction: column;
+  }
+  .main {
+    padding: 72px 16px 64px; /* top space for fixed mobile bar */
+  }
+}

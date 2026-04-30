@@ -1,25 +1,11 @@
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
+import InquiriesTable, {
+  type InquiryRow,
+} from '@/components/admin/InquiriesTable'
 import styles from './page.module.css'
 
 export const dynamic = 'force-dynamic'
-
-interface InquiryRow {
-  id: string
-  type: string
-  status: string
-  subject: string | null
-  message: string | null
-  source: string | null
-  source_site: string
-  created_at: string
-  person_id: string
-  person_name: string | null
-  person_email: string
-  person_phone: string | null
-  person_company: string | null
-  person_role: string | null
-}
 
 const SONG_RE = /favorite beatles song:\s*(.+)$/im
 
@@ -70,15 +56,11 @@ export default async function AdminInquiriesPage({
   const maxSongCount = songs[0]?.count ?? 1
 
   return (
-    <main className={styles.page}>
-      <div className={styles.bar}>
-        <Link href="/" className={styles.barLink}>← Home</Link>
-        <span className={styles.barTitle}>Fab Four Admin</span>
-      </div>
-
+    <div className={styles.page}>
       <header className={styles.header}>
         <div>
-          <h1 className={styles.title}>Inquiries</h1>
+          <p className={styles.eyebrow}>Inquiries</p>
+          <h1 className={styles.title}>All inquiries</h1>
           <p className={styles.count}>{inquiries.length} rows</p>
         </div>
         <a href="/admin/inquiries/export" className={`btn btn-white ${styles.exportBtn}`}>
@@ -144,47 +126,11 @@ export default async function AdminInquiriesPage({
       )}
 
       <section className={styles.tableSection}>
-        <h2 className={styles.sectionTitle}>All inquiries</h2>
-        <div className={styles.tableWrap}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th>When</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th>Source</th>
-                <th>Message</th>
-              </tr>
-            </thead>
-            <tbody>
-              {inquiries.length === 0 && (
-                <tr>
-                  <td colSpan={7} className={styles.empty}>No inquiries match these filters.</td>
-                </tr>
-              )}
-              {inquiries.map((i) => {
-                const dt = new Date(i.created_at)
-                return (
-                  <tr key={i.id}>
-                    <td className={styles.cellDate}>
-                      <div>{dt.toLocaleDateString()}</div>
-                      <div className={styles.cellTime}>{dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
-                    </td>
-                    <td>{i.person_name || '—'}</td>
-                    <td><a href={`mailto:${i.person_email}`} className={styles.cellEmail}>{i.person_email}</a></td>
-                    <td><span className={`${styles.badge} ${styles[`badge_${i.type}`] || ''}`}>{i.type}</span></td>
-                    <td>{i.status}</td>
-                    <td className={styles.cellSource}>{i.source || '—'}</td>
-                    <td className={styles.cellMessage}>{i.message || '—'}</td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
+        <h2 className={styles.sectionTitle}>
+          Latest <span className={styles.tableHint}>· click a row to edit</span>
+        </h2>
+        <InquiriesTable rows={inquiries} />
       </section>
-    </main>
+    </div>
   )
 }

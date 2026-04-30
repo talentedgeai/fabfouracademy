@@ -1,0 +1,253 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--black);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.lede {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Stat cards ─────────────────────────────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.stat {
+  background: var(--black);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.statLink {
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.statLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.statLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+}
+
+.statSub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ── Card grid ──────────────────────────────────────────────── */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-mid);
+  border-radius: 8px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--black);
+  margin: 0;
+}
+
+.cardMeta {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.empty {
+  font-size: 13px;
+  color: var(--text-light);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ── Bar lists ──────────────────────────────────────────────── */
+.bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.barRow {
+  display: grid;
+  grid-template-columns: 130px 1fr 40px;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.barLabel {
+  color: var(--charcoal);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.barLabel:hover {
+  color: var(--orange);
+}
+
+.bar {
+  height: 10px;
+  background: var(--gray-border);
+  border-radius: 4px;
+  min-width: 4px;
+}
+
+.bar_newsletter   { background: var(--blue); }
+.bar_keynote      { background: var(--orange); }
+.bar_consultation { background: var(--yellow); }
+.bar_general      { background: var(--charcoal); }
+
+.stage_new_lead       { background: var(--blue); }
+.stage_contacted      { background: #6c8fa6; }
+.stage_discovery_call { background: var(--yellow); }
+.stage_proposal       { background: var(--orange); }
+.stage_won            { background: #2a9d52; }
+.stage_lost           { background: var(--gray-border); }
+
+.barCount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--charcoal);
+  text-align: right;
+}
+
+/* ── Activity feed ──────────────────────────────────────────── */
+.activity {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.activityRow {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--gray-light);
+  font-size: 13px;
+}
+
+.activityRow:last-child {
+  border-bottom: 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: 2px;
+}
+
+.dot_inquiry { background: var(--orange); }
+.dot_send    { background: var(--blue); }
+
+.activityBody {
+  color: var(--charcoal);
+  line-height: 1.5;
+  min-width: 0;
+}
+
+.activityKind {
+  font-weight: 700;
+  color: var(--black);
+}
+
+.activityWho {
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.activityMeta {
+  color: var(--text-light);
+  font-size: 12px;
+}
+
+.activityTime {
+  font-size: 12px;
+  color: var(--text-light);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .title { font-size: 28px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .cards { grid-template-columns: 1fr; }
+  .barRow { grid-template-columns: 110px 1fr 32px; }
+}

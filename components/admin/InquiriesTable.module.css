@@ -1,0 +1,120 @@
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--gray-mid);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-family: var(--font-body);
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--gray-light);
+  text-align: left;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--gray-mid);
+}
+
+.row {
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.row:hover,
+.row:focus-visible {
+  background: #fbfaf7;
+  outline: none;
+}
+
+.table tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--gray-light);
+  vertical-align: top;
+  color: var(--charcoal);
+}
+
+.cellDate {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.cellTime {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+.cellEmail {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+.cellSource {
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.cellMessage {
+  white-space: pre-wrap;
+  max-width: 320px;
+  font-size: 13px;
+  color: var(--charcoal);
+}
+
+.empty {
+  padding: 32px !important;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--gray-light);
+  color: var(--charcoal);
+  white-space: nowrap;
+}
+
+.badge_newsletter   { background: #e9f3f6; color: var(--blue); }
+.badge_keynote      { background: #fdebe6; color: var(--orange); }
+.badge_consultation { background: #fef4e3; color: var(--yellow-dark); }
+.badge_general      { background: var(--gray-light); color: var(--charcoal); }
+
+.stage {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--gray-light);
+  color: var(--charcoal);
+  white-space: nowrap;
+}
+
+.stage_new_lead       { background: #e9f3f6; color: var(--blue); }
+.stage_contacted      { background: #eef0f1; color: #6c8fa6; }
+.stage_discovery_call { background: #fef4e3; color: var(--yellow-dark); }
+.stage_proposal       { background: #fdebe6; color: var(--orange); }
+.stage_won            { background: #e6f4ec; color: #2a9d52; }
+.stage_lost           { background: var(--gray-light); color: var(--text-light); }
