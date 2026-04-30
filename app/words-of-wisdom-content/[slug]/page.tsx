@@ -69,7 +69,7 @@ export default async function WOWPostPage({ params }: Props) {
           </div>
 
           <div className={styles.reflectionBox}>
-            <span className={styles.reflectionLabel}>Reflection Questions</span>
+            <span className={styles.reflectionLabel}>Reflections</span>
             <p className={styles.reflectionText}>{post.reflectionQuestions}</p>
           </div>
 
