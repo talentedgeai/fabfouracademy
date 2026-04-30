@@ -169,6 +169,38 @@
   margin: 0;
 }
 
+.freeCallout {
+  align-self: center;
+  max-width: 640px;
+  width: 100%;
+  margin: 8px auto 0;
+  padding: 18px 24px;
+  background: var(--cream, #f5f0e8);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.freeCalloutText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--charcoal);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.freeCalloutLink {
+  color: var(--orange);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.freeCalloutLink:hover {
+  border-bottom-color: var(--orange);
+}
+
 @media (max-width: 768px) {
   .section { padding: 64px 0; }
   .heading { font-size: 32px; }
@@ -176,4 +208,6 @@
   .grid { grid-template-columns: 1fr; gap: 24px; }
   .card { padding: 32px 24px; }
   .price { font-size: 36px; }
+  .freeCallout { padding: 16px 18px; }
+  .freeCalloutText { font-size: 13px; }
 }

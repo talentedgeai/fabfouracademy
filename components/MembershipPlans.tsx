@@ -97,6 +97,16 @@ export default function MembershipPlans() {
           Checkout opens soon. Click a plan above and we&apos;ll save your seat
           for the moment it goes live.
         </p>
+
+        <aside className={styles.freeCallout}>
+          <p className={styles.freeCalloutText}>
+            Not ready to join us yet, but still want to get the Daily Words of
+            Wisdom emailed to you?{' '}
+            <Link href="/daily-email-signup" className={styles.freeCalloutLink}>
+              Click here →
+            </Link>
+          </p>
+        </aside>
       </div>
     </section>
   )
