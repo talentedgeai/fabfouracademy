@@ -93,8 +93,12 @@ export default function Navbar() {
             )}
           </div>
 
+          <Link href="/sign-in" className={styles.signin}>
+            Sign in
+          </Link>
+
           <Link href="/join-fab-four-community" className="btn btn-primary">
-            Join the Community
+            Join our Community
           </Link>
         </div>
       </div>

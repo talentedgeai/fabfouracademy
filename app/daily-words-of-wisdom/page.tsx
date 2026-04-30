@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar'
 import WOWPageHero from '@/components/WOWPageHero'
 import WOWMonthlyThemes from '@/components/WOWMonthlyThemes'
 import WOWRecent from '@/components/WOWRecent'
-import WOWCTA from '@/components/WOWCTA'
+import JoinSignup from '@/components/JoinSignup'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
@@ -23,7 +23,11 @@ export default function DailyWordsOfWisdomPage() {
         <WOWPageHero />
         <WOWMonthlyThemes />
         <WOWRecent />
-        <WOWCTA />
+        <JoinSignup
+          source="/daily-words-of-wisdom"
+          heading="Sign up for the Daily Words of Wisdom"
+          subheading="One reflection a morning, free, forever. Unsubscribe any time."
+        />
       </main>
       <Footer />
     </>

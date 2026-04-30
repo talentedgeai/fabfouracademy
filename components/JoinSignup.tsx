@@ -13,7 +13,17 @@ const BENEFITS = [
 
 type Status = 'idle' | 'pending' | 'success' | 'error'
 
-export default function JoinSignup() {
+interface JoinSignupProps {
+  source?: string
+  heading?: string
+  subheading?: string
+}
+
+export default function JoinSignup({
+  source = '/join-fab-four-community',
+  heading,
+  subheading,
+}: JoinSignupProps = {}) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
@@ -47,7 +57,7 @@ export default function JoinSignup() {
           last_name: lastName || undefined,
           phone: phone || undefined,
           favorite_song: favoriteSong || undefined,
-          source: '/join-fab-four-community',
+          source,
         }),
       })
 
@@ -68,6 +78,14 @@ export default function JoinSignup() {
 
   return (
     <section className={styles.section}>
+      <div className="container">
+        {(heading || subheading) && (
+          <div className={styles.headingBlock}>
+            {heading && <h2 className={styles.heading}>{heading}</h2>}
+            {subheading && <p className={styles.subheading}>{subheading}</p>}
+          </div>
+        )}
+      </div>
       <div className={`container ${styles.inner}`}>
 
         {/* ── Left: benefits with images ─────────── */}
