@@ -1,3 +1,6 @@
+'use client'
+
+import { useState, FormEvent } from 'react'
 import Image from 'next/image'
 import styles from './JoinSignup.module.css'
 
@@ -8,7 +11,61 @@ const BENEFITS = [
   { text: 'One great song to start your day!', img: '/images/point4.png' },
 ]
 
+type Status = 'idle' | 'pending' | 'success' | 'error'
+
 export default function JoinSignup() {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [favoriteSong, setFavoriteSong] = useState('')
+  const [consent, setConsent] = useState(false)
+  const [status, setStatus] = useState<Status>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if (status === 'pending') return
+
+    if (!consent) {
+      setStatus('error')
+      setErrorMessage('Please confirm you agree to receive daily emails.')
+      return
+    }
+
+    setStatus('pending')
+    setErrorMessage('')
+
+    try {
+      const res = await fetch('/api/contacts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'newsletter',
+          email,
+          first_name: firstName || undefined,
+          last_name: lastName || undefined,
+          phone: phone || undefined,
+          favorite_song: favoriteSong || undefined,
+          source: '/join-fab-four-community',
+        }),
+      })
+
+      const data = await res.json().catch(() => ({}))
+
+      if (!res.ok) {
+        setStatus('error')
+        setErrorMessage(data?.error || 'Something went wrong. Please try again.')
+        return
+      }
+
+      setStatus('success')
+    } catch {
+      setStatus('error')
+      setErrorMessage('Network error. Please try again.')
+    }
+  }
+
   return (
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
@@ -33,49 +90,112 @@ export default function JoinSignup() {
 
         {/* ── Right: sign-up form ────────────────── */}
         <div className={styles.formSide}>
-          <form className={styles.form}>
-            <div className={styles.row}>
-              <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="joinFirstName">First Name</label>
-                <input className={styles.input} id="joinFirstName" name="firstName" type="text" />
+          {status === 'success' ? (
+            <div className={styles.thanks} role="status" aria-live="polite">
+              <h3 className={styles.thanksTitle}>You&apos;re in.</h3>
+              <p className={styles.thanksBody}>
+                Thanks for joining the Fab Four community. Check your inbox for
+                tomorrow&apos;s Words of Wisdom.
+              </p>
+            </div>
+          ) : (
+            <form className={styles.form} onSubmit={handleSubmit} noValidate>
+              <div className={styles.row}>
+                <div className={styles.formGroup}>
+                  <label className={styles.label} htmlFor="joinFirstName">First Name</label>
+                  <input
+                    className={styles.input}
+                    id="joinFirstName"
+                    name="firstName"
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    disabled={status === 'pending'}
+                  />
+                </div>
+                <div className={styles.formGroup}>
+                  <label className={styles.label} htmlFor="joinLastName">Last Name</label>
+                  <input
+                    className={styles.input}
+                    id="joinLastName"
+                    name="lastName"
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    disabled={status === 'pending'}
+                  />
+                </div>
               </div>
+
               <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="joinLastName">Last Name</label>
-                <input className={styles.input} id="joinLastName" name="lastName" type="text" />
+                <label className={styles.label} htmlFor="joinEmail">Email</label>
+                <input
+                  className={styles.input}
+                  id="joinEmail"
+                  name="email"
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={status === 'pending'}
+                />
               </div>
-            </div>
 
-            <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor="joinEmail">Email</label>
-              <input className={styles.input} id="joinEmail" name="email" type="email" />
-            </div>
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="joinPhone">Phone</label>
+                <input
+                  className={styles.input}
+                  id="joinPhone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Include country code"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  disabled={status === 'pending'}
+                />
+              </div>
 
-            <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor="joinPhone">Phone</label>
-              <input className={styles.input} id="joinPhone" name="phone" type="tel" placeholder="Include country code" />
-            </div>
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="favoriteSong">Favorite Beatles Song</label>
+                <input
+                  className={styles.input}
+                  id="favoriteSong"
+                  name="favoriteSong"
+                  type="text"
+                  value={favoriteSong}
+                  onChange={(e) => setFavoriteSong(e.target.value)}
+                  disabled={status === 'pending'}
+                />
+              </div>
 
-            <div className={styles.formGroup}>
-              <label className={styles.label} htmlFor="favoriteSong">Favorite Beatles Song</label>
-              <input className={styles.input} id="favoriteSong" name="favoriteSong" type="text" />
-            </div>
+              <div className={styles.checkboxRow}>
+                <input
+                  className={styles.checkbox}
+                  id="joinConsent"
+                  name="consent"
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  disabled={status === 'pending'}
+                />
+                <label className={styles.checkboxLabel} htmlFor="joinConsent">
+                  I agree to receive daily emails from Fab Four Academy
+                </label>
+              </div>
 
-            <div className={styles.checkboxRow}>
-              <input
-                className={styles.checkbox}
-                id="joinConsent"
-                name="consent"
-                type="checkbox"
-              />
-              <label className={styles.checkboxLabel} htmlFor="joinConsent">
-                I agree to receive daily emails from Fab Four Academy
-              </label>
-            </div>
+              {status === 'error' && (
+                <p className={styles.error} role="alert">{errorMessage}</p>
+              )}
 
-            <button type="submit" className="btn btn-primary">
-              Subscribe Now
-            </button>
-          </form>
+              <button
+                type="submit"
+                className="btn btn-primary"
+                disabled={status === 'pending'}
+              >
+                {status === 'pending' ? 'Subscribing…' : 'Subscribe Now'}
+              </button>
+            </form>
+          )}
         </div>
 
       </div>
