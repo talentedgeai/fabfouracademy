@@ -5,3 +5,10 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 .vercel
+
+# Local env files — never commit secrets.
+.env.local
+.env*.local
+
+# Supabase CLI link metadata (project ref, db config) — local only.
+supabase/.temp/
