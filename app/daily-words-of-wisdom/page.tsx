@@ -1,5 +1,5 @@
-// Revalidate every hour so today's post and recent posts update daily
-export const revalidate = 3600
+// Always SSR so getTodaysPost() runs with the real current date on every request
+export const dynamic = 'force-dynamic'
 
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
