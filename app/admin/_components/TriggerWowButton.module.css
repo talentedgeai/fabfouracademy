@@ -1,0 +1,39 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  align-self: flex-start;
+}
+
+.btn:hover:not(:disabled) {
+  background: #333;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.success {
+  font-size: 13px;
+  color: #2d7a2d;
+  margin: 0;
+}
+
+.errorMsg {
+  font-size: 13px;
+  color: #c0392b;
+  margin: 0;
+}

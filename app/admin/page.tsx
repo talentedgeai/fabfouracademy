@@ -17,6 +17,7 @@
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
 import styles from './page.module.css'
+import TriggerWowButton from './_components/TriggerWowButton'
 
 export const dynamic = 'force-dynamic'
 
@@ -160,6 +161,15 @@ export default async function AdminDashboardPage() {
           People, inquiries, and the daily-email loop at a glance.
         </p>
       </header>
+
+      {/* ── Manual WoW trigger ─────────────────────────────── */}
+      <section className={styles.card} style={{ marginBottom: '8px' }}>
+        <div className={styles.cardHeader}>
+          <h2 className={styles.cardTitle}>Send Today&apos;s WoW</h2>
+          <p className={styles.cardMeta}>Manually broadcast to all opted-in subscribers</p>
+        </div>
+        <TriggerWowButton />
+      </section>
 
       {/* ── Stat cards ─────────────────────────────────────── */}
       <section className={styles.stats}>
