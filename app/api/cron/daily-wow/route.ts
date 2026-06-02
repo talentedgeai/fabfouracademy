@@ -56,7 +56,7 @@ export async function GET(req: Request) {
   const url = new URL(req.url)
   const dryRun = url.searchParams.get('dryRun') === 'true'
 
-  const post = getTodaysPost()
+  const post = await getTodaysPost()
   if (!post) {
     return NextResponse.json(
       { error: 'getTodaysPost() returned null' },
@@ -108,7 +108,7 @@ export async function GET(req: Request) {
   }
 
   const alreadySent = new Set(
-    (alreadySentRows ?? []).map((r) => r.person_id as string),
+    (alreadySentRows ?? []).map((r: { person_id: string }) => r.person_id),
   )
 
   // 3. Dry-run short-circuit

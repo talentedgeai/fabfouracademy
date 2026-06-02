@@ -3,13 +3,10 @@
 import { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 import PhotoStrip from './PhotoStrip'
-import { getTodaysPost } from '@/lib/wow-utils'
+import type { WOWPost } from '@/app/words-of-wisdom-content/posts'
 import styles from './WordsOfWisdom.module.css'
 
-// Resolved at module init (server-side during SSR, client on first load)
-const todaysPost = getTodaysPost()
-
-export default function WordsOfWisdom() {
+export default function WordsOfWisdom({ post: todaysPost }: { post: WOWPost | null }) {
   const headerRef = useRef<HTMLSpanElement>(null)
   const [headerDivWidth, setHeaderDivWidth] = useState<number | null>(null)
 
@@ -26,7 +23,7 @@ export default function WordsOfWisdom() {
     return () => window.removeEventListener('resize', measure)
   }, [])
 
-  const post = todaysPost
+  const post = todaysPost ?? null
   const teaser = post
     ? post.content[0].length > 160
       ? post.content[0].slice(0, 160) + '…'

@@ -3,8 +3,8 @@ import DynamicHeading from './DynamicHeading'
 import { getTodaysPost } from '@/lib/wow-utils'
 import styles from './WOWFeatured.module.css'
 
-export default function WOWFeatured() {
-  const post = getTodaysPost()
+export default async function WOWFeatured() {
+  const post = await getTodaysPost()
   if (!post) return null
 
   return (

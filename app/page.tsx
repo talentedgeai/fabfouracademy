@@ -1,5 +1,4 @@
-// Revalidate every hour so "Today's Words of Wisdom" updates daily
-export const revalidate = 3600
+export const dynamic = 'force-dynamic'
 
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
@@ -9,8 +8,10 @@ import WhatDanBrings from '@/components/WhatDanBrings'
 import Podcast from '@/components/Podcast'
 import WordsOfWisdom from '@/components/WordsOfWisdom'
 import Footer from '@/components/Footer'
+import { getTodaysPost } from '@/lib/wow-utils'
 
-export default function Home() {
+export default async function Home() {
+  const post = await getTodaysPost()
   return (
     <>
       <Navbar />
@@ -20,7 +21,7 @@ export default function Home() {
         <Leadership />
         <WhatDanBrings />
         <Podcast />
-        <WordsOfWisdom />
+        <WordsOfWisdom post={post} />
       </main>
       <Footer />
     </>

@@ -1,5 +1,4 @@
-// Revalidate every hour so WOWTodaySection updates daily
-export const revalidate = 3600
+export const dynamic = 'force-dynamic'
 
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
@@ -11,6 +10,7 @@ import Footer from '@/components/Footer'
 import MonthlyFAQ from '@/components/MonthlyFAQ'
 import { MONTHLY_POSTS, getPostBySlug } from '../posts'
 import type { TextBlock } from '../posts'
+import { getTodaysPost } from '@/lib/wow-utils'
 import styles from './page.module.css'
 
 type Props = { params: Promise<{ slug: string }> }
@@ -89,6 +89,7 @@ export default async function MonthlyPostPage({ params }: Props) {
   const { slug } = await params
   const post = getPostBySlug(slug)
   if (!post) notFound()
+  const todaysWOW = await getTodaysPost()
 
   return (
     <>
@@ -180,7 +181,7 @@ export default async function MonthlyPostPage({ params }: Props) {
       </main>
 
       {/* 6. Today's Words of Wisdom */}
-      <WOWTodaySection />
+      <WOWTodaySection post={todaysWOW} />
       <WOWCTA />
       <Footer />
     </>

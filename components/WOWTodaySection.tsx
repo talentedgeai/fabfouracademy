@@ -2,13 +2,10 @@
 
 import { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getTodaysPost } from '@/lib/wow-utils'
+import type { WOWPost } from '@/app/words-of-wisdom-content/posts'
 import styles from './WOWTodaySection.module.css'
 
-// Resolved at module init time (server-side during SSR, or on first client load)
-const post = getTodaysPost()
-
-export default function WOWTodaySection() {
+export default function WOWTodaySection({ post }: { post: WOWPost | null }) {
   const headingRef = useRef<HTMLSpanElement>(null)
   const [dividerWidth, setDividerWidth] = useState<number | null>(null)
 

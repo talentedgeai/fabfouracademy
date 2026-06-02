@@ -31,7 +31,7 @@ const FAKE_INQUIRY: InquiryDetail = {
 export const dynamic = 'force-dynamic'
 
 export default async function EmailPreviewPage() {
-  const post = getTodaysPost()
+  const post = await getTodaysPost()
 
   const dailyWowHtml = post
     ? await render(DailyWow({ post, unsubscribeUrl: 'https://fabfouracademy.com/unsubscribe?token=PREVIEW' }))

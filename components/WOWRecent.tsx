@@ -3,8 +3,8 @@ import DynamicHeading from './DynamicHeading'
 import { getRecentPosts } from '@/lib/wow-utils'
 import styles from './WOWRecent.module.css'
 
-export default function WOWRecent() {
-  const posts = getRecentPosts(3)
+export default async function WOWRecent() {
+  const posts = await getRecentPosts(3)
   if (posts.length === 0) return null
 
   return (

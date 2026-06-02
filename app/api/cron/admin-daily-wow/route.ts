@@ -31,7 +31,7 @@ function escapeHtml(s: string): string {
     .replace(/'/g, '&#039;')
 }
 
-type WowPost = NonNullable<ReturnType<typeof getTodaysPost>>
+type WowPost = NonNullable<Awaited<ReturnType<typeof getTodaysPost>>>
 
 function renderEmail(post: WowPost, siteUrl: string): string {
   const url = `${siteUrl.replace(/\/$/, '')}/words-of-wisdom-content/${post.slug}`
@@ -113,7 +113,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const post = getTodaysPost()
+  const post = await getTodaysPost()
   if (!post) {
     return NextResponse.json({ error: 'No WoW post available for today' }, { status: 404 })
   }

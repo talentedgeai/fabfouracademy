@@ -3,8 +3,8 @@ import DynamicHeading from './DynamicHeading'
 import { getTodaysPost } from '@/lib/wow-utils'
 import styles from './WOWPageHero.module.css'
 
-export default function WOWPageHero() {
-  const post = getTodaysPost()
+export default async function WOWPageHero() {
+  const post = await getTodaysPost()
   if (!post) return null
 
   const teaser = post.content[0].length > 120

@@ -36,7 +36,7 @@ export async function GET(req: Request) {
     )
   }
 
-  const post = getTodaysPost()
+  const post = await getTodaysPost()
   if (!post) {
     return NextResponse.json(
       { error: 'getTodaysPost() returned null — no WOWPost available' },

@@ -1,5 +1,5 @@
-import { POSTS } from '@/app/words-of-wisdom-content/posts'
 import type { WOWPost } from '@/app/words-of-wisdom-content/posts'
+import { fetchWOWPosts } from '@/lib/google-doc-fetcher'
 import { MONTHLY_POSTS } from '@/app/attitude-perspective/posts'
 import type { MonthlyPost } from '@/app/attitude-perspective/posts'
 
@@ -34,30 +34,33 @@ function dateKey(d: Date): string {
 /**
  * Returns the WOW post whose published date matches today.
  * Falls back to the most recent past post if no exact match exists yet.
+ * Fetches live from Google Doc (1-hour server cache).
  */
-export function getTodaysPost(): WOWPost | null {
+export async function getTodaysPost(): Promise<WOWPost | null> {
+  const posts    = await fetchWOWPosts()
   const today    = new Date()
   const todayKey = dateKey(today)
 
-  const exact = POSTS.find(p => dateKey(parsePostDate(p.published)) === todayKey)
+  const exact = posts.find(p => dateKey(parsePostDate(p.published)) === todayKey)
   if (exact) return exact
 
-  // Most recent post on or before today
-  const past = POSTS
+  const past = posts
     .filter(p => parsePostDate(p.published) <= today)
     .sort((a, b) => parsePostDate(b.published).getTime() - parsePostDate(a.published).getTime())
 
-  return past[0] ?? POSTS[POSTS.length - 1] ?? null
+  return past[0] ?? posts[posts.length - 1] ?? null
 }
 
 /**
- * Returns the N most recent WOW posts that are before today (not today itself).
+ * Returns the N most recent WOW posts before today (not today itself).
+ * Fetches live from Google Doc (1-hour server cache).
  */
-export function getRecentPosts(n = 3): WOWPost[] {
+export async function getRecentPosts(n = 3): Promise<WOWPost[]> {
+  const posts    = await fetchWOWPosts()
   const today    = new Date()
   const todayKey = dateKey(today)
 
-  return POSTS
+  return posts
     .filter(p => {
       const d = parsePostDate(p.published)
       return dateKey(d) !== todayKey && d < today
