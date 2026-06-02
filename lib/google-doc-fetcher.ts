@@ -100,6 +100,39 @@ function parseDocHTML(html: string): WOWPost[] {
 
     if (!title) continue   // malformed section
 
+    // ── Extract Daily Challenge and Reflection from content paragraphs ──
+    // Support explicit labels OR auto-detect from paragraph patterns:
+    //   Daily Challenge  → labeled "Daily Challenge: ..." OR starts with "Today"
+    //   Reflection       → labeled "Reflection Questions: ..." OR last para containing "?"
+    let dailyChallenge = ''
+    let reflectionQuestions = ''
+    const bodyParas: string[] = []
+
+    for (const para of contentParas) {
+      if (para.startsWith('Daily Challenge: ')) {
+        dailyChallenge = para.slice(17).trim()
+      } else if (para.startsWith('Reflection Questions: ')) {
+        reflectionQuestions = para.slice(22).trim()
+      } else {
+        bodyParas.push(para)
+      }
+    }
+
+    // Auto-detect if not explicitly labeled
+    if (!dailyChallenge) {
+      const idx = bodyParas.findIndex(p => /^today[,\s]/i.test(p))
+      if (idx !== -1) { dailyChallenge = bodyParas.splice(idx, 1)[0] }
+    }
+    if (!reflectionQuestions) {
+      // Last paragraph that contains a question mark
+      for (let j = bodyParas.length - 1; j >= 0; j--) {
+        if (bodyParas[j].includes('?') && bodyParas[j].length > 40) {
+          reflectionQuestions = bodyParas.splice(j, 1)[0]
+          break
+        }
+      }
+    }
+
     posts.push({
       slug:               toSlug(title),
       title,
@@ -108,9 +141,9 @@ function parseDocHTML(html: string): WOWPost[] {
       subtitle:           subtitle || quote,
       imageUrl,
       imageAlt,
-      content:            contentParas,
-      dailyChallenge:     '',
-      reflectionQuestions:'',
+      content:            bodyParas,
+      dailyChallenge,
+      reflectionQuestions,
     })
   }
 
