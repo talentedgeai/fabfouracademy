@@ -154,12 +154,13 @@ function parseDocHTML(html: string): WOWPost[] {
 
 /**
  * Fetch all WOW posts from the published Google Doc.
- * Result is cached by Next.js data cache for 1 hour.
+ * Result is cached by Next.js data cache for 60 seconds, so edits to the
+ * doc appear on the site within about a minute.
  */
 export async function fetchWOWPosts(): Promise<WOWPost[]> {
   try {
     const res = await fetch(EXPORT_URL, {
-      next: { revalidate: 3600 },   // 1-hour server-side cache
+      next: { revalidate: 60 },   // 60-second server-side cache
     })
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     const html = await res.text()
