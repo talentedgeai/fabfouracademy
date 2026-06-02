@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -5,18 +7,15 @@ import Navbar from '@/components/Navbar'
 import WOWCTA from '@/components/WOWCTA'
 import WOWMonthlyFeature from '@/components/WOWMonthlyFeature'
 import Footer from '@/components/Footer'
-import { POSTS, getPostBySlug } from '../posts'
+import { fetchWOWPosts } from '@/lib/google-doc-fetcher'
 import styles from './page.module.css'
 
 type Props = { params: Promise<{ slug: string }> }
 
-export async function generateStaticParams() {
-  return POSTS.map((p) => ({ slug: p.slug }))
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const posts = await fetchWOWPosts()
+  const post = posts.find(p => p.slug === slug)
   if (!post) return {}
   return {
     title: `${post.title} | Daily Words of Wisdom | Fab Four Academy`,
@@ -26,7 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function WOWPostPage({ params }: Props) {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const posts = await fetchWOWPosts()
+  const post = posts.find(p => p.slug === slug)
   if (!post) notFound()
 
   return (
