@@ -74,7 +74,15 @@ export async function POST() {
   let failed = 0
   const results: Array<{ email: string; ok: boolean; reason?: string }> = []
 
+  // Same throttle as the production broadcast — only 2 recipients today but
+  // future expansions of TEST_RECIPIENTS shouldn't trip the rate limiter.
+  const SEND_THROTTLE_MS = 600
+
+  let first = true
   for (const person of recipients) {
+    if (!first) await new Promise((r) => setTimeout(r, SEND_THROTTLE_MS))
+    first = false
+
     const unsubscribeUrl = `${SITE_URL}/unsubscribe?token=${person.unsubscribe_token}`
     const html = await render(DailyWow({ post, unsubscribeUrl }))
 

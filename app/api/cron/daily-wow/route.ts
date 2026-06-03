@@ -97,6 +97,7 @@ export async function GET(req: Request) {
     .select('person_id')
     .eq('campaign', 'daily_wow')
     .eq('reference', post.slug)
+    .eq('status', 'sent')
     .in('person_id', personIds)
 
   if (sendsError) {
@@ -132,11 +133,21 @@ export async function GET(req: Request) {
   let skipped = 0
   let failed = 0
 
+  // Resend free/dev tier rate-limits at 2 req/s. Sleep 600ms between sends
+  // (~1.67/s) so a full broadcast to ~150 people lands cleanly. Raise the
+  // ceiling here once we upgrade Resend.
+  const SEND_THROTTLE_MS = 600
+
+  let first = true
   for (const person of subscribers) {
     if (alreadySent.has(person.id)) {
       skipped++
       continue
     }
+
+    // Throttle BETWEEN sends, not before the first one.
+    if (!first) await new Promise((r) => setTimeout(r, SEND_THROTTLE_MS))
+    first = false
 
     const unsubscribeUrl = `${SITE_URL}/unsubscribe?token=${person.unsubscribe_token}`
     const html = await render(DailyWow({ post, unsubscribeUrl }))
