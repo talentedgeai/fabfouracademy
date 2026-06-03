@@ -60,7 +60,9 @@ type Props = {
 
 export default function DailyWow({ post, unsubscribeUrl }: Props) {
   const previewText = post.subtitle || `Today's Words of Wisdom: ${post.title}`
-  const postUrl = `${SITE_URL}/daily-words-of-wisdom/${post.slug}`
+  // Detail pages live at /words-of-wisdom-content/[slug]/, not at
+  // /daily-words-of-wisdom/<slug> (that route has no [slug] handler — 404).
+  const postUrl = `${SITE_URL}/words-of-wisdom-content/${post.slug}`
 
   return (
     <Html>
