@@ -80,7 +80,7 @@ export async function POST() {
 
     const result = await sendTransactionalEmail({
       to: person.email,
-      subject: `[TEST] ${post.title} — Fab Four Academy`,
+      subject: `${post.title} — Fab Four Academy`,
       html,
     })
 

@@ -25,6 +25,42 @@ function stripTags(html: string): string {
   return decodeEntities(html.replace(/<[^>]+>/g, '')).trim()
 }
 
+/**
+ * Rewrite Google Drive share / view URLs to the Google CDN form so they
+ * render reliably in transactional emails.
+ *
+ *   https://drive.google.com/uc?export=view&id=FILE_ID    ─┐
+ *   https://drive.google.com/uc?id=FILE_ID&export=view     │
+ *   https://drive.google.com/file/d/FILE_ID/view?...       ├──► https://lh3.googleusercontent.com/d/FILE_ID=w1200
+ *   https://drive.google.com/open?id=FILE_ID               │
+ *   https://docs.google.com/uc?export=view&id=FILE_ID     ─┘
+ *
+ * `drive.google.com/uc?export=view` issues multiple 302 redirects, returns
+ * HTML virus-scan interstitials for non-tiny files, and frequently doesn't
+ * send a proper image Content-Type — Gmail/Outlook image proxies drop the
+ * <img>. `lh3.googleusercontent.com/d/...` is the same backing CDN Google
+ * Docs itself uses for inline images: single hop, proper MIME, hotlinkable.
+ *
+ * Non-Drive URLs (Wix, S3, Cloudinary, anything else) pass through unchanged.
+ */
+function normalizeImageUrl(url: string): string {
+  if (!url) return url
+  try {
+    const u = new URL(url)
+    const host = u.hostname.toLowerCase()
+    if (!host.endsWith('drive.google.com') && !host.endsWith('docs.google.com')) {
+      return url
+    }
+    // /file/d/<FILE_ID>/(view|edit|preview)?...
+    const fileMatch = u.pathname.match(/\/file\/d\/([^/]+)/)
+    const fileId = fileMatch ? fileMatch[1] : u.searchParams.get('id')
+    if (!fileId) return url
+    return `https://lh3.googleusercontent.com/d/${fileId}=w1200`
+  } catch {
+    return url
+  }
+}
+
 
 function extractParas(html: string): string[] {
   return [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)]
@@ -93,7 +129,7 @@ function parseDocHTML(html: string): WOWPost[] {
     for (const para of paras) {
       if (para.startsWith('Title: '))            { title    = para.slice(7).trim();  continue }
       if (para.startsWith('Subtitle/Snippet: ')) { subtitle = para.slice(18).trim(); continue }
-      if (para.startsWith('Image URL: '))        { imageUrl = para.slice(11).trim(); continue }
+      if (para.startsWith('Image URL: '))        { imageUrl = normalizeImageUrl(para.slice(11).trim()); continue }
       if (para.startsWith('Image Alt: '))        { imageAlt = para.slice(11).trim(); continue }
       if (para.startsWith('Monthly Theme: '))    { pastLabels = true; continue }
       // Skip until we've seen at least a title
