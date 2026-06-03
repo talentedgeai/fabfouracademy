@@ -44,9 +44,18 @@ export async function sendEmailNotification({
       subject,
       html,
     })
+    // Resend SDK does NOT throw on API rejections — it returns {data:null,error:{...}}.
+    if (result.error) {
+      console.error('[email] Admin notification rejected by Resend:', result.error)
+      return {
+        ok: false as const,
+        reason: result.error.name || 'resend_rejected',
+        message: result.error.message,
+      }
+    }
     return { ok: true as const, id: result.data?.id }
   } catch (error) {
-    console.error('[email] Admin notification failed:', error)
+    console.error('[email] Admin notification threw:', error)
     return { ok: false as const, reason: 'send_failed' as const, error }
   }
 }
@@ -79,9 +88,18 @@ export async function sendTransactionalEmail({
       replyTo,
       bcc,
     })
+    // Resend SDK does NOT throw on API rejections — it returns {data:null,error:{...}}.
+    if (result.error) {
+      console.error('[email] Transactional email rejected by Resend:', result.error)
+      return {
+        ok: false as const,
+        reason: result.error.name || 'resend_rejected',
+        message: result.error.message,
+      }
+    }
     return { ok: true as const, id: result.data?.id }
   } catch (error) {
-    console.error('[email] Transactional email failed:', error)
+    console.error('[email] Transactional email threw:', error)
     return { ok: false as const, reason: 'send_failed' as const, error }
   }
 }

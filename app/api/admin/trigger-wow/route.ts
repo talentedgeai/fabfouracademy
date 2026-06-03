@@ -21,7 +21,7 @@ type SubscriberRow = {
 export async function POST() {
   console.log('[trigger-wow] EMAIL_FROM:', process.env.EMAIL_FROM)
   console.log('[trigger-wow] RESEND_API_KEY set:', !!process.env.RESEND_API_KEY)
-  const post = getTodaysPost()
+  const post = await getTodaysPost()
   if (!post) {
     return NextResponse.json({ ok: false, reason: 'no_post_today' }, { status: 404 })
   }
