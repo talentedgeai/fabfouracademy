@@ -18,7 +18,7 @@ import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
 import styles from './page.module.css'
 import TriggerWowButton from './_components/TriggerWowButton'
-// import TriggerWowTestButton from './_components/TriggerWowTestButton' // hidden temporarily — re-enable for staged sends
+import TriggerWowTestButton from './_components/TriggerWowTestButton'
 
 export const dynamic = 'force-dynamic'
 
@@ -167,13 +167,12 @@ export default async function AdminDashboardPage() {
       <section className={styles.card} style={{ marginBottom: '8px' }}>
         <div className={styles.cardHeader}>
           <h2 className={styles.cardTitle}>Send Today&apos;s WoW</h2>
-          <p className={styles.cardMeta}>Manually broadcast to all opted-in subscribers</p>
+          <p className={styles.cardMeta}>Manually broadcast to all opted-in subscribers, or send a test to just the test list</p>
         </div>
-        <TriggerWowButton />
-        {/* Test button hidden temporarily. Re-enable by importing
-            TriggerWowTestButton above and rendering it here next to
-            <TriggerWowButton />. The /api/admin/trigger-wow-test route
-            is still live — POST to it directly if you need a staged send. */}
+        <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+          <TriggerWowButton />
+          <TriggerWowTestButton />
+        </div>
       </section>
 
       {/* ── Stat cards ─────────────────────────────────────── */}
