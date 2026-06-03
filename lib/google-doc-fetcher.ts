@@ -5,18 +5,26 @@ const EXPORT_URL = `https://docs.google.com/document/d/${DOC_ID}/export?format=h
 
 // ── HTML helpers ─────────────────────────────────────────────────────────────
 
-function stripTags(html: string): string {
-  return html
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/ /g, ' ')
-    .trim()
+const NAMED_ENTITIES: Record<string, string> = {
+  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
+  rsquo: '’', lsquo: '‘', rdquo: '”', ldquo: '“',
+  ndash: '–', mdash: '—', hellip: '…', copy: '©',
+  reg: '®', trade: '™', deg: '°', eacute: 'é',
 }
+
+function decodeEntities(str: string): string {
+  return str
+    .replace(/&([a-zA-Z]+);/g, (m, name) =>
+      Object.prototype.hasOwnProperty.call(NAMED_ENTITIES, name) ? NAMED_ENTITIES[name] : m,
+    )
+    .replace(/&#(\d+);/g, (_m, code) => String.fromCodePoint(parseInt(code, 10)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_m, code) => String.fromCodePoint(parseInt(code, 16)))
+}
+
+function stripTags(html: string): string {
+  return decodeEntities(html.replace(/<[^>]+>/g, '')).trim()
+}
+
 
 function extractParas(html: string): string[] {
   return [...html.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)]
