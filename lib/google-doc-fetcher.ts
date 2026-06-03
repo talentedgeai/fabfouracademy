@@ -5,15 +5,78 @@ const EXPORT_URL = `https://docs.google.com/document/d/${DOC_ID}/export?format=h
 
 // ── HTML helpers ─────────────────────────────────────────────────────────────
 
+// Named HTML entities Google Docs emits in exported HTML. Extend as new ones
+// surface (run a Daily WoW preview and watch for raw `&xxx;` text in titles).
+const ENTITY_MAP: Record<string, string> = {
+  '&amp;':    '&',
+  '&lt;':     '<',
+  '&gt;':     '>',
+  '&quot;':   '"',
+  '&apos;':   "'",
+  '&nbsp;':   ' ',
+  // Smart quotes / dashes / ellipsis — common in Beatles titles & lyrics.
+  '&lsquo;':  '‘',
+  '&rsquo;':  '’',
+  '&ldquo;':  '“',
+  '&rdquo;':  '”',
+  '&mdash;':  '—',
+  '&ndash;':  '–',
+  '&hellip;': '…',
+}
+
+function decodeEntities(s: string): string {
+  let out = s
+  for (const [name, char] of Object.entries(ENTITY_MAP)) {
+    out = out.split(name).join(char)
+  }
+  // Numeric entities: &#1234; and &#x1F600;
+  out = out.replace(/&#x([0-9a-fA-F]+);/g, (_, hex) =>
+    String.fromCodePoint(parseInt(hex, 16)),
+  )
+  out = out.replace(/&#(\d+);/g, (_, dec) =>
+    String.fromCodePoint(parseInt(dec, 10)),
+  )
+  return out
+}
+
+/**
+ * Rewrite Google Drive share / view URLs to the Google CDN form so they
+ * render reliably in transactional emails.
+ *
+ *   https://drive.google.com/uc?export=view&id=FILE_ID    ─┐
+ *   https://drive.google.com/uc?id=FILE_ID&export=view     │
+ *   https://drive.google.com/file/d/FILE_ID/view?...       ├──► https://lh3.googleusercontent.com/d/FILE_ID=w1200
+ *   https://drive.google.com/open?id=FILE_ID               │
+ *   https://docs.google.com/uc?export=view&id=FILE_ID     ─┘
+ *
+ * `drive.google.com/uc?export=view` issues multiple 302 redirects, returns
+ * HTML virus-scan interstitials for non-tiny files, and frequently doesn't
+ * send a proper image Content-Type — Gmail/Outlook image proxies drop the
+ * <img>. `lh3.googleusercontent.com/d/...` is the same backing CDN Google
+ * Docs itself uses for inline images: single hop, proper MIME, hotlinkable.
+ *
+ * Non-Drive URLs (Wix, S3, Cloudinary, anything else) pass through unchanged.
+ */
+function normalizeImageUrl(url: string): string {
+  if (!url) return url
+  try {
+    const u = new URL(url)
+    const host = u.hostname.toLowerCase()
+    if (!host.endsWith('drive.google.com') && !host.endsWith('docs.google.com')) {
+      return url
+    }
+    // /file/d/<FILE_ID>/(view|edit|preview)?...
+    const fileMatch = u.pathname.match(/\/file\/d\/([^/]+)/)
+    const fileId = fileMatch ? fileMatch[1] : u.searchParams.get('id')
+    if (!fileId) return url
+    return `https://lh3.googleusercontent.com/d/${fileId}=w1200`
+  } catch {
+    return url
+  }
+}
+
 function stripTags(html: string): string {
-  return html
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
+  return decodeEntities(html.replace(/<[^>]+>/g, ''))
     .replace(/ /g, ' ')
     .trim()
 }
@@ -85,7 +148,7 @@ function parseDocHTML(html: string): WOWPost[] {
     for (const para of paras) {
       if (para.startsWith('Title: '))            { title    = para.slice(7).trim();  continue }
       if (para.startsWith('Subtitle/Snippet: ')) { subtitle = para.slice(18).trim(); continue }
-      if (para.startsWith('Image URL: '))        { imageUrl = para.slice(11).trim(); continue }
+      if (para.startsWith('Image URL: '))        { imageUrl = normalizeImageUrl(para.slice(11).trim()); continue }
       if (para.startsWith('Image Alt: '))        { imageAlt = para.slice(11).trim(); continue }
       if (para.startsWith('Monthly Theme: '))    { pastLabels = true; continue }
       // Skip until we've seen at least a title
