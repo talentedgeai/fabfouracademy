@@ -145,12 +145,13 @@ function parseDocHTML(html: string): WOWPost[] {
     if (!title) continue   // malformed section
 
     // ── Extract Daily Challenge and Reflection from content paragraphs ──
-    // Support explicit labels OR auto-detect from paragraph patterns:
-    //   Daily Challenge  → labeled "Daily Challenge: ..." OR starts with "Today"
-    //   Reflection       → labeled "Reflection Questions: ..." OR last para containing "?"
+    // Rules (work even when the doc has no explicit labels):
+    //   Reflection Questions → the LAST paragraph (which contains questions)
+    //   Daily Challenge      → the paragraph starting with "Today" RIGHT ABOVE it
+    // Explicit "Daily Challenge: " / "Reflection Questions: " labels still win.
     let dailyChallenge = ''
     let reflectionQuestions = ''
-    const bodyParas: string[] = []
+    let bodyParas: string[] = []
 
     for (const para of contentParas) {
       if (para.startsWith('Daily Challenge: ')) {
@@ -162,20 +163,31 @@ function parseDocHTML(html: string): WOWPost[] {
       }
     }
 
-    // Auto-detect if not explicitly labeled
-    if (!dailyChallenge) {
-      const idx = bodyParas.findIndex(p => /^today[,\s]/i.test(p))
-      if (idx !== -1) { dailyChallenge = bodyParas.splice(idx, 1)[0] }
-    }
-    if (!reflectionQuestions) {
-      // Last paragraph that contains a question mark
-      for (let j = bodyParas.length - 1; j >= 0; j--) {
-        if (bodyParas[j].includes('?') && bodyParas[j].length > 40) {
-          reflectionQuestions = bodyParas.splice(j, 1)[0]
-          break
-        }
+    // Auto-detect reflection = the last paragraph, if it asks questions
+    if (!reflectionQuestions && bodyParas.length > 0) {
+      const last = bodyParas[bodyParas.length - 1]
+      if (last.includes('?') && last.length > 40) {
+        reflectionQuestions = bodyParas.pop() as string
       }
     }
+
+    // Auto-detect daily challenge = the "Today…" paragraph now sitting last
+    // (i.e. the one that was right above the reflection paragraph)
+    if (!dailyChallenge && bodyParas.length > 0) {
+      const last = bodyParas[bodyParas.length - 1]
+      if (/^today\b/i.test(last)) {
+        dailyChallenge = bodyParas.pop() as string
+      } else {
+        // Fall back to the first "Today…" paragraph anywhere in the body
+        const idx = bodyParas.findIndex(p => /^today\b/i.test(p))
+        if (idx !== -1) dailyChallenge = bodyParas.splice(idx, 1)[0]
+      }
+    }
+
+    // Dedupe: ensure the challenge/reflection text never repeats in the body
+    bodyParas = bodyParas.filter(
+      p => p !== dailyChallenge && p !== reflectionQuestions,
+    )
 
     posts.push({
       slug:               toSlug(title),
