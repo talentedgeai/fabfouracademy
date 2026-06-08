@@ -93,6 +93,13 @@ function toSlug(title: string): string {
     .replace(/^-|-$/g, '')
 }
 
+/** Extract a YouTube video ID from youtu.be or youtube.com URLs. */
+function toYouTubeId(url: string): string {
+  if (!url) return ''
+  const m = url.match(/(?:youtu\.be\/|v=|embed\/)([A-Za-z0-9_-]{11})/)
+  return m ? m[1] : ''
+}
+
 // ── Parser ───────────────────────────────────────────────────────────────────
 
 function parseDocHTML(html: string): WOWPost[] {
@@ -122,7 +129,7 @@ function parseDocHTML(html: string): WOWPost[] {
     const quote = bqMatch ? stripTags(bqMatch[1]).trim() : ''
 
     // Parse labeled fields
-    let title = '', subtitle = '', imageUrl = '', imageAlt = ''
+    let title = '', subtitle = '', imageUrl = '', imageAlt = '', songUrl = ''
     const contentParas: string[] = []
 
     let pastLabels = false
@@ -131,6 +138,7 @@ function parseDocHTML(html: string): WOWPost[] {
       if (para.startsWith('Subtitle/Snippet: ')) { subtitle = para.slice(18).trim(); continue }
       if (para.startsWith('Image URL: '))        { imageUrl = normalizeImageUrl(para.slice(11).trim()); continue }
       if (para.startsWith('Image Alt: '))        { imageAlt = para.slice(11).trim(); continue }
+      if (para.startsWith('Song of the Day: '))  { songUrl  = para.slice(17).trim(); continue }
       if (para.startsWith('Monthly Theme: '))    { pastLabels = true; continue }
       // Skip until we've seen at least a title
       if (!title) continue
@@ -200,6 +208,7 @@ function parseDocHTML(html: string): WOWPost[] {
       content:            bodyParas,
       dailyChallenge,
       reflectionQuestions,
+      songUrl:            toYouTubeId(songUrl) ? `https://www.youtube.com/embed/${toYouTubeId(songUrl)}` : undefined,
     })
   }
 

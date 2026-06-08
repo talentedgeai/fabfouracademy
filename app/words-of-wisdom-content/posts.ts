@@ -9,6 +9,7 @@ export type WOWPost = {
   content: string[]
   dailyChallenge: string
   reflectionQuestions: string
+  songUrl?: string
 }
 
 export const POSTS: WOWPost[] = [

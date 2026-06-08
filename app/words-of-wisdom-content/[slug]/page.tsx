@@ -53,6 +53,19 @@ export default async function WOWPostPage({ params }: Props) {
         />
       </div>
 
+      {/* ── Song of the Day ────────────────────── */}
+      {post.songUrl && (
+        <div className={styles.songWrap}>
+          <iframe
+            src={post.songUrl}
+            title="Song of the Day"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className={styles.songFrame}
+          />
+        </div>
+      )}
+
       {/* ── Content ────────────────────────────── */}
       <article className={styles.article}>
         <div className={`container ${styles.articleInner}`}>
