@@ -38,7 +38,7 @@ export default async function WOWRecent() {
               <div className={styles.content}>
                 <span className={styles.date}>{post.published}</span>
                 <h3 className={styles.title}>{post.title}</h3>
-                <p className={styles.teaser}>{post.content[0]}</p>
+                <p className={styles.teaser}>{post.subtitle || post.content[0]}</p>
                 <span className={styles.readMore}>Read Full Reflection →</span>
               </div>
             </Link>
