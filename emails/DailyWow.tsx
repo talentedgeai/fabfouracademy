@@ -40,6 +40,16 @@ function transformImageUrl(url: string, width: number, height: number) {
 const HERO_WIDTH = 600
 const HERO_HEIGHT = 400
 
+// Pull an 11-char YouTube video ID out of any common URL form the fetcher
+// might surface — embed (post.songUrl is already the embed form), watch,
+// youtu.be short link, or shorts. Returns '' if nothing matches so callers
+// can branch on truthiness.
+function extractYouTubeId(url: string | undefined | null): string {
+  if (!url) return ''
+  const m = url.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([A-Za-z0-9_-]{11})/)
+  return m ? m[1] : ''
+}
+
 // Colour tokens mirror docs/brand/design-rules.md.
 const colors = {
   black: '#1a1a1a',
@@ -72,6 +82,29 @@ export default function DailyWow({ post, unsubscribeUrl, monthly }: Props) {
   // Detail pages live at /words-of-wisdom-content/[slug]/, not at
   // /daily-words-of-wisdom/<slug> (that route has no [slug] handler — 404).
   const postUrl = `${SITE_URL}/words-of-wisdom-content/${post.slug}`
+
+  // Choose the video to feature in the card below the post body.
+  // Precedence:
+  //   1. The post's own "Song of the Day" YouTube URL (from the Google Doc)
+  //   2. The monthly theme's youtubeId (fallback so older posts without a
+  //      Song of the Day still get a video card)
+  //   3. Nothing — the card is omitted
+  const songYoutubeId = extractYouTubeId(post.songUrl)
+  const video = songYoutubeId
+    ? {
+        label: 'Song of the Day',
+        title: post.title,
+        subtitle: post.subtitle,
+        youtubeId: songYoutubeId,
+      }
+    : monthly && monthly.youtubeId
+      ? {
+          label: `This month's theme · ${monthly.month}`,
+          title: monthly.title,
+          subtitle: monthly.subtitle,
+          youtubeId: monthly.youtubeId,
+        }
+      : null
 
   return (
     <Html>
@@ -137,29 +170,29 @@ export default function DailyWow({ post, unsubscribeUrl, monthly }: Props) {
             </Link>
           </Section>
 
-          {/* Monthly theme video card — only when we have a matching monthly
-              post AND a youtubeId. Renders as a clickable thumbnail because
-              email clients (Gmail, Outlook, Apple Mail) refuse to render
-              <iframe> for security reasons. */}
-          {monthly && monthly.youtubeId ? (
+          {/* Video card — Song of the Day (preferred) or this month's theme
+              (fallback). Email clients (Gmail, Outlook, Apple Mail) refuse to
+              render <iframe>, so the thumbnail image is itself the click
+              target, with a secondary text link below for skim-readers. */}
+          {video ? (
             <Section style={videoCard}>
-              <Text style={videoLabel}>This month&apos;s theme · {monthly.month}</Text>
+              <Text style={videoLabel}>{video.label}</Text>
               <Link
-                href={`https://www.youtube.com/watch?v=${monthly.youtubeId}`}
+                href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
                 style={videoLink}
               >
                 <Img
-                  src={`https://img.youtube.com/vi/${monthly.youtubeId}/hqdefault.jpg`}
-                  alt={`Watch: ${monthly.title}`}
+                  src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                  alt={`Watch: ${video.title}`}
                   width={552}
                   height={414}
                   style={videoThumb}
                 />
               </Link>
-              <Text style={videoTitle}>{monthly.title}</Text>
-              <Text style={videoSubtitle}>{monthly.subtitle}</Text>
+              <Text style={videoTitle}>{video.title}</Text>
+              <Text style={videoSubtitle}>{video.subtitle}</Text>
               <Link
-                href={`https://www.youtube.com/watch?v=${monthly.youtubeId}`}
+                href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
                 style={videoWatchLink}
               >
                 ▶ Watch on YouTube
