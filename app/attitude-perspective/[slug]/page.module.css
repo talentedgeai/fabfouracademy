@@ -27,7 +27,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 900px;
+  max-width: 960px;
 }
 
 .month {
@@ -55,7 +55,7 @@
   color: #444444;
   line-height: 1.6;
   margin: 0;
-  max-width: 760px;
+  max-width: 960px;
 }
 
 /* ── 3. Two-column intro (1 : 2) ───────────────────── */
@@ -117,7 +117,7 @@
 }
 
 .articleInner {
-  max-width: 900px;
+  max-width: 960px;
   display: flex;
   flex-direction: column;
   gap: 48px;
