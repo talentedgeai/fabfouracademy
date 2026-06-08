@@ -71,13 +71,10 @@ export default async function WOWPostPage({ params }: Props) {
                       className={styles.songFrame}
                     />
                   </div>
-                  {post.content[0] && (
-                    <p className={styles.paragraph}>{post.content[0]}</p>
-                  )}
+                  {post.content.map((paragraph, i) => (
+                    <p key={i} className={styles.paragraph}>{paragraph}</p>
+                  ))}
                 </div>
-                {post.content.slice(1).map((paragraph, i) => (
-                  <p key={i + 1} className={styles.paragraph}>{paragraph}</p>
-                ))}
               </>
             ) : (
               post.content.map((paragraph, i) => (

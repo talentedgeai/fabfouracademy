@@ -66,18 +66,16 @@
   display: block;
 }
 
-/* ── Song of the Day — two-column row ────── */
+/* ── Song of the Day — float so text wraps ─ */
 .songRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  align-items: start;
+  overflow: hidden; /* clearfix */
 }
 
 .songWrap {
-  width: 100%;
+  float: left;
+  width: 48%;
   aspect-ratio: 16 / 9;
-  flex-shrink: 0;
+  margin: 0 28px 16px 0;
 }
 
 .songFrame {
@@ -89,8 +87,10 @@
 }
 
 @media (max-width: 640px) {
-  .songRow {
-    grid-template-columns: 1fr;
+  .songWrap {
+    float: none;
+    width: 100%;
+    margin: 0 0 20px 0;
   }
 }
 
