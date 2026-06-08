@@ -25,7 +25,7 @@
 import { NextResponse } from 'next/server'
 import { render } from '@react-email/render'
 import { supabase } from '@/lib/supabase'
-import { getTodaysPost } from '@/lib/wow-utils'
+import { getTodaysPost, getMonthlyPostForDate } from '@/lib/wow-utils'
 import DailyWow from '@/emails/DailyWow'
 import { sendTransactionalEmail } from '@/lib/email'
 
@@ -150,7 +150,8 @@ export async function GET(req: Request) {
     first = false
 
     const unsubscribeUrl = `${SITE_URL}/unsubscribe?token=${person.unsubscribe_token}`
-    const html = await render(DailyWow({ post, unsubscribeUrl }))
+    const monthly = getMonthlyPostForDate(post.published)
+    const html = await render(DailyWow({ post, unsubscribeUrl, monthly }))
 
     const result = await sendTransactionalEmail({
       to: person.email,

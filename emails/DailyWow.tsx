@@ -22,6 +22,7 @@ import {
   Text,
 } from '@react-email/components'
 import type { WOWPost } from '@/app/words-of-wisdom-content/posts'
+import type { MonthlyPost } from '@/app/attitude-perspective/posts'
 
 const SITE_URL = process.env.SITE_URL || 'https://fabfouracademy.com'
 
@@ -56,9 +57,17 @@ const fonts = {
 type Props = {
   post: WOWPost
   unsubscribeUrl: string
+  /**
+   * The matching Attitude & Perspective monthly post (looked up via
+   * getMonthlyPostForDate(post.published) at send time). When present, renders
+   * a clickable YouTube thumbnail card below the daily content linking to
+   * the monthly theme video. Omitted for backwards compatibility — the
+   * email still renders cleanly without a monthly tie-in.
+   */
+  monthly?: MonthlyPost | null
 }
 
-export default function DailyWow({ post, unsubscribeUrl }: Props) {
+export default function DailyWow({ post, unsubscribeUrl, monthly }: Props) {
   const previewText = post.subtitle || `Today's Words of Wisdom: ${post.title}`
   // Detail pages live at /words-of-wisdom-content/[slug]/, not at
   // /daily-words-of-wisdom/<slug> (that route has no [slug] handler — 404).
@@ -127,6 +136,36 @@ export default function DailyWow({ post, unsubscribeUrl }: Props) {
               Read on Fab Four Academy
             </Link>
           </Section>
+
+          {/* Monthly theme video card — only when we have a matching monthly
+              post AND a youtubeId. Renders as a clickable thumbnail because
+              email clients (Gmail, Outlook, Apple Mail) refuse to render
+              <iframe> for security reasons. */}
+          {monthly && monthly.youtubeId ? (
+            <Section style={videoCard}>
+              <Text style={videoLabel}>This month&apos;s theme · {monthly.month}</Text>
+              <Link
+                href={`https://www.youtube.com/watch?v=${monthly.youtubeId}`}
+                style={videoLink}
+              >
+                <Img
+                  src={`https://img.youtube.com/vi/${monthly.youtubeId}/hqdefault.jpg`}
+                  alt={`Watch: ${monthly.title}`}
+                  width={552}
+                  height={414}
+                  style={videoThumb}
+                />
+              </Link>
+              <Text style={videoTitle}>{monthly.title}</Text>
+              <Text style={videoSubtitle}>{monthly.subtitle}</Text>
+              <Link
+                href={`https://www.youtube.com/watch?v=${monthly.youtubeId}`}
+                style={videoWatchLink}
+              >
+                ▶ Watch on YouTube
+              </Link>
+            </Section>
+          ) : null}
 
           <Hr style={hrFooter} />
 
@@ -302,6 +341,68 @@ const ctaButton: React.CSSProperties = {
   fontWeight: 600,
   letterSpacing: '1px',
   padding: '14px 28px',
+  textDecoration: 'none',
+  textTransform: 'uppercase',
+}
+
+const videoCard: React.CSSProperties = {
+  backgroundColor: '#ffffff',
+  borderRadius: '4px',
+  margin: '24px 0 8px',
+  padding: '24px',
+  textAlign: 'center',
+}
+
+const videoLabel: React.CSSProperties = {
+  color: colors.gold,
+  fontFamily: fonts.sans,
+  fontSize: '12px',
+  fontWeight: 600,
+  letterSpacing: '2px',
+  margin: '0 0 16px',
+  textTransform: 'uppercase',
+}
+
+const videoLink: React.CSSProperties = {
+  display: 'block',
+  textDecoration: 'none',
+}
+
+const videoThumb: React.CSSProperties = {
+  borderRadius: '4px',
+  display: 'block',
+  height: 'auto',
+  margin: '0 auto',
+  maxWidth: '100%',
+  border: 0,
+  outline: 'none',
+  textDecoration: 'none',
+}
+
+const videoTitle: React.CSSProperties = {
+  color: colors.black,
+  fontFamily: fonts.serif,
+  fontSize: '20px',
+  fontWeight: 700,
+  lineHeight: '1.3',
+  margin: '16px 0 4px',
+}
+
+const videoSubtitle: React.CSSProperties = {
+  color: colors.warmGray,
+  fontFamily: fonts.serif,
+  fontSize: '14px',
+  fontStyle: 'italic',
+  lineHeight: '1.4',
+  margin: '0 0 12px',
+}
+
+const videoWatchLink: React.CSSProperties = {
+  color: colors.red,
+  fontFamily: fonts.sans,
+  fontSize: '13px',
+  fontWeight: 600,
+  letterSpacing: '1px',
   textDecoration: 'none',
   textTransform: 'uppercase',
 }
