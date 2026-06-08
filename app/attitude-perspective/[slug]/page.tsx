@@ -115,27 +115,23 @@ export default async function MonthlyPostPage({ params }: Props) {
           </div>
         </div>
 
-        {/* 3. Two-column: video (1) | intro (2) */}
+        {/* 3. Video floats left, intro text wraps around it */}
         <div className={styles.introSection}>
-          <div className={`container ${styles.introGrid}`}>
-            <div className={styles.videoCol}>
-              <div className={styles.videoWrap}>
-                <iframe
-                  src={`https://www.youtube.com/embed/${post.youtubeId}`}
-                  title="YouTube video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className={styles.video}
-                />
-              </div>
+          <div className={`container ${styles.introRow}`}>
+            <div className={styles.videoWrap}>
+              <iframe
+                src={`https://www.youtube.com/embed/${post.youtubeId}`}
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className={styles.video}
+              />
             </div>
-            <div className={styles.introCol}>
-              {post.intro.map((para, i) => (
-                <p key={i} className={styles.paragraph}>
-                  {renderInline(para)}
-                </p>
-              ))}
-            </div>
+            {post.intro.map((para, i) => (
+              <p key={i} className={styles.paragraph}>
+                {renderInline(para)}
+              </p>
+            ))}
           </div>
         </div>
 
