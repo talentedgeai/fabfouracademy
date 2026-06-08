@@ -66,6 +66,8 @@
 
 .introRow {
   overflow: hidden; /* clearfix for float */
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .videoWrap {
