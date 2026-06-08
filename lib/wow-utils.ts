@@ -70,32 +70,56 @@ export async function getRecentPosts(n = 3): Promise<WOWPost[]> {
 }
 
 /**
- * Returns the monthly theme post whose month+year matches a given WOW published date.
- * e.g. "April 28, 2026" → looks for MonthlyPost with month === "April 2026"
- * Falls back to the most recent available monthly post.
+ * Returns the most recent MonthlyPost (sorted by month date) that has a
+ * non-empty youtubeId. Falls back to the most recent MonthlyPost regardless
+ * of video, and finally to null. Used as the fallback when the current month
+ * doesn't have an entry yet — so daily emails always get *some* video card.
  */
-export function getMonthlyPostForDate(published: string): MonthlyPost | null {
-  const d         = parsePostDate(published)
-  const monthYear = `${MONTH_NAMES[d.getMonth()]} ${d.getFullYear()}`
-
+function latestMonthlyWithVideo(): MonthlyPost | null {
+  const sortedByDateDesc = [...MONTHLY_POSTS].sort((a, b) =>
+    parsePostDate(b.month).getTime() - parsePostDate(a.month).getTime(),
+  )
   return (
-    MONTHLY_POSTS.find(p => p.month === monthYear) ??
-    MONTHLY_POSTS[MONTHLY_POSTS.length - 1] ??
+    sortedByDateDesc.find(p => Boolean(p.youtubeId)) ??
+    sortedByDateDesc[0] ??
     null
   )
 }
 
 /**
+ * Returns the monthly theme post whose month+year matches a given WOW published date.
+ * e.g. "April 28, 2026" → looks for MonthlyPost with month === "April 2026"
+ *
+ * Fallback chain (so a daily email never loses its video card mid-month):
+ *   1. Exact month match WITH a youtubeId
+ *   2. Most recent MonthlyPost (by month date) that has a youtubeId
+ *   3. Most recent MonthlyPost regardless of video, then null
+ */
+export function getMonthlyPostForDate(published: string): MonthlyPost | null {
+  const d         = parsePostDate(published)
+  const monthYear = `${MONTH_NAMES[d.getMonth()]} ${d.getFullYear()}`
+
+  const exactWithVideo = MONTHLY_POSTS.find(
+    p => p.month === monthYear && Boolean(p.youtubeId),
+  )
+  if (exactWithVideo) return exactWithVideo
+
+  return latestMonthlyWithVideo()
+}
+
+/**
  * Returns the monthly theme post for the current month.
- * Falls back to the most recent available monthly post.
+ * Same fallback chain as getMonthlyPostForDate — always returns a video-bearing
+ * monthly when one exists in the catalogue.
  */
 export function getTodaysMonthlyPost(): MonthlyPost | null {
   const today     = new Date()
   const monthYear = `${MONTH_NAMES[today.getMonth()]} ${today.getFullYear()}`
 
-  return (
-    MONTHLY_POSTS.find(p => p.month === monthYear) ??
-    MONTHLY_POSTS[MONTHLY_POSTS.length - 1] ??
-    null
+  const exactWithVideo = MONTHLY_POSTS.find(
+    p => p.month === monthYear && Boolean(p.youtubeId),
   )
+  if (exactWithVideo) return exactWithVideo
+
+  return latestMonthlyWithVideo()
 }
