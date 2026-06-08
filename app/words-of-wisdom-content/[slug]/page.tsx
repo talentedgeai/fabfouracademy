@@ -53,27 +53,37 @@ export default async function WOWPostPage({ params }: Props) {
         />
       </div>
 
-      {/* ── Song of the Day ────────────────────── */}
-      {post.songUrl && (
-        <div className={styles.songWrap}>
-          <iframe
-            src={post.songUrl}
-            title="Song of the Day"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className={styles.songFrame}
-          />
-        </div>
-      )}
-
       {/* ── Content ────────────────────────────── */}
       <article className={styles.article}>
         <div className={`container ${styles.articleInner}`}>
 
           <div className={styles.content}>
-            {post.content.map((paragraph, i) => (
-              <p key={i} className={styles.paragraph}>{paragraph}</p>
-            ))}
+            {/* First paragraph sits beside the video; rest stack below */}
+            {post.songUrl ? (
+              <>
+                <div className={styles.songRow}>
+                  <div className={styles.songWrap}>
+                    <iframe
+                      src={post.songUrl}
+                      title="Song of the Day"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className={styles.songFrame}
+                    />
+                  </div>
+                  {post.content[0] && (
+                    <p className={styles.paragraph}>{post.content[0]}</p>
+                  )}
+                </div>
+                {post.content.slice(1).map((paragraph, i) => (
+                  <p key={i + 1} className={styles.paragraph}>{paragraph}</p>
+                ))}
+              </>
+            ) : (
+              post.content.map((paragraph, i) => (
+                <p key={i} className={styles.paragraph}>{paragraph}</p>
+              ))
+            )}
           </div>
 
           <div className={styles.challengeBox}>

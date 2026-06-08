@@ -66,12 +66,18 @@
   display: block;
 }
 
-/* ── Song of the Day ─────────────────────── */
+/* ── Song of the Day — two-column row ────── */
+.songRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
 .songWrap {
-  max-width: 720px;
-  margin: 48px auto 0;
-  padding: 0 24px;
+  width: 100%;
   aspect-ratio: 16 / 9;
+  flex-shrink: 0;
 }
 
 .songFrame {
@@ -80,6 +86,12 @@
   border: none;
   border-radius: 8px;
   display: block;
+}
+
+@media (max-width: 640px) {
+  .songRow {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ── Article ─────────────────────────────── */
