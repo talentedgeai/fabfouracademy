@@ -9,7 +9,7 @@
  */
 
 import { render } from '@react-email/render'
-import { getTodaysPost } from '@/lib/wow-utils'
+import { getTodaysPost, getMonthlyPostForDate } from '@/lib/wow-utils'
 import DailyWow from '@/emails/DailyWow'
 import InquiryNotification, {
   type InquiryDetail,
@@ -33,8 +33,13 @@ export const dynamic = 'force-dynamic'
 export default async function EmailPreviewPage() {
   const post = await getTodaysPost()
 
+  const monthly = post ? getMonthlyPostForDate(post.published) : null
   const dailyWowHtml = post
-    ? await render(DailyWow({ post, unsubscribeUrl: 'https://fabfouracademy.com/unsubscribe?token=PREVIEW' }))
+    ? await render(DailyWow({
+        post,
+        unsubscribeUrl: 'https://fabfouracademy.com/unsubscribe?token=PREVIEW',
+        monthly,
+      }))
     : null
 
   const inquiryHtml = await render(
