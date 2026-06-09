@@ -1,4 +1,4 @@
-# Fab Four Academy — Home
+# Fab Four Academy: Home
 
 **Website:** https://www.fabfouracademy.com/
 
@@ -6,9 +6,9 @@
 
 ## The Fab Four Pillars of Impact
 
-### Seeing the Beatles — Their Music — Their Business — More Clearly
+### Seeing the Beatles, Their Music, Their Business, More Clearly
 
-What if the music you've loved for years still has more to teach you? In *The Fab Four Pillars of Impact*, Dan Absher explores The Beatles not just as legendary musicians, but as four human beings learning how to work, create, and evolve together. Drawing on a lifetime of listening and deep study, the book reveals the dynamics beneath the songs — the trust, tension, vision, and creativity that shaped the music we still return to today. This is a book for Beatles fans who want to go beyond trivia and rediscover the music with deeper understanding, perspective, and meaning.
+What if the music you've loved for years still has more to teach you? In *The Fab Four Pillars of Impact*, Dan Absher explores The Beatles not just as legendary musicians, but as four human beings learning how to work, create, and evolve together. Drawing on a lifetime of listening and deep study, the book reveals the dynamics beneath the songs: the trust, tension, vision, and creativity that shaped the music we still return to today. This is a book for Beatles fans who want to go beyond trivia and rediscover the music with deeper understanding, perspective, and meaning.
 
 - [Get the Book](https://www.amazon.com/s?k=fab+four+pillars+of+impact)
 - [Learn More](https://www.fabfouracademy.com/the-fab-four-pillars-of-impact)
@@ -27,7 +27,7 @@ He is the founder of The Fab Four Academy, where he teaches leadership and teamw
 
 ## Leadership, Harmony, and Human-Centered Excellence
 
-Dan's work explores leadership not as performance, but as identity. His writing and teaching draw on real-world experience and cultural storytelling to show how excellence is built deliberately — through people, trust, and shared purpose — and sustained over time.
+Dan's work explores leadership not as performance, but as identity. His writing and teaching draw on real-world experience and cultural storytelling to show how excellence is built deliberately, through people, trust, and shared purpose, and sustained over time.
 
 **Core Themes:**
 - Excellence as culture, not a metric
@@ -55,7 +55,7 @@ Rather than offering abstract theory, Dan's approach helps teams see themselves 
 Dan Absher recently appeared on the **Ranking The Beatles** podcast, joining a thoughtful conversation about the band's creative evolution and the deeper lessons hidden beneath their music. The episode reflects Dan's lifelong engagement with The Beatles not only as artists, but as a powerful case study in collaboration, communication, and sustained excellence.
 
 > *"I think the book is really going to be enlightening for a lot of people, you know, Beatles fans and people who are not necessarily Beatles fans, but looking for gaining that knowledge and insight into running successful organizations."*
-> — Jonathan Pretus, Host of Ranking The Beatles Podcast
+> - Jonathan Pretus, Host of Ranking The Beatles Podcast
 
 [Listen to the Episode](https://rankingthebeatles.com/?p=498)
 
@@ -65,11 +65,11 @@ Dan Absher recently appeared on the **Ranking The Beatles** podcast, joining a t
 
 ### One song. One insight. Every day.
 
-Each day, a single Beatles song becomes a starting point for reflection on creativity, collaboration, relationships, and life. These brief insights help you reconnect with the music you love and discover new meaning within it — one song at a time.
+Each day, a single Beatles song becomes a starting point for reflection on creativity, collaboration, relationships, and life. These brief insights help you reconnect with the music you love and discover new meaning within it, one song at a time.
 
 **Today's Words of Wisdom:**
 
-**End of the Line** — There is something quietly extraordinary about the circumstances surrounding this song's music video...
+**End of the Line**: There is something quietly extraordinary about the circumstances surrounding this song's music video...
 
 [Read Full Reflection](https://www.fabfouracademy.com/words-of-wisdom-content/end-of-the-line)
 

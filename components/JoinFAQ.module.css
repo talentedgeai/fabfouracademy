@@ -51,7 +51,7 @@
   transform: rotate(45deg);
 }
 
-/* Slide using max-height — works in every browser. The upper bound is
+/* Slide using max-height: works in every browser. The upper bound is
    generous; pick a number larger than any plausible answer height. */
 .body {
   max-height: 0;

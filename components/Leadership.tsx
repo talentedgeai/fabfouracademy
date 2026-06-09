@@ -5,7 +5,7 @@ const PILLARS = [
   {
     num: '01',
     title: 'Excellence as Culture, Not a Metric',
-    desc: "Excellence is not a target — it's a way of being, embedded in every decision and relationship.",
+    desc: "Excellence is not a target. It's a way of being, embedded in every decision and relationship.",
   },
   {
     num: '02',
@@ -15,7 +15,7 @@ const PILLARS = [
   {
     num: '03',
     title: 'Vision That Aligns and Energizes',
-    desc: 'A catalytic vision keeps teams aligned even when the plan changes — and propels them toward greatness.',
+    desc: 'A catalytic vision keeps teams aligned even when the plan changes, and propels them toward greatness.',
   },
   {
     num: '04',
@@ -25,7 +25,7 @@ const PILLARS = [
   {
     num: '05',
     title: 'Creativity, Reinvention, and Collective Synergy',
-    desc: 'Great organizations experiment, learn fast, and stay open — creating something greater than the sum of its parts.',
+    desc: 'Great organizations experiment, learn fast, and stay open, creating something greater than the sum of its parts.',
   },
 ]
 

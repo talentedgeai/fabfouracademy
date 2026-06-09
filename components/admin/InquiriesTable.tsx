@@ -91,7 +91,7 @@ export default function InquiriesTable({ rows }: { rows: InquiryRow[] }) {
                       })}
                     </div>
                   </td>
-                  <td>{i.person_name || '—'}</td>
+                  <td>{i.person_name || '-'}</td>
                   <td>
                     <a
                       href={`mailto:${i.person_email}`}
@@ -115,8 +115,8 @@ export default function InquiriesTable({ rows }: { rows: InquiryRow[] }) {
                       {STATUS_LABEL[i.status] ?? i.status}
                     </span>
                   </td>
-                  <td className={styles.cellSource}>{i.source || '—'}</td>
-                  <td className={styles.cellMessage}>{i.message || '—'}</td>
+                  <td className={styles.cellSource}>{i.source || '-'}</td>
+                  <td className={styles.cellMessage}>{i.message || '-'}</td>
                 </tr>
               )
             })}

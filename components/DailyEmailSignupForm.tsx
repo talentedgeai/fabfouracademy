@@ -1,5 +1,5 @@
 /**
- * Minimal free-tier signup form. Email + first name only — anything more is
+ * Minimal free-tier signup form. Email + first name only - anything more is
  * friction. Posts to /api/contacts (type=newsletter) and shows an inline
  * thank-you state on success.
  *
@@ -62,7 +62,7 @@ export default function DailyEmailSignupForm() {
           <h1 className={styles.heading}>Daily Words of Wisdom, in your inbox</h1>
           <p className={styles.lede}>
             One short reflection from Dan, framed by The Beatles, every morning.
-            Built around the daily loop — read it on your phone with your
+            Built around the daily loop: read it on your phone with your
             coffee, take one small thing into the day.
           </p>
         </header>

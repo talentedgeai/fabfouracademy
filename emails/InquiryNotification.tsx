@@ -1,7 +1,7 @@
 /**
  * Admin notification when a new inquiry lands in /api/contacts.
  *
- * Plain editorial layout — readable in a phone Mail app, clear "type" badge,
+ * Plain editorial layout, readable in a phone Mail app, clear "type" badge,
  * one-tap mailto reply. Sent only to ADMIN_EMAILS, never to a buyer.
  *
  * The InquiryDetail shape is the row returned by the submit_inquiry RPC

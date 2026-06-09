@@ -26,21 +26,21 @@ To book Dan Absher for your event, submit an inquiry with the following details:
 
 ### Can you tell us about yourself and why you wrote *The Fab Four Pillars of Impact*?
 
-I've spent more than three decades leading our family's construction company — first as CEO, and now as Board Chair. My career has been shaped by building teams, navigating change, and learning how to create environments where people can truly thrive.
+I've spent more than three decades leading our family's construction company, first as CEO, and now as Board Chair. My career has been shaped by building teams, navigating change, and learning how to create environments where people can truly thrive.
 
 Alongside that, I've been a lifelong Beatles fan. I saw their debut on *The Ed Sullivan Show* as a boy, and over the years I became fascinated not only with their music, but with how four incredibly different personalities came together to create something far greater than any one of them could have achieved alone.
 
-At some point, those two worlds connected for me. I realized that many of the leadership lessons I had learned in business were reflected in The Beatles' journey — in their chemistry, conflict, creativity, resilience, and ability to keep reinventing themselves.
+At some point, those two worlds connected for me. I realized that many of the leadership lessons I had learned in business were reflected in The Beatles' journey: their chemistry, conflict, creativity, resilience, and ability to keep reinventing themselves.
 
 *The Fab Four Pillars of Impact* grew out of that insight. It's a way of passing on the lessons I've learned throughout my career and honoring a band that shaped so much of my life.
 
 ---
 
-### How do you define organizational excellence — and how is it different from simply being "high-performing"?
+### How do you define organizational excellence, and how is it different from simply being "high-performing"?
 
 High performance is about results. Excellence is about identity.
 
-A high-performing team can hit targets, but excellence shapes *how* they hit those targets — and how consistently they do it, even under pressure. Excellence is cultural. It's embedded. It's not reliant on a single leader, a single moment, or a single win.
+A high-performing team can hit targets, but excellence shapes *how* they hit those targets, and how consistently they do it, even under pressure. Excellence is cultural. It's embedded. It's not reliant on a single leader, a single moment, or a single win.
 
 Organizational excellence means:
 - The right people are in the right roles
@@ -67,9 +67,9 @@ But sustaining excellence often comes down to humility. Leaders must recognize t
 
 It happened gradually, and then all at once.
 
-I had always admired The Beatles musically, but it wasn't until later in my leadership career that their story began to look familiar. I saw the same dynamics in my own teams — different personalities, complementary strengths, conflict that could either hurt or strengthen relationships, and moments of breakthrough that only happened because people trusted each other enough to try something new.
+I had always admired The Beatles musically, but it wasn't until later in my leadership career that their story began to look familiar. I saw the same dynamics in my own teams: different personalities, complementary strengths, conflict that could either hurt or strengthen relationships, and moments of breakthrough that only happened because people trusted each other enough to try something new.
 
-When I started studying their journey more intentionally, I realized there was a leadership blueprint hidden inside it. They weren't just a great band — they were a remarkable team. And they demonstrated, in real time, what happens when talent, trust, purpose, and creativity all come together.
+When I started studying their journey more intentionally, I realized there was a leadership blueprint hidden inside it. They weren't just a great band. They were a remarkable team. And they demonstrated, in real time, what happens when talent, trust, purpose, and creativity all come together.
 
 That insight became the foundation for the Fab Four Pillars.
 
@@ -80,7 +80,7 @@ That insight became the foundation for the Fab Four Pillars.
 You can measure performance, but excellence reveals itself in behavior.
 
 You know excellence is taking root when:
-- People feel ownership — not just responsibility
+- People feel ownership, not just responsibility
 - Teams collaborate without needing to be pushed
 - Problems get surfaced early, not hidden
 - Trust is visible in how people speak to each other
@@ -93,13 +93,13 @@ The ultimate sign? The organization operates at a high level even when the leade
 
 ### How can organizations maintain excellence during rapid change or crisis?
 
-Change doesn't destroy excellence — it reveals it.
+Change doesn't destroy excellence. It reveals it.
 
 The organizations that maintain excellence during uncertainty share three traits:
 
 1. **Clarity of purpose.** When the vision is catalytic, people stay aligned even when the plan changes.
 2. **Trust.** Teams with strong esprit de corps can adapt quickly because psychological safety is already in place.
-3. **Creativity.** The Beatles reinvented themselves constantly. Great organizations do the same — experimenting, learning fast, and staying open to new ideas.
+3. **Creativity.** The Beatles reinvented themselves constantly. Great organizations do the same, experimenting, learning fast, and staying open to new ideas.
 
 Excellence is not rigidity. It's resilience.
 
@@ -111,7 +111,7 @@ Leadership literature is full of frameworks, but many lack soul.
 
 What this book adds is a human story that people already understand and feel connected to. You don't have to convince someone to care about The Beatles. They're woven into our culture. Using their journey as the backdrop makes the lessons more memorable, more relatable, and more actionable.
 
-But this book also brings a perspective shaped by experience — not theoretical leadership, but leadership lived over decades, through growth, crisis, conflict, and transformation.
+But this book also brings a perspective shaped by experience: not theoretical leadership, but leadership lived over decades, through growth, crisis, conflict, and transformation.
 
 The combination of story + practicality + lived experience is what makes this book different.
 
@@ -121,7 +121,7 @@ The combination of story + practicality + lived experience is what makes this bo
 
 Individual excellence is the spark. Organizational excellence is the fire.
 
-The Beatles were four extraordinary individuals — but they reached greatness only when their strengths aligned toward a shared purpose. The same is true in any workplace.
+The Beatles were four extraordinary individuals, but they reached greatness only when their strengths aligned toward a shared purpose. The same is true in any workplace.
 
 Individual excellence becomes organizational excellence when:
 - Strengths complement each other
@@ -147,7 +147,7 @@ And second, never underestimate the power of harmony: trust, respect, humor, and
 
 In the coming year, I'll be sharing more leadership tools through Fab Four Academy, including workshops, retreats, and the release of my second book, *Daily Words of Wisdom*. I'll also be appearing on podcasts, speaking at events, and releasing resources that help leaders bring the Fab Four Pillars to life inside their organizations.
 
-My mission is simple: help people lead with more clarity, creativity, and connection — The Beatles way.
+My mission is simple: help people lead with more clarity, creativity, and connection. The Beatles way.
 
 ---
 

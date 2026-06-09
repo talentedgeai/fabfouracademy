@@ -1,16 +1,16 @@
 /**
- * Email send wrappers — Resend.
+ * Email send wrappers: Resend.
  *
  * Required env vars (Stream A owns .env.local.example; this file documents
  * what we read but does not modify the env file):
- *   RESEND_API_KEY    — Resend project API key.
- *   EMAIL_FROM        — From line, e.g. "Fab Four Academy <hello@fabfouracademy.com>".
- *   ADMIN_EMAILS      — Comma-separated list of admin recipients for
+ *   RESEND_API_KEY:    Resend project API key.
+ *   EMAIL_FROM:        From line, e.g. "Fab Four Academy <hello@fabfouracademy.com>".
+ *   ADMIN_EMAILS:      Comma-separated list of admin recipients for
  *                       inquiry notifications. Falls back to dave@edge8.co.
  *
  * Two exports:
- *   sendEmailNotification — admin-only: new inquiries, member events, errors.
- *   sendTransactionalEmail — single recipient: daily WoW, signup confirmations.
+ *   sendEmailNotification: admin-only: new inquiries, member events, errors.
+ *   sendTransactionalEmail: single recipient: daily WoW, signup confirmations.
  *
  * Behaviour when RESEND_API_KEY is missing: warn and no-op. Lets local dev
  * run without secrets and lets preview pages render templates without sending.
@@ -29,7 +29,7 @@ export async function sendEmailNotification({
   html: string
 }) {
   if (!process.env.RESEND_API_KEY) {
-    console.warn('[email] RESEND_API_KEY not configured — skipping admin notification.')
+    console.warn('[email] RESEND_API_KEY not configured - skipping admin notification.')
     return { ok: false as const, reason: 'no_api_key' as const }
   }
 
@@ -74,7 +74,7 @@ export async function sendTransactionalEmail({
   bcc?: string | string[]
 }) {
   if (!process.env.RESEND_API_KEY) {
-    console.warn('[email] RESEND_API_KEY not configured — skipping transactional email.')
+    console.warn('[email] RESEND_API_KEY not configured - skipping transactional email.')
     return { ok: false as const, reason: 'no_api_key' as const }
   }
 

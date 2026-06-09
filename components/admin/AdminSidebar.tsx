@@ -1,7 +1,7 @@
 /**
  * Admin sidebar nav. Mirrors aio-website's admin-sidebar.tsx but trimmed to
  * the routes that exist on fab-four today (no Members / Orders / Affiliates
- * / Retreat — those land in Phase 3 once their schema exists).
+ * / Retreat - those land in Phase 3 once their schema exists).
  *
  * No sign-out button: fab-four's middleware uses HTTP basic auth via
  * ADMIN_PASSWORD, and there's no Supabase Auth session to sign out of.

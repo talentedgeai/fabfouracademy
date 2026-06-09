@@ -1,9 +1,9 @@
 /**
- * Admin dashboard — at-a-glance view of the CRM.
+ * Admin dashboard: at-a-glance view of the CRM.
  *
  * Patterned after aio-website/src/app/admin/page.tsx but trimmed to the data
  * fab-four actually has today: people, inquiries, email_sends. No revenue,
- * no MRR, no Stripe — those land in Phase 3.
+ * no MRR, no Stripe. Those land in Phase 3.
  *
  * Stats:
  *   - Total people
