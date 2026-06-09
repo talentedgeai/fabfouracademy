@@ -3,6 +3,7 @@ export const dynamic = 'force-dynamic'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import MeetDan from '@/components/MeetDan'
+import Awards from '@/components/Awards'
 import Leadership from '@/components/Leadership'
 import WhatDanBrings from '@/components/WhatDanBrings'
 import Podcast from '@/components/Podcast'
@@ -18,6 +19,7 @@ export default async function Home() {
       <main>
         <Hero />
         <MeetDan />
+        <Awards />
         <Leadership />
         <WhatDanBrings />
         <Podcast />
