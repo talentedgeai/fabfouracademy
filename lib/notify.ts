@@ -1,5 +1,5 @@
 /**
- * Notification helpers — admin pings when inquiries / orders / membership
+ * Notification helpers: admin pings when inquiries / orders / membership
  * events fire. v1 is email only (no Telegram or Lark, unlike aio-website).
  *
  * notifyNewInquiry(inquiry) is the contract Stream A's /api/contacts handler

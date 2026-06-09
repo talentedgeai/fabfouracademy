@@ -41,7 +41,7 @@ export default function JoinFAQ() {
         <div className={styles.faqList}>
 
           <FAQItem question="What will I get when I join the Fab Four Community?">
-            <p className={styles.answer}>When you join, you&apos;ll receive the <strong>Daily Words of Wisdom</strong> email every morning — featuring Beatles-inspired insights to start your day. You&apos;ll also get <strong>early access</strong> to book releases, new workshop announcements, and occasional <strong>special offers</strong> from Fab Four Academy.</p>
+            <p className={styles.answer}>When you join, you&apos;ll receive the <strong>Daily Words of Wisdom</strong> email every morning, featuring Beatles-inspired insights to start your day. You&apos;ll also get <strong>early access</strong> to book releases, new workshop announcements, and occasional <strong>special offers</strong> from Fab Four Academy.</p>
           </FAQItem>
 
           <FAQItem question="What is the Daily Words of Wisdom email?">
@@ -50,7 +50,7 @@ export default function JoinFAQ() {
           </FAQItem>
 
           <FAQItem question="Is the Fab Four Community free to join?">
-            <p className={styles.answer}>Yes — it&apos;s completely free! Just sign up with your name, email, and favorite Beatles song to get started. Once you subscribe, you&apos;ll receive the <em>Daily Words of Wisdom</em> in your inbox every morning, along with updates on book releases, upcoming workshops, and exclusive special offers.</p>
+            <p className={styles.answer}>Yes, it&apos;s completely free! Just sign up with your name, email, and favorite Beatles song to get started. Once you subscribe, you&apos;ll receive the <em>Daily Words of Wisdom</em> in your inbox every morning, along with updates on book releases, upcoming workshops, and exclusive special offers.</p>
           </FAQItem>
 
           <FAQItem question="Do I need to be a Beatles fan to get value from this?">

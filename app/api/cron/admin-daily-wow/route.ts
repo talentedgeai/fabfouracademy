@@ -1,5 +1,5 @@
 /**
- * Daily Words of Wisdom — admin-only delivery.
+ * Daily Words of Wisdom: admin-only delivery.
  *
  * Sends today's WoW post to the inboxes in ADMIN_EMAILS. Independent of the
  * broader subscriber-list broadcast (Stream B owns /api/cron/daily-wow once
@@ -8,7 +8,7 @@
  *
  * Trigger: Vercel Cron at 13:00 UTC daily (06:00 PT during PDT, 05:00 PT
  * during PST). Vercel Cron runs in UTC only; the time will drift by an hour
- * across DST boundaries — adjust the schedule in vercel.json if that matters.
+ * across DST boundaries. Adjust the schedule in vercel.json if that matters.
  *
  * Manual trigger:
  *   curl -H "Authorization: Bearer $CRON_SECRET" \

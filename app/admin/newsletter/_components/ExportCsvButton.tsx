@@ -1,5 +1,5 @@
 /**
- * Client-side CSV download. Mirrors aio-website's ExportCsvButton — takes an
+ * Client-side CSV download. Mirrors aio-website's ExportCsvButton: takes an
  * array of rows + headers, builds a Blob with proper escaping, triggers a
  * download. No server round-trip.
  */

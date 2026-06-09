@@ -1,4 +1,4 @@
-# Design System — Fab Four Academy
+# Design System: Fab Four Academy
 
 > Brand & Design System · v2.0 · 2025  
 > Dan Absher · fabfouracademy.com
@@ -23,9 +23,9 @@
 
 ## 01 Visual Theme & Atmosphere
 
-Fab Four Academy is a leadership education and cultural storytelling brand grounded in the story of The Beatles. The visual identity is clean, bold, and content-forward — a white-dominant light-mode experience built for clarity and warmth. Three distinct accent colors — **Yellow (#F9AD3E)**, **Orange (#CF4B27)**, and **Blue (#2E758D)** — each carry a specific emotional and functional role, balanced against a crisp black-and-white foundation.
+Fab Four Academy is a leadership education and cultural storytelling brand grounded in the story of The Beatles. The visual identity is clean, bold, and content-forward: a white-dominant light-mode experience built for clarity and warmth. Three distinct accent colors, **Yellow (#F9AD3E)**, **Orange (#CF4B27)**, and **Blue (#2E758D)**, each carry a specific emotional and functional role, balanced against a crisp black-and-white foundation.
 
-The aesthetic communicates approachable authority: large Roboto ExtraBold headings deliver confidence and punch; Arial body text keeps reading comfortable and universally accessible. The overall tone is that of a trusted educator and engaging storyteller — not a tech product.
+The aesthetic communicates approachable authority: large Roboto ExtraBold headings deliver confidence and punch; Arial body text keeps reading comfortable and universally accessible. The overall tone is that of a trusted educator and engaging storyteller, not a tech product.
 
 **Key characteristics:**
 
@@ -75,14 +75,14 @@ The aesthetic communicates approachable authority: large Roboto ExtraBold headin
 
 Two fonts. No exceptions.
 
-- **Headings:** `Roboto` — weight **800 only** — loaded via Google Fonts
-- **Body / UI / Buttons:** `Arial, Helvetica, sans-serif` — weight 400 (body) or 700 (buttons, labels)
+- **Headings:** `Roboto`, weight **800 only**, loaded via Google Fonts
+- **Body / UI / Buttons:** `Arial, Helvetica, sans-serif`, weight 400 (body) or 700 (buttons, labels)
 
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@800&display=swap');
 
 --font-heading: 'Roboto', Arial, Helvetica, sans-serif;  /* weight: 800 always */
---font-body:    Arial, Helvetica, sans-serif;            /* weight: 400 body / 700 buttons & labels */
+--font-body: Arial, Helvetica, sans-serif;               /* weight: 400 body / 700 buttons & labels */
 ```
 
 ### Type Scale
@@ -93,27 +93,27 @@ Two fonts. No exceptions.
 | Section Heading | `H2` | 36px | 800 | 1.1 | Roboto · See `heading-divider-brush` variant |
 | Sub-heading | `H3` | 24px | 800 | 1.2 | Roboto · Sub-sections, feature titles |
 | Feature Title | `H4` | 18px | 800 | 1.3 | Roboto · Card headings, step titles |
-| Eyebrow | — | 11px | 700 | — | Arial · uppercase · letter-spacing 3px · color `#CF4B27` |
-| Body Large | — | 17px | 400 | 1.6 | Arial · Hero sub-copy, intro paragraphs |
-| Body | — | 15px | 400 | 1.6 | Arial · General body, card descriptions |
-| Body Small | — | 13px | 400 | 1.5 | Arial · Captions, meta, footnotes |
-| Button | — | 14px | 700 | — | Arial · All CTA buttons |
+| Eyebrow | - | 11px | 700 | - | Arial · uppercase · letter-spacing 3px · color `#CF4B27` |
+| Body Large | - | 17px | 400 | 1.6 | Arial · Hero sub-copy, intro paragraphs |
+| Body | - | 15px | 400 | 1.6 | Arial · General body, card descriptions |
+| Body Small | - | 13px | 400 | 1.5 | Arial · Captions, meta, footnotes |
+| Button | - | 14px | 700 | - | Arial · All CTA buttons |
 
 > **Letter spacing rule:** Eyebrow labels only (3px). All other text: 0. Never apply tracking to headings or body copy.
 
 ### H2 Variant: `heading-divider-brush`
 
-The `heading-divider-brush` is used when a section opens with a named subject — a person, a pillar, a concept. It splits the heading across two accent colors and anchors it with a real hand-painted brush stroke PNG underline. Always **flush left** — spans full container width.
+The `heading-divider-brush` is used when a section opens with a named subject: a person, a pillar, a concept. It splits the heading across two accent colors and anchors it with a real hand-painted brush stroke PNG underline. Always **flush left**, spanning full container width.
 
 | Property | Value |
 |----------|-------|
-| Word 1 color | `#CF4B27` (Orange) — label/prefix word |
-| Word 2 color | `#2E758D` (Blue) — subject name |
-| Brush image | `heading-divider.png` — real hand-painted PNG |
-| Brush sizing | `background-size: 100% 100%` — stretches to full container width |
+| Word 1 color | `#CF4B27` (Orange): label/prefix word |
+| Word 2 color | `#2E758D` (Blue): subject name |
+| Brush image | `heading-divider.png`: real hand-painted PNG |
+| Brush sizing | `background-size: 100% 100%`: stretches to full container width |
 | Brush height | H1: 24px · H2: 18px (default) · H3: 14px · H4: 12px |
 | Brush gap | `margin-top: 4px` |
-| Layout | `display: block` — always flush left, never inline |
+| Layout | `display: block`: always flush left, never inline |
 | Use when | Section opens with a named person, pillar, or concept |
 
 ```html
@@ -136,7 +136,7 @@ All buttons share the same base: `border-radius: 4px`, `padding: 13px 26px`, Ari
 ### Shared Base
 
 ```css
-border-radius: 4px;          /* rectangular — never pill */
+border-radius: 4px;          /* rectangular - never pill */
 padding: 13px 26px;
 font-family: Arial, sans-serif;
 font-size: 14px;
@@ -274,10 +274,10 @@ Cards display **title only** followed by a brush-stroke rule (`card-rule`). No e
 ### Section Structure Pattern
 
 ```
-① Title Case Eyebrow Label         — Arial 700, 11px, uppercase, #CF4B27, ls 3px
-② Bold H2 Heading                  — Roboto 800, 36px, #000000
-③ Body sub-copy (2–3 sentences)    — Arial 400, 15px, #555555
-④ CTA Button(s)                    — Primary + optional secondary
+① Title Case Eyebrow Label         - Arial 700, 11px, uppercase, #CF4B27, ls 3px
+② Bold H2 Heading                  - Roboto 800, 36px, #000000
+③ Body sub-copy (2–3 sentences)    - Arial 400, 15px, #555555
+④ CTA Button(s)                    - Primary + optional secondary
 ```
 
 ---
@@ -288,16 +288,16 @@ Cards display **title only** followed by a brush-stroke rule (`card-rule`). No e
 
 | Token | Value | Use |
 |-------|-------|-----|
-| — | 4px | Icon gap |
-| — | 8px | Badge padding, tight gaps |
-| — | 12px | Button gap, inline spacing |
-| — | 16px | Field padding, card internals |
-| — | 24px | Card padding, gutters |
-| — | 32px | Section internal spacing |
-| — | 48px | Section padding (mobile) |
-| — | 64px | Section padding (tablet) |
-| — | 80px | Section padding (desktop) |
-| — | 96px | Hero vertical breathing room |
+| - | 4px | Icon gap |
+| - | 8px | Badge padding, tight gaps |
+| - | 12px | Button gap, inline spacing |
+| - | 16px | Field padding, card internals |
+| - | 24px | Card padding, gutters |
+| - | 32px | Section internal spacing |
+| - | 48px | Section padding (mobile) |
+| - | 64px | Section padding (tablet) |
+| - | 80px | Section padding (desktop) |
+| - | 96px | Hero vertical breathing room |
 
 ### Border Radius Scale
 
@@ -323,7 +323,7 @@ Cards display **title only** followed by a brush-stroke rule (`card-rule`). No e
 
 ## 07 Photography & Imagery
 
-Photography should feel warm, candid, and human — never over-produced. The clean white canvas demands images with genuine character: real stages, real people, real moments.
+Photography should feel warm, candid, and human, never over-produced. The clean white canvas demands images with genuine character: real stages, real people, real moments.
 
 | Style | Description |
 |-------|-------------|
@@ -343,7 +343,7 @@ Photography should feel warm, candid, and human — never over-produced. The cle
 
 ## 08 Interaction & Motion
 
-Motion is minimal and purposeful. Transitions communicate state — not personality. No bounce, scale, or aggressive animation.
+Motion is minimal and purposeful. Transitions communicate state, not personality. No bounce, scale, or aggressive animation.
 
 | Element | Transition |
 |---------|-----------|
@@ -358,13 +358,13 @@ Motion is minimal and purposeful. Transitions communicate state — not personal
 
 ## 09 Voice & Messaging Patterns
 
-Warm, earned, and narrative-first. Copy opens with questions or observations — not product claims. Dan Absher's voice is a storyteller and executive educator: measured, curious, generous with insight.
+Warm, earned, and narrative-first. Copy opens with questions or observations, not product claims. Dan Absher's voice is a storyteller and executive educator: measured, curious, generous with insight.
 
 ### Section Structure
 
 ```
 ① Title Case Eyebrow Label
-② Bold H2 — Question or Revelation
+② Bold H2: Question or Revelation
 ③ Body sub-copy: opens with a question or insight. 2–3 sentences max.
 ④ Primary CTA  +  optional Secondary CTA
 ```
@@ -374,7 +374,7 @@ Warm, earned, and narrative-first. Copy opens with questions or observations —
 | Pattern | Description | Example |
 |---------|-------------|---------|
 | Question-First | Opens with a question the audience is already asking | *"What if the music you've loved still has more to teach you?"* |
-| Literary Revelation | Treats the subject as a text to be read more deeply | *"The Beatles not just as musicians — as four humans learning to work together."* |
+| Literary Revelation | Treats the subject as a text to be read more deeply | *"The Beatles not just as musicians, but as four humans learning to work together."* |
 | Outcome-First Heading | Names the transformation, not the method | *"See your team more clearly."* |
 | Minimalist Cadence | Short parallel structure for daily content | *"One song. One insight. Every day."* |
 | Earned Authority | Credentials appear through story, not boasting | *"A lifetime of listening and deep study."* |
@@ -402,16 +402,16 @@ Warm, earned, and narrative-first. Copy opens with questions or observations —
 
 ### Don't
 
-- ❌ Use pill-shaped buttons (`border-radius: 40px`) — not this brand's language
+- ❌ Use pill-shaped buttons (`border-radius: 40px`): not this brand's language
 - ❌ Use Yellow, Orange, or Blue as page background surfaces
-- ❌ Use cool blue-gray section backgrounds — use neutral `#F5F5F5` only
-- ❌ Apply letter-spacing to headings or body text — eyebrows only
+- ❌ Use cool blue-gray section backgrounds. Use neutral `#F5F5F5` only.
+- ❌ Apply letter-spacing to headings or body text: eyebrows only
 - ❌ Place two CTAs of the same color variant side by side
-- ❌ Use ALL CAPS for eyebrow labels — Title Case only
+- ❌ Use ALL CAPS for eyebrow labels: Title Case only
 - ❌ Apply drop shadows to buttons at rest
 - ❌ Use Roboto at weights other than 800
 - ❌ Use the White button variant on a white background
-- ❌ Use metric-driven copy ("8x IMPACT") — this brand is narrative-first
+- ❌ Use metric-driven copy ("8x IMPACT"): this brand is narrative-first
 
 ---
 
@@ -421,18 +421,18 @@ When generating UI, copy, or layouts for Fab Four Academy, apply these exact def
 
 | Token | Value |
 |-------|-------|
-| H2 — `heading-divider-brush` | Word1: `#CF4B27` · Word2: `#2E758D` · Brush PNG · Roboto 800 36px · height 18px · `display:block` flush-left |
-| Page Background (primary) | `#FFFFFF` — ~90% of all surfaces |
-| Page Background (secondary) | `#F5F5F5` — alternating sections, testimonial cards |
+| H2: `heading-divider-brush` | Word1: `#CF4B27` · Word2: `#2E758D` · Brush PNG · Roboto 800 36px · height 18px · `display:block` flush-left |
+| Page Background (primary) | `#FFFFFF`: ~90% of all surfaces |
+| Page Background (secondary) | `#F5F5F5`: alternating sections, testimonial cards |
 | Heading Text (H1–H4) | `#000000` · Roboto · weight **800 only** |
 | Body Text | `#555555` · Arial · 400 · 15px / lh 1.6 |
 | Caption / Meta Text | `#888888` · Arial · 400 · 13px |
 | Eyebrow Label | `#CF4B27` · Arial 700 · 11px · uppercase · letter-spacing 3px · no background |
 | Primary CTA | bg `#38393A` · text `#FFFFFF` · radius 4px · pad 13px 26px · hover bg `#222324` |
-| Secondary CTA — Yellow | bg `#F9AD3E` · text `#FFFFFF` · hover bg `#D4882A` · community/join |
-| Secondary CTA — Orange | bg `#CF4B27` · text `#FFFFFF` · hover bg `#A83B1E` · speaking/booking |
-| Secondary CTA — Blue | bg `#2E758D` · text `#FFFFFF` · hover bg `#235D70` · learn/explore |
-| Secondary CTA — White | bg `#FFFFFF` · text `#000000` · border `1px solid #D9D9D9` · hover border `#38393A` |
+| Secondary CTA - Yellow | bg `#F9AD3E` · text `#FFFFFF` · hover bg `#D4882A` · community/join |
+| Secondary CTA - Orange | bg `#CF4B27` · text `#FFFFFF` · hover bg `#A83B1E` · speaking/booking |
+| Secondary CTA - Blue | bg `#2E758D` · text `#FFFFFF` · hover bg `#235D70` · learn/explore |
+| Secondary CTA - White | bg `#FFFFFF` · text `#000000` · border `1px solid #D9D9D9` · hover border `#38393A` |
 | Ghost / Text Link | transparent · color `#CF4B27` · underline on hover |
 | Card (standard) | bg `#FFFFFF` · border `1px solid #E8E8E8` · radius 6px · **title only** · `card-rule`: brush PNG 120×12px · hover: border `#CF4B27` + shadow |
 | Card (dark) | bg `#38393A` · border `1px solid rgba(249,173,62,0.2)` · radius 6px |
@@ -449,11 +449,11 @@ When generating UI, copy, or layouts for Fab Four Academy, apply these exact def
 | Card / Component Border | `#E8E8E8` |
 | Card hover border | `#CF4B27` |
 | Input Border | `#D9D9D9` · focus: `#2E758D` |
-| Accent Rule (`card-rule`, `stat-rule`) | Brush PNG image — `heading-divider.png` |
-| Font — Heading | Roboto 800 — H1: 56px/1.0 · H2: 36px/1.1 · H3: 24px/1.2 · H4: 18px/1.3 |
-| Font — Body | Arial — Large: 17px/1.6 · Body: 15px/1.6 · Small: 13px/1.5 · Button: 14px 700 |
+| Accent Rule (`card-rule`, `stat-rule`) | Brush PNG image: `heading-divider.png` |
+| Font: Heading | Roboto 800: H1: 56px/1.0 · H2: 36px/1.1 · H3: 24px/1.2 · H4: 18px/1.3 |
+| Font: Body | Arial: Large: 17px/1.6 · Body: 15px/1.6 · Small: 13px/1.5 · Button: 14px 700 |
 | Letter Spacing | Eyebrow labels only: 3px · All other text: 0 |
-| Button Radius | `4px` — rectangular, not pill |
+| Button Radius | `4px`: rectangular, not pill |
 | Card Radius | `6px` |
 | Image Radius | `12px` |
 | Tone | Warm, narrative-first, question-led, culturally rich, earned authority |

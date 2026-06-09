@@ -1,5 +1,5 @@
 /**
- * Daily Email Signup — the free path off the membership page.
+ * Daily Email Signup: the free path off the membership page.
  *
  * Reached from the "Click here" callout on /join-fab-four-community when a
  * visitor isn't ready to join paid but still wants the daily reflection.

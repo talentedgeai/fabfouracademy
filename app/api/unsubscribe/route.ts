@@ -39,7 +39,7 @@ export async function GET(req: Request) {
   }
 
   if (!data || data.length === 0) {
-    // Token didn't match any row — could be tampered, expired, or already
+    // Token didn't match any row: could be tampered, expired, or already
     // unsubscribed and the row deleted. Show invalid state.
     return NextResponse.redirect(new URL('/unsubscribe?status=invalid', req.url))
   }

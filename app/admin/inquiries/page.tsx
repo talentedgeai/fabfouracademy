@@ -38,7 +38,7 @@ export default async function AdminInquiriesPage({
 
   const inquiries = ((data ?? []) as InquiryRow[])
 
-  // Beatles song mix — extracted from the message field on every inquiry
+  // Beatles song mix: extracted from the message field on every inquiry
   // that carries a "Favorite Beatles song: …" line.
   const songCounts = new Map<string, number>()
   for (const i of inquiries) {

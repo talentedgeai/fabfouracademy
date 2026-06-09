@@ -42,14 +42,14 @@ export default function Hero() {
           </div>
 
           <p className={styles.subtitle}>
-            Seeing the Beatles — Their Music — Their Business — More Clearly
+            Seeing the Beatles, Their Music, Their Business, More Clearly
           </p>
           <p className={styles.body}>
             What if the music you&apos;ve loved for years still has more to teach you? In{' '}
             <em>The Fab Four Pillars of Impact</em>, Dan Absher explores The Beatles not just
             as legendary musicians, but as four human beings learning how to work, create, and
             evolve together. Drawing on a lifetime of listening and deep study, the book reveals
-            the dynamics beneath the songs — the trust, tension, vision, and creativity that
+            the dynamics beneath the songs: the trust, tension, vision, and creativity that
             shaped the music we still return to today. This is a book for Beatles fans who want
             to go beyond trivia and rediscover the music with deeper understanding, perspective,
             and meaning.

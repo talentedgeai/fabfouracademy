@@ -1,5 +1,5 @@
 /**
- * Admin shell — shared chrome (sidebar + main content area) for every page
+ * Admin shell: shared chrome (sidebar + main content area) for every page
  * under /admin/*. Auth is handled by middleware.ts (HTTP basic auth via
  * ADMIN_PASSWORD), so by the time we reach this layout the visitor is already
  * authenticated; the sidebar just navigates between admin views.

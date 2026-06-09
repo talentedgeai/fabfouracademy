@@ -3,7 +3,7 @@
  *
  * Adapted from aio-website/src/components/admin/contact-detail.tsx, simplified
  * to match the data fab-four actually has (no orders/memberships/affiliates,
- * no activity log timeline yet — those land in Phase 3).
+ * no activity log timeline yet - those land in Phase 3).
  *
  * Mounted by InquiriesTable (client wrapper around the existing server-rendered
  * inquiries page). Calls /api/contacts/[id] for fetch + PATCH.
@@ -245,7 +245,7 @@ export default function InquiryDetail({
               <div className={styles.metaRow}>
                 <span className={styles.metaLabel}>Source</span>
                 <span className={styles.metaValue}>
-                  {inquiry.source || '—'}
+                  {inquiry.source || '-'}
                 </span>
               </div>
               <div className={styles.metaRow}>

@@ -18,7 +18,7 @@ export default function BooksAuthor() {
             Dan Absher is a business leader, coach, author, and professional speaker with over
             32 years of experience leading his family&apos;s construction company. But the real
             leadership lessons that shaped his success didn&apos;t come from boardrooms or
-            business textbooks — they came from four lads from Liverpool.
+            business textbooks. They came from four lads from Liverpool.
           </p>
           <p className={styles.body}>
             The Beatles taught Dan more about teamwork, creativity, and reinvention than any

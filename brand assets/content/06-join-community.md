@@ -35,7 +35,7 @@ To join, provide:
 
 ### What will I get when I join the Fab Four Community?
 
-When you join, you'll receive the **Daily Words of Wisdom** email every morning — featuring Beatles-inspired insights to start your day. You'll also get **early access** to book releases, new workshop announcements, and occasional **special offers** from Fab Four Academy.
+When you join, you'll receive the **Daily Words of Wisdom** email every morning, featuring Beatles-inspired insights to start your day. You'll also get **early access** to book releases, new workshop announcements, and occasional **special offers** from Fab Four Academy.
 
 ---
 
@@ -49,7 +49,7 @@ Think of it as your daily dose of Beatles-inspired clarity, creativity, and conn
 
 ### Is the Fab Four Community free to join?
 
-Yes — it's completely free! Just sign up with your name, email, and favorite Beatles song to get started. Once you subscribe, you'll receive the *Daily Words of Wisdom* in your inbox every morning, along with updates on book releases, upcoming workshops, and exclusive special offers.
+Yes, it's completely free! Just sign up with your name, email, and favorite Beatles song to get started. Once you subscribe, you'll receive the *Daily Words of Wisdom* in your inbox every morning, along with updates on book releases, upcoming workshops, and exclusive special offers.
 
 ---
 

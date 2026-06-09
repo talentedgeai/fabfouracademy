@@ -1,8 +1,8 @@
 /**
- * Daily Words of Wisdom email — sent to the community list each morning.
+ * Daily Words of Wisdom email, sent to the community list each morning.
  *
  * Brand: cream background, fab-black text, serif headings, sans body, generous
- * spacing. Editorial / Beatles-vintage feel — see docs/brand/design-rules.md.
+ * spacing. Editorial / Beatles-vintage feel. See docs/brand/design-rules.md.
  *
  * Renders the live WOWPost shape directly. The unsubscribe link is wired to
  * a token URL passed in by the cron handler at send time.

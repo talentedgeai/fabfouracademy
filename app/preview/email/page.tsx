@@ -1,5 +1,5 @@
 /**
- * Dev-only preview page — renders the two email templates inline so we can
+ * Dev-only preview page: renders the two email templates inline so we can
  * iterate visually without sending real mail.
  *
  * Renders each at desktop (600px) and mobile (375px) widths via iframe so
@@ -21,9 +21,9 @@ const FAKE_INQUIRY: InquiryDetail = {
   person_email: 'sarah.mitchell@example.com',
   person_phone: '+1 (415) 555-0142',
   type: 'keynote',
-  subject: 'Keynote inquiry — Q3 leadership offsite',
+  subject: 'Keynote inquiry: Q3 leadership offsite',
   message:
-    'Hi Dan,\n\nWe are organising a Q3 leadership offsite for ~120 senior managers in Austin and your Beatles framing of leadership keeps coming up in our planning conversations. Would love to explore a 60-minute keynote with Q&A.\n\nDates flexible mid-July to early-August. Looking forward to connecting.\n\n— Sarah',
+    'Hi Dan,\n\nWe are organising a Q3 leadership offsite for ~120 senior managers in Austin and your Beatles framing of leadership keeps coming up in our planning conversations. Would love to explore a 60-minute keynote with Q&A.\n\nDates flexible mid-July to early-August. Looking forward to connecting.\n\n- Sarah',
   source: '/book-dan-absher',
   created_at: new Date().toISOString(),
 }
@@ -61,7 +61,7 @@ export default async function EmailPreviewPage() {
         subtitle={
           post
             ? `Today's post: "${post.title}" (${post.published})`
-            : 'No post available — getTodaysPost() returned null'
+            : 'No post available - getTodaysPost() returned null'
         }
         html={dailyWowHtml}
       />

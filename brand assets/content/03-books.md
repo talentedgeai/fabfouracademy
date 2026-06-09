@@ -1,4 +1,4 @@
-# Books — The Fab Four Academy Book Collection
+# Books: The Fab Four Academy Book Collection
 
 **URL:** https://www.fabfouracademy.com/dan-absher-books
 
@@ -46,7 +46,7 @@ The first 100 people to [sign up for the community](https://www.fabfouracademy.c
 
 ## About the Author
 
-Dan Absher is a business leader, coach, author, and professional speaker with over 32 years of experience leading his family's construction company. But the real leadership lessons that shaped his success didn't come from boardrooms or business textbooks — they came from four lads from Liverpool.
+Dan Absher is a business leader, coach, author, and professional speaker with over 32 years of experience leading his family's construction company. But the real leadership lessons that shaped his success didn't come from boardrooms or business textbooks. They came from four lads from Liverpool.
 
 The Beatles taught Dan more about teamwork, creativity, and reinvention than any business school ever could. Their extraordinary story inspired him to write *Daily Words of Wisdom* and *Fab Four Pillars of Excellence*, books that blend their timeless lessons with real-world insights. Dan's mission? To help others unlock their potential and lead with the same passion, purpose, and unity that defined The Beatles.
 
@@ -55,16 +55,16 @@ The Beatles taught Dan more about teamwork, creativity, and reinvention than any
 ## Early Praise
 
 > *"I think the book is really going to be enlightening for a lot of people, you know, Beatles fans and people who are not necessarily Beatles fans, but looking for gaining that knowledge and insight into running successful organizations."*
-> — Jonathan Pretus, Host of Ranking The Beatles Podcast
+> - Jonathan Pretus, Host of Ranking The Beatles Podcast
 
 > *"Absher masterfully intertwines the story of the iconic band with practical lessons for creating and sustaining successful teams and organizations."*
-> — Readers' Favorite
+> - Readers' Favorite
 
-> *"An unusually immersive account — one that does not seek to radically reinvent Beatles-inspired leadership but to celebrate, marvel at, and honor it."*
-> — PW's Booklife
+> *"An unusually immersive account, one that does not seek to radically reinvent Beatles-inspired leadership but to celebrate, marvel at, and honor it."*
+> - PW's Booklife
 
-> *"Absher offers a leadership philosophy based on what the Beatles did right — and what they did wrong. A fun, innovative management guide, based on the story of the world's most popular band."*
-> — Kirkus
+> *"Absher offers a leadership philosophy based on what the Beatles did right, and what they did wrong. A fun, innovative management guide, based on the story of the world's most popular band."*
+> - Kirkus
 
 ---
 

@@ -18,7 +18,7 @@ export default function BookDanHero() {
           singleLine
         />
         <p className={styles.subtitle}>
-          For your next conference, workshop, or retreat — reserve your date with Dan Absher.
+          For your next conference, workshop, or retreat. Reserve your date with Dan Absher.
         </p>
       </div>
     </section>

@@ -8,7 +8,7 @@ import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Keynote Speaker | Fab Four Academy',
-  description: 'Book Dan Absher for your next event — Beatles-inspired keynotes on leadership, teamwork, and excellence.',
+  description: 'Book Dan Absher for your next event: Beatles-inspired keynotes on leadership, teamwork, and excellence.',
 }
 
 export default function KeynotesPage() {

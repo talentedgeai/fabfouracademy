@@ -6,7 +6,7 @@ import styles from './KeynotesPraise.module.css'
 
 const QUOTES = [
   {
-    text: "Dan Absher's Beatles class is more than a nostalgic journey — it's a masterclass in leadership and insight. Through the lens of Lennon and McCartney, you learn to 'take a sad song and make it better,' turning challenges into harmony and collaboration into something that truly helps you 'come together' as a team.",
+    text: "Dan Absher's Beatles class is more than a nostalgic journey. It's a masterclass in leadership and insight. Through the lens of Lennon and McCartney, you learn to 'take a sad song and make it better,' turning challenges into harmony and collaboration into something that truly helps you 'come together' as a team.",
     source: 'John VanNewkirk, CheckSum',
   },
   {
@@ -45,7 +45,7 @@ export default function KeynotesPraise() {
               <blockquote key={i} className={styles.sliderCard}>
                 <span className={styles.mark}>&ldquo;</span>
                 <p className={styles.text}>{q.text}</p>
-                <cite className={styles.source}>— {q.source}</cite>
+                <cite className={styles.source}>{q.source}</cite>
               </blockquote>
             ))}
           </div>

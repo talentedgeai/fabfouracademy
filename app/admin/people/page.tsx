@@ -1,5 +1,5 @@
 /**
- * People — master person index.
+ * People: master person index.
  *
  * Patterned after aio-website/src/app/admin/people/page.tsx, with the
  * commerce aggregation (orders / memberships / spending) stripped out
@@ -195,14 +195,14 @@ export default async function AdminPeoplePage({
             )}
             {visible.map((p) => (
               <tr key={p.id}>
-                <td className={styles.cellName}>{p.name || '—'}</td>
+                <td className={styles.cellName}>{p.name || '-'}</td>
                 <td>
                   <a href={`mailto:${p.email}`} className={styles.cellEmail}>
                     {p.email}
                   </a>
                 </td>
                 <td className={styles.cellCompany}>
-                  {p.company || '—'}
+                  {p.company || '-'}
                   {p.role && <div className={styles.cellRole}>{p.role}</div>}
                 </td>
                 <td>

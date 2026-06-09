@@ -29,7 +29,7 @@ export default function SignInPage() {
               <Link href="/daily-words-of-wisdom" className={styles.inlineLink}>
                 Sign up for the free Daily Words of Wisdom
               </Link>
-              {' '}— we&apos;ll let you know there.
+              {', '}and we&apos;ll let you know there.
             </p>
             <div className={styles.actions}>
               <Link href="/" className="btn btn-primary">

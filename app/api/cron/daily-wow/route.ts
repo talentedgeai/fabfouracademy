@@ -1,5 +1,5 @@
 /**
- * Daily Words of Wisdom — broadcast handler.
+ * Daily Words of Wisdom: broadcast handler.
  *
  * Triggered by Vercel Cron at 11:00 UTC daily (~07:00 EDT / 06:00 EST).
  * See website/vercel.json for the schedule.
@@ -155,7 +155,7 @@ export async function GET(req: Request) {
 
     const result = await sendTransactionalEmail({
       to: person.email,
-      subject: `${post.title} — Fab Four Academy`,
+      subject: `${post.title} - Fab Four Academy`,
       html,
     })
 
@@ -169,7 +169,7 @@ export async function GET(req: Request) {
         status: 'sent',
       })
       if (insertError) {
-        // Email went out but log failed — record but don't double-send.
+        // Email went out but log failed: record but don't double-send.
         console.error('[cron/daily-wow] log insert failed:', insertError)
       }
       sent++

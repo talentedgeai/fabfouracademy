@@ -75,7 +75,7 @@ function renderBlock(block: TextBlock, i: number) {
         <ol className={styles.frameworkList}>
           {block.items.map((item, j) => (
             <li key={j} className={styles.frameworkItem}>
-              <strong>{item.label}</strong> — {renderInline(item.text)}
+              <strong>{item.label}</strong>{': '}{renderInline(item.text)}
             </li>
           ))}
         </ol>

@@ -2,7 +2,7 @@
  * Unsubscribe confirmation page.
  *
  * Reached after the /api/unsubscribe handler runs and redirects with
- * ?status=ok | invalid | error. Renders a calm editorial message —
+ * ?status=ok | invalid | error. Renders a calm editorial message,
  * brand-consistent, no tone of panic.
  */
 
@@ -22,7 +22,7 @@ type SearchParams = { status?: string }
 const COPY: Record<string, { headline: string; body: string }> = {
   ok: {
     headline: "You're unsubscribed.",
-    body: "We've stopped sending the daily Words of Wisdom to this email. We're sorry to see you go — if it was a mistake, drop us a note and we'll get you back on the list.",
+    body: "We've stopped sending the daily Words of Wisdom to this email. We're sorry to see you go. If it was a mistake, drop us a note and we'll get you back on the list.",
   },
   invalid: {
     headline: 'Hmm, that link looks off.',
@@ -30,7 +30,7 @@ const COPY: Record<string, { headline: string; body: string }> = {
   },
   error: {
     headline: 'Something went wrong on our end.',
-    body: 'Sorry — we hit an error trying to process your unsubscribe. Please try the link in your email again, or reply to any daily email and we will sort it out.',
+    body: 'Sorry, we hit an error trying to process your unsubscribe. Please try the link in your email again, or reply to any daily email and we will sort it out.',
   },
   default: {
     headline: 'Manage your subscription',

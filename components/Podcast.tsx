@@ -77,7 +77,7 @@ export default function Podcast() {
               Beatles fans and people who are not necessarily Beatles fans, but looking for gaining
               that knowledge and insight into running successful organizations.&rdquo;
             </p>
-            <cite>— Jonathan Pretus, Host of Ranking The Beatles Podcast</cite>
+            <cite>Jonathan Pretus, Host of Ranking The Beatles Podcast</cite>
           </blockquote>
         </div>
 

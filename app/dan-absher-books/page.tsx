@@ -8,7 +8,7 @@ import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Books | Fab Four Academy',
-  description: 'Books by Dan Absher — The Fab Four Academy Book Collection',
+  description: 'Books by Dan Absher: The Fab Four Academy Book Collection',
 }
 
 export default function BooksPage() {

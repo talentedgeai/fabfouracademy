@@ -70,7 +70,7 @@ export default function BookDanForm() {
       <div className={`container ${styles.inner}`}>
         {status === 'success' ? (
           <div className={styles.thanks} role="status" aria-live="polite">
-            <h3 className={styles.thanksTitle}>Thanks — your request is in.</h3>
+            <h3 className={styles.thanksTitle}>Thanks. Your request is in.</h3>
             <p className={styles.thanksBody}>
               Dan reviews booking inquiries personally. Expect a reply within
               two business days.

@@ -1,5 +1,5 @@
 /**
- * Newsletter subscribers — every person with a newsletter inquiry, deduped
+ * Newsletter subscribers: every person with a newsletter inquiry, deduped
  * to one row per person (newest inquiry wins). Filter by opted-in / opted-out
  * / all. CSV export and per-row consent toggle.
  *
@@ -60,7 +60,7 @@ export default async function AdminNewsletterPage({
 
   const rows = (data ?? []) as unknown as RawRow[]
 
-  // Dedupe by person_id — keep the newest inquiry per person.
+  // Dedupe by person_id: keep the newest inquiry per person.
   const byPerson = new Map<string, Subscriber>()
   for (const r of rows) {
     if (!r.people) continue
@@ -93,7 +93,7 @@ export default async function AdminNewsletterPage({
         ? all
         : optedIn
 
-  // CSV rows — what we'd hand to ConvertKit/Beehiiv/Mailchimp on import.
+  // CSV rows: what we'd hand to ConvertKit/Beehiiv/Mailchimp on import.
   const csvRows = visible.map((s) => ({
     email: s.email,
     name: s.name ?? '',
@@ -138,7 +138,7 @@ export default async function AdminNewsletterPage({
         <Stat label="Total" value={all.length} />
         <Stat label="Opted in" value={optedIn.length} accent="blue" />
         <Stat label="Opted out" value={optedOut.length} accent="orange" />
-        <Stat label="Joined · 30d" value={last30} />
+        <Stat label="Joined, 30d" value={last30} />
       </section>
 
       <nav className={styles.tabs}>
@@ -187,14 +187,14 @@ export default async function AdminNewsletterPage({
                       })}
                     </div>
                   </td>
-                  <td>{s.name || '—'}</td>
+                  <td>{s.name || '-'}</td>
                   <td>
                     <a href={`mailto:${s.email}`} className={styles.cellEmail}>
                       {s.email}
                     </a>
                   </td>
-                  <td className={styles.cellMuted}>{s.company || '—'}</td>
-                  <td className={styles.cellMuted}>{s.source || '—'}</td>
+                  <td className={styles.cellMuted}>{s.company || '-'}</td>
+                  <td className={styles.cellMuted}>{s.source || '-'}</td>
                   <td>
                     <span
                       className={`${styles.pill} ${

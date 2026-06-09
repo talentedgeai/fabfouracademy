@@ -11,7 +11,7 @@
  * never be triggered by an outside request after deploy.
  *
  * Requires RESEND_API_KEY in .env.local. EMAIL_FROM defaults to
- * "Fab Four Academy <onboarding@resend.dev>" — Resend's verified sandbox
+ * "Fab Four Academy <onboarding@resend.dev>": Resend's verified sandbox
  * sender, which lets you send before verifying fabfouracademy.com.
  */
 
@@ -39,7 +39,7 @@ export async function GET(req: Request) {
   const post = await getTodaysPost()
   if (!post) {
     return NextResponse.json(
-      { error: 'getTodaysPost() returned null — no WOWPost available' },
+      { error: 'getTodaysPost() returned null - no WOWPost available' },
       { status: 500 },
     )
   }
@@ -53,7 +53,7 @@ export async function GET(req: Request) {
 
   const result = await sendTransactionalEmail({
     to,
-    subject: `${post.title} — Fab Four Academy`,
+    subject: `${post.title} - Fab Four Academy`,
     html,
   })
 

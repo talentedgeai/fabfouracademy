@@ -14,11 +14,11 @@ const QUOTES = [
     source: "Readers' Favorite",
   },
   {
-    text: 'An unusually immersive account — one that does not seek to radically reinvent Beatles-inspired leadership but to celebrate, marvel at, and honor it.',
+    text: 'An unusually immersive account, one that does not seek to radically reinvent Beatles-inspired leadership but to celebrate, marvel at, and honor it.',
     source: "PW's Booklife",
   },
   {
-    text: "Absher offers a leadership philosophy based on what the Beatles did right — and what they did wrong. A fun, innovative management guide, based on the story of the world's most popular band.",
+    text: "Absher offers a leadership philosophy based on what the Beatles did right, and what they did wrong. A fun, innovative management guide, based on the story of the world's most popular band.",
     source: 'Kirkus',
   },
 ]
@@ -49,7 +49,7 @@ export default function BooksPraise() {
               <blockquote key={i} className={styles.sliderCard}>
                 <span className={styles.mark}>&ldquo;</span>
                 <p className={styles.text}>{q.text}</p>
-                <cite className={styles.source}>— {q.source}</cite>
+                <cite className={styles.source}>{q.source}</cite>
               </blockquote>
             ))}
           </div>
