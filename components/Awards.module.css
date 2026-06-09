@@ -4,10 +4,15 @@
 }
 
 .inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
   gap: 16px;
 }
 
@@ -33,17 +38,28 @@
   font-size: 15px;
   color: var(--text-muted);
   line-height: 1.6;
-  max-width: 620px;
 }
 
 .imgWrap {
-  margin-top: 16px;
+  display: flex;
+  justify-content: center;
 }
 
 .img {
   width: 100%;
   max-width: 470px;
   height: auto;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+  .content {
+    align-items: center;
+  }
 }
 
 @media (max-width: 640px) {
