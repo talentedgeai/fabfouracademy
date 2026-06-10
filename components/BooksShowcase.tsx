@@ -46,7 +46,7 @@ export default function BooksShowcase() {
               ))}
             </ul>
             <div className={styles.ctas}>
-              <Link href="/the-fab-four-pillars-of-impact" className="btn btn-primary">
+              <Link href="/books" className="btn btn-primary">
                 Book Details
               </Link>
               <Link

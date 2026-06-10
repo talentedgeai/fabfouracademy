@@ -64,7 +64,7 @@ export default function Hero() {
             >
               Get the Book
             </Link>
-            <Link href="/the-fab-four-pillars-of-impact" className="btn btn-blue">
+            <Link href="/books" className="btn btn-blue">
               Learn More
             </Link>
           </div>
