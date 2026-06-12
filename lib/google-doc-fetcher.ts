@@ -162,16 +162,16 @@ function parseDocHTML(html: string): WOWPost[] {
     let bodyParas: string[] = []
 
     for (const para of contentParas) {
-      if (para.startsWith('Daily Challenge: ')) {
-        dailyChallenge = para.slice(17).trim()
-      } else if (para.startsWith('Reflection Questions: ')) {
-        reflectionQuestions = para.slice(22).trim()
+      if (/^Daily Challenge:\s*/i.test(para)) {
+        dailyChallenge = para.replace(/^Daily Challenge:\s*/i, '').trim()
+      } else if (/^Reflection Questions:\s*/i.test(para)) {
+        reflectionQuestions = para.replace(/^Reflection Questions:\s*/i, '').trim()
       } else {
         bodyParas.push(para)
       }
     }
 
-    // Auto-detect reflection = the last paragraph, if it asks questions
+    // Auto-detect reflection = the last paragraph that contains questions
     if (!reflectionQuestions && bodyParas.length > 0) {
       const last = bodyParas[bodyParas.length - 1]
       if (last.includes('?') && last.length > 40) {
@@ -179,20 +179,19 @@ function parseDocHTML(html: string): WOWPost[] {
       }
     }
 
-    // Auto-detect daily challenge = the "Today…" paragraph now sitting last
-    // (i.e. the one that was right above the reflection paragraph)
+    // Auto-detect daily challenge = the "Today…" paragraph right above the reflection
     if (!dailyChallenge && bodyParas.length > 0) {
       const last = bodyParas[bodyParas.length - 1]
       if (/^today\b/i.test(last)) {
         dailyChallenge = bodyParas.pop() as string
       } else {
-        // Fall back to the first "Today…" paragraph anywhere in the body
+        // Fall back: first "Today…" paragraph anywhere in the body
         const idx = bodyParas.findIndex(p => /^today\b/i.test(p))
         if (idx !== -1) dailyChallenge = bodyParas.splice(idx, 1)[0]
       }
     }
 
-    // Dedupe: ensure the challenge/reflection text never repeats in the body
+    // Dedupe: ensure challenge/reflection never repeat in the body
     bodyParas = bodyParas.filter(
       p => p !== dailyChallenge && p !== reflectionQuestions,
     )
