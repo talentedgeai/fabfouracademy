@@ -8,6 +8,7 @@ function decodeEntities(s: string): string {
   return s
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&#39;/g, "'")
@@ -129,16 +130,19 @@ function parseDocHTML(html: string): MonthlyPost[] {
       }
 
       if (phase === 'faq') {
-        // Each paragraph is either "Q: ... A: ..." combined, or separate Q / A lines
-        if (t.startsWith('Q:')) {
-          const combined = t.match(/^Q:\s*(.*?)\s+A:\s*(.+)$/)
-          if (combined) {
-            faq.push({ q: combined[1], a: combined[2] })
-          } else {
-            faq.push({ q: t.replace(/^Q:\s*/, ''), a: '' })
+        // The doc often concatenates all Q/A pairs into one paragraph.
+        // Split on " Q: " boundaries first, then parse each chunk.
+        const chunks = t.split(/(?<!\bA)\s+Q:\s+/)
+        for (const chunk of chunks) {
+          const clean = chunk.replace(/^Q:\s*/, '')
+          const aIdx = clean.search(/\s+A:\s+/)
+          if (aIdx !== -1) {
+            faq.push({ q: clean.slice(0, aIdx).trim(), a: clean.slice(aIdx).replace(/^\s*A:\s*/, '').trim() })
+          } else if (clean.startsWith('A:') && faq.length > 0 && faq[faq.length - 1].a === '') {
+            faq[faq.length - 1].a = clean.replace(/^A:\s*/, '').trim()
+          } else if (clean && !clean.startsWith('A:')) {
+            faq.push({ q: clean.trim(), a: '' })
           }
-        } else if (t.startsWith('A:') && faq.length > 0 && faq[faq.length - 1].a === '') {
-          faq[faq.length - 1].a = t.replace(/^A:\s*/, '')
         }
         i++
         continue
