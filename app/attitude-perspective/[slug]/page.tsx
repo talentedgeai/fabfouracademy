@@ -8,9 +8,10 @@ import WOWTodaySection from '@/components/WOWTodaySection'
 import WOWCTA from '@/components/WOWCTA'
 import Footer from '@/components/Footer'
 import MonthlyFAQ from '@/components/MonthlyFAQ'
-import { MONTHLY_POSTS, getPostBySlug } from '../posts'
+import { MONTHLY_POSTS } from '../posts'
 import type { TextBlock } from '../posts'
 import { getTodaysPost } from '@/lib/wow-utils'
+import { fetchMonthlyPosts } from '@/lib/monthly-theme-fetcher'
 import styles from './page.module.css'
 
 type Props = { params: Promise<{ slug: string }> }
@@ -21,7 +22,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const posts = await fetchMonthlyPosts()
+  const post = posts.find((p) => p.slug === slug)
   if (!post) return {}
   return {
     title: `${post.title} | Fab Four Academy`,
@@ -87,7 +89,8 @@ function renderBlock(block: TextBlock, i: number) {
 
 export default async function MonthlyPostPage({ params }: Props) {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const posts = await fetchMonthlyPosts()
+  const post = posts.find((p) => p.slug === slug)
   if (!post) notFound()
   const todaysWOW = await getTodaysPost()
 
