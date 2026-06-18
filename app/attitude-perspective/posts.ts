@@ -15,6 +15,7 @@ export type MonthlyPost = {
   imageUrl: string
   title: string
   subtitle: string
+  boxTitle?: string
   youtubeId: string
   intro: string[]
   sections: Section[]

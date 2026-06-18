@@ -59,6 +59,7 @@ function parseDocHTML(html: string): MonthlyPost[] {
     let title = ''
     let youtubeId = ''
     let subtitle = ''
+    let boxTitle = ''
     const intro: string[] = []
     const sections: MonthlyPost['sections'] = []
     const faq: { q: string; a: string }[] = []
@@ -100,7 +101,7 @@ function parseDocHTML(html: string): MonthlyPost[] {
         } else if (t.startsWith('YouTube ID:')) {
           youtubeId = t.replace(/^YouTube ID:\s*/, '').split(/\s/)[0]
         } else if (t.startsWith('Box Title:')) {
-          // not rendered
+          boxTitle = t.replace(/^Box Title:\s*/, '')
         } else if (t.startsWith('Box Description:')) {
           subtitle = t.replace(/^Box Description:\s*/, '')
           phase = 'intro'
@@ -177,6 +178,7 @@ function parseDocHTML(html: string): MonthlyPost[] {
       imageUrl,
       title,
       subtitle,
+      ...(boxTitle ? { boxTitle } : {}),
       youtubeId,
       intro,
       sections,

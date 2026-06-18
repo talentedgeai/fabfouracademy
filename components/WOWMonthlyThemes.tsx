@@ -10,8 +10,10 @@ const GAP = 24
 export default function WOWMonthlyThemes({ posts }: { posts: MonthlyPost[] }) {
   const THEMES = posts.slice(-12).map((p) => ({
     month: p.month,
-    theme: p.subtitle,
-    description: p.intro[0] && p.intro[0].length > 200 ? p.intro[0].slice(0, 200) + '…' : (p.intro[0] ?? ''),
+    theme: p.boxTitle ?? p.subtitle,
+    description: p.boxTitle
+      ? p.subtitle
+      : (p.intro[0] && p.intro[0].length > 200 ? p.intro[0].slice(0, 200) + '…' : (p.intro[0] ?? '')),
     href: `/attitude-perspective/${p.slug}`,
     youtubeId: p.youtubeId,
   }))
