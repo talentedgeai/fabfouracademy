@@ -2,26 +2,24 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react'
 import Link from 'next/link'
-import { MONTHLY_POSTS } from '@/app/attitude-perspective/posts'
+import type { MonthlyPost } from '@/app/attitude-perspective/posts'
 import styles from './WOWMonthlyThemes.module.css'
-
-// Keep newest 12 posts, ordered oldest → newest (left → right)
-const THEMES = MONTHLY_POSTS.slice(-12).map((p) => ({
-  month: p.month,
-  theme: p.subtitle,
-  description: p.intro[0].length > 200 ? p.intro[0].slice(0, 200) + '…' : p.intro[0],
-  href: `/attitude-perspective/${p.slug}`,
-  youtubeId: p.youtubeId,
-}))
 
 const GAP = 24
 
-/** On load, scroll so the latest post is visible on the right. */
-function getInitialIndex(vc: number): number {
-  return Math.max(0, THEMES.length - vc)
-}
+export default function WOWMonthlyThemes({ posts }: { posts: MonthlyPost[] }) {
+  const THEMES = posts.slice(-12).map((p) => ({
+    month: p.month,
+    theme: p.subtitle,
+    description: p.intro[0] && p.intro[0].length > 200 ? p.intro[0].slice(0, 200) + '…' : (p.intro[0] ?? ''),
+    href: `/attitude-perspective/${p.slug}`,
+    youtubeId: p.youtubeId,
+  }))
 
-export default function WOWMonthlyThemes() {
+  /** On load, scroll so the latest post is visible on the right. */
+  function getInitialIndex(vc: number): number {
+    return Math.max(0, THEMES.length - vc)
+  }
   const [index, setIndex] = useState(0)
   const [itemWidth, setItemWidth] = useState(360)
   const [visibleCount, setVisibleCount] = useState(3)

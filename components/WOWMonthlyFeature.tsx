@@ -1,15 +1,27 @@
 import Link from 'next/link'
-import { getMonthlyPostForDate, getTodaysMonthlyPost } from '@/lib/wow-utils'
+import { fetchMonthlyPosts } from '@/lib/monthly-theme-fetcher'
+import { parsePostDate } from '@/lib/wow-utils'
 import styles from './WOWMonthlyFeature.module.css'
 
-/**
- * Pass `published` (e.g. "April 28, 2026") from the daily WOW post to show
- * the matching monthly theme. Omit to show the current month's theme.
- */
-export default function WOWMonthlyFeature({ published }: { published?: string }) {
-  const monthly = published
-    ? getMonthlyPostForDate(published)
-    : getTodaysMonthlyPost()
+const MONTH_NAMES = [
+  'January','February','March','April','May','June',
+  'July','August','September','October','November','December',
+]
+
+export default async function WOWMonthlyFeature({ published }: { published?: string }) {
+  const posts = await fetchMonthlyPosts()
+
+  const targetDate = published ? parsePostDate(published) : new Date()
+  const monthYear = `${MONTH_NAMES[targetDate.getMonth()]} ${targetDate.getFullYear()}`
+
+  let monthly = posts.find(p => p.month === monthYear && p.youtubeId) ?? null
+
+  if (!monthly) {
+    const sorted = [...posts].sort(
+      (a, b) => parsePostDate(b.month).getTime() - parsePostDate(a.month).getTime()
+    )
+    monthly = sorted.find(p => Boolean(p.youtubeId)) ?? sorted[0] ?? null
+  }
 
   if (!monthly) return null
 
