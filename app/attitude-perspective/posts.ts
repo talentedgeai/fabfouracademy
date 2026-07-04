@@ -949,6 +949,86 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
       { label: 'Join the Fab Four Academy Community', href: '/join-fab-four-community' },
     ],
   },
+  // ─────────────────────────────────────────
+  // MAY 2026
+  // ─────────────────────────────────────────
+  {
+    slug: 'may-2026',
+    month: 'May 2026',
+    series: 'Attitude & Perspective: Monthly Deep Dive',
+    imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
+    title: "Let It Be: The Beatles' Guide to Acceptance and Emotional Maturity",
+    subtitle: 'A Month of Emotional Wisdom, Personal Growth, and Beatles Life Lessons',
+    boxTitle: 'Finding Peace Through Acceptance',
+    youtubeId: 'CGj85pVzRJs',
+    intro: [
+      'When Paul McCartney dreamed of his late mother Mary during the Beatles\' breakup, he woke with words that would comfort millions: "Let it be." This wasn\'t escapism. It was hard-won wisdom about acceptance. Four young men who grew up in public, navigating unprecedented fame and inevitable loss, created a roadmap for emotional maturity that remains profoundly relevant today.',
+      'The Beatles generated over $1 billion in revenue, but the most valuable lessons from the Beatles aren\'t about commercial success. From "I Want to Hold Your Hand" to "Let It Be," their evolution from energetic twenty-somethings to reflective artists mirrors the universal journey toward acceptance and maturity we all navigate.',
+      'Just as we explored in [April how attitude and perspective shape our reality](/attitude-perspective/april-2026), this month we examine the deeper emotional wisdom that comes from accepting what we cannot change while developing the maturity to navigate life\'s transitions with grace.',
+      'Throughout May, we\'ll explore how the Beatles\' approach to grief, relationships, change, and letting go offers practical wisdom for anyone seeking to grow through life\'s inevitable transitions with grace and authenticity.',
+    ],
+    sections: [
+      {
+        heading: 'The Wisdom of Surrender: When Acceptance Becomes Strength',
+        blocks: [
+          { type: 'p', text: 'According to research published in the Journal of Consulting and Clinical Psychology, acceptance-based approaches reduce anxiety symptoms by an average of 43% and significantly improve emotional regulation capabilities compared to suppression-based strategies. The Beatles demonstrated this principle decades before it became mainstream psychological practice.' },
+          { type: 'p', text: 'Paul lost his mother to cancer at fourteen, an experience that shaped his understanding of grief throughout his life. When the Beatles began unraveling in 1969, he found himself in another kind of loss. He was watching something he loved deeply come apart despite everyone\'s best efforts. The dream of his mother offering comfort wasn\'t coincidence. It was wisdom arriving precisely when needed most.' },
+          { type: 'p', text: '"Let It Be" captures a profound truth about maturity: sometimes guidance comes not through effort but through surrender. The most important lessons often arrive when we finally create enough stillness to receive them. This isn\'t passive resignation. It\'s the active practice of discernment.' },
+          { type: 'p', text: 'Wisdom means recognizing the difference between things we can influence and things we must allow to unfold in their own time. Paul\'s willingness to transform private consolation into universal comfort demonstrates how personal healing becomes collective gift.' },
+          { type: 'p', text: 'The Beatles taught us that acceptance doesn\'t mean abandoning hope. It means understanding when to push and when to release, perhaps the clearest marker of emotional maturity available to us.' },
+        ],
+        reflection: 'What situation in your life right now requires surrender rather than force? Consider one specific challenge where your continued effort might actually be preventing the natural resolution that acceptance could allow. How might creating space for wisdom to arrive change your approach entirely?',
+      },
+      {
+        heading: 'Active Compassion: The Mature Practice of Showing Up',
+        blocks: [
+          { type: 'p', text: 'While "Let It Be" speaks to accepting what we cannot change, "Hey Jude" demonstrates the active side of mature love: showing up for others during their hardest moments. Paul wrote this seven-minute anthem while driving to comfort five-year-old Julian Lennon during his parents\' divorce.' },
+          { type: 'p', text: 'The deeper lessons from the Beatles here isn\'t about the song itself. It\'s about Paul\'s decision to get in the car in the first place. He didn\'t have a plan. He didn\'t know what to say. He simply recognized that a child he cared about was hurting, and presence mattered more than perfect words.' },
+          { type: 'p', text: 'The famous four-minute coda represents something profound: the willingness to sit with difficult feelings rather than rushing toward resolution. Paul gave emotion room to breathe. He wasn\'t trying to fix Julian\'s pain. He was offering companionship through it.' },
+          { type: 'p', text: 'This reflects crucial wisdom the Beatles understood: genuine support isn\'t about solving someone\'s problems. It\'s about being present while they navigate their own path through difficulty. Mature compassion means showing up before you feel fully ready, trusting that presence itself carries value.' },
+          { type: 'p', text: 'Research from Stanford University\'s Center for Compassion and Altruism Research and Education confirms that perceived social support during difficult transitions reduces cortisol levels by approximately 35% and significantly accelerates emotional recovery. The Beatles intuitively understood what neuroscience now proves: connection heals.' },
+          { type: 'p', text: 'John Lennon\'s "Any Time at All" makes an unconditional promise: if you need me, I\'ll be there. No conditions, no calendar checking, no qualification. This represents another dimension of maturity: the ability to make yourself reliably present for people who matter most.' },
+          { type: 'p', text: 'Intimacy is built through consistent availability, not grand gestures. We often assume people we love know they can count on us, but assumptions aren\'t promises. John\'s declaration reminds us that saying it out loud matters. People need to hear directly that you are someone they can call when everything falls apart.' },
+        ],
+        reflection: 'Who in your life might be quietly waiting to feel more genuinely seen and chosen by you? What specific, actionable step could you take this week to demonstrate your availability, not through words alone but through the kind of presence that creates safety and trust?',
+      },
+      {
+        heading: 'Recognizing Hidden Battles: The Compassionate Eye',
+        blocks: [
+          { type: 'p', text: 'Paul\'s "Another Day" follows a woman moving through her routine with quiet desperation. Underneath the bouncy melody lies sobering wisdom about compassion: everyone around us fights invisible battles we cannot see.' },
+          { type: 'p', text: 'The colleague who seems distracted. The neighbor who looks tired. The stranger moving slowly through checkout. We rarely know the full weight someone carries, yet we often default to irritation rather than curiosity. Paul\'s gentle compassion invites us to look closer before passing judgment.' },
+          { type: 'p', text: 'Maturity means recognizing that the gap between what someone appears to be and who they actually are contains enormous room for kindness. Every person we encounter has dreams and disappointments, a whole interior world their ordinary routine barely hints at. Treating the surface as the whole story is one of our most common mistakes.' },
+          { type: 'p', text: 'The Beatles understood that resilience isn\'t always dramatic. Sometimes it\'s the quiet act of getting dressed, making coffee, and trying again. That everyday courage deserves recognition. "Another Day" reminds us that ordinary lives contain extraordinary effort, and the most compassionate thing we can do is honor that effort even when no one\'s watching.' },
+          { type: 'p', text: 'Clinical research demonstrates that practicing compassion reduces personal distress while increasing prosocial behavior and emotional wellbeing. Compassionate attention literally changes brain structure, enhancing empathy and emotional regulation. The Beatles\' message about looking beyond surface appearances aligns perfectly with neuroscience.' },
+        ],
+        reflection: 'Think about someone in your daily life whose exterior might be masking a difficult interior struggle. How could shifting from judgment to curiosity about their experience change both your interaction with them and your own emotional state? What small gesture of unexpected kindness could you offer this week?',
+      },
+      {
+        heading: 'The Art of Graceful Exits: Knowing When to Walk Away',
+        blocks: [
+          { type: 'p', text: 'Paul wrote "I\'ll Follow the Sun" as a teenager, already imagining the need to move on before things went wrong. There\'s remarkable emotional maturity in those early lyrics: an acknowledgment that some partings aren\'t betrayals but inevitabilities.' },
+          { type: 'p', text: 'Often the most loving thing we can do is stop holding on past the natural end. Relationships, partnerships, and life seasons all have their own rhythms. Fighting those rhythms rarely produces hoped-for outcomes. Paul understood early that clinging to something whose time has passed doesn\'t honor it. Letting go gracefully, with genuine appreciation for what it was, is far more dignified.' },
+          { type: 'p', text: 'The Beatles themselves eventually faced this truth as a band. Four individuals who built something extraordinary together could not ultimately suppress their individual trajectories in service of the collective. True maturity means recognizing the difference between following your own light and running away.' },
+          { type: 'p', text: 'Research demonstrates that individuals who navigate relationship endings with acceptance and emotional closure experience approximately 40% less rumination and psychological distress, and maintain significantly healthier attachment patterns in future relationships. The Beatles\' approach to necessary endings, whether "I\'ll Follow the Sun" or the band\'s eventual dissolution, models how acceptance of natural conclusions creates space for new beginnings.' },
+          { type: 'p', text: "George Harrison's spiritual journey reinforced this principle. Everything that arises, passes. This isn't cause for despair. It's the condition that makes each moment worth savoring. When you know a chapter is closing, you pay attention differently. You notice what you might otherwise rush past." },
+        ],
+        reflection: 'What relationship, habit, or chapter might be asking to be released gracefully rather than held past its natural end? How could letting go with love and appreciation, rather than clinging or fleeing, create space for something new to grow? What would honoring the ending look like in practice?',
+      },
+    ],
+    faq: [
+      { q: 'What specific lessons from the Beatles can anyone apply immediately?', a: 'Wise surrender transforms struggles by asking "What am I trying to control unnecessarily?" Active presence improves relationships by eliminating distractions during important conversations. Compassionate curiosity helps navigate difficult interactions by looking beyond surface behavior to underlying struggles. These practices, grounded in both Beatles wisdom and contemporary psychological research, provide immediate relief from unnecessary suffering.' },
+      { q: 'Which Beatles song best demonstrates acceptance and maturity for everyday life?', a: '"Let It Be" captures the principle that wisdom often arrives through surrender rather than force. Paul\'s insight that sometimes the best response is creating space for clarity applies directly to relationship challenges, career transitions, and personal growth. The song emerged from genuine experience with grief and acceptance, making it an authentic guide rather than mere platitude.' },
+      { q: 'How long does implementing Beatles-inspired practices take to show results?', a: 'Individual practices like compassionate curiosity show impact within days. Relationship improvements through active presence require 30 to 60 days of consistent practice. Deep personal transformation develops over 3 to 6 months of dedicated application. Research on habit formation suggests that consistent daily practice for 66 days typically creates lasting behavioral change.' },
+      { q: 'Can these lessons work for people without spiritual or philosophical backgrounds?', a: "These are practical emotional skills, not religious practices. Acceptance and maturity enhance life quality while respecting individual beliefs and values. The Beatles' wisdom translates across worldviews because it addresses universal human experiences: loss, change, relationships, and growth. The psychological research supporting these practices comes from secular academic institutions and applies regardless of spiritual orientation." },
+      { q: "What's the biggest mistake people make applying Beatles wisdom?", a: 'Attempting all principles simultaneously instead of mastering one first. Start with wise surrender for 30 days, then add other techniques. Sequential implementation ensures sustainable growth and lasting change. Research on behavior change consistently shows that focusing on single habits produces significantly better long-term outcomes than attempting multiple changes at once.' },
+    ],
+    closingCta: 'Discover how timeless music translates into practical leadership principles at [Fab Four Academy](https://www.fabfouracademy.com/). [Join the Fab Four Academy Community](/join-fab-four-community) and [pre-order The Fab Four Pillars of Excellence](/dan-absher-books).',
+    relatedLinks: [
+      { label: 'April 2026 Attitude & Perspective', href: '/attitude-perspective/april-2026' },
+      { label: 'Join the Fab Four Academy Community', href: '/join-fab-four-community' },
+      { label: 'Pre-order The Fab Four Pillars of Excellence', href: '/dan-absher-books' },
+    ],
+  },
 ]
 
 export function getPostBySlug(slug: string): MonthlyPost | undefined {
