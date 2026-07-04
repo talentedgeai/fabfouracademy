@@ -112,7 +112,7 @@ export default async function MonthlyPostPage({ params }: Props) {
         {/* 2. Month / Title / Subtitle */}
         <div className={styles.headerSection}>
           <div className={`container ${styles.headerInner}`}>
-            <span className={styles.month}>{post.month}</span>
+            <span className={styles.month}>{post.month.replace(/\s+\d{4}$/, '')}</span>
             <h1 className={styles.title}>{post.title}</h1>
             <p className={styles.subtitle}>{post.subtitle}</p>
           </div>

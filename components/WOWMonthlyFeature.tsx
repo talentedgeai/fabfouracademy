@@ -12,9 +12,10 @@ export default async function WOWMonthlyFeature({ published }: { published?: str
   const posts = await fetchMonthlyPosts()
 
   const targetDate = published ? parsePostDate(published) : new Date()
-  const monthYear = `${MONTH_NAMES[targetDate.getMonth()]} ${targetDate.getFullYear()}`
+  const monthName = MONTH_NAMES[targetDate.getMonth()]
 
-  let monthly = posts.find(p => p.month === monthYear && p.youtubeId) ?? null
+  // Match by month name only — themes are year-agnostic
+  let monthly = posts.find(p => p.month.startsWith(monthName) && p.youtubeId) ?? null
 
   if (!monthly) {
     const sorted = [...posts].sort(

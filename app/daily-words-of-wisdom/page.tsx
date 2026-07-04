@@ -17,13 +17,21 @@ export const metadata: Metadata = {
     'Beatles-inspired insights delivered to your inbox every morning. Explore monthly journey themes and daily reflections from Fab Four Academy.',
 }
 
+const MONTH_ORDER = ['January','February','March','April','May','June','July','August','September','October','November','December']
+
 export default async function DailyWordsOfWisdomPage() {
   const allPosts = await fetchMonthlyPosts()
-  const now = new Date()
-  const currentMonthStart = new Date(now.getFullYear(), now.getMonth(), 1)
-  const posts = allPosts
-    .filter(p => parsePostDate(p.month) <= currentMonthStart)
-    .sort((a, b) => parsePostDate(a.month).getTime() - parsePostDate(b.month).getTime())
+
+  // One entry per calendar month — most recent year wins
+  const monthMap = new Map<string, (typeof allPosts)[0]>()
+  for (const p of allPosts) {
+    const name = p.month.split(' ')[0]
+    const existing = monthMap.get(name)
+    if (!existing || parsePostDate(p.month) > parsePostDate(existing.month)) {
+      monthMap.set(name, p)
+    }
+  }
+  const posts = MONTH_ORDER.filter(m => monthMap.has(m)).map(m => monthMap.get(m)!)
 
   return (
     <>
