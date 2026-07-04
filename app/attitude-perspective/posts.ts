@@ -600,7 +600,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
     title: 'Here Comes the Sun: Lessons from The Beatles on Embracing New Beginnings',
     subtitle: 'A Month of Renewal, Fresh Starts, and Beatles Wisdom for Transformative Change',
-    youtubeId: '_paPrw0gAUo',
+    youtubeId: 'KQetemT1sWc',
     intro: [
       "When George escaped a tense Apple Corps business meeting in 1969 and retreated to Eric's garden, he wasn't just avoiding conflict. He was demonstrating a crucial leadership principle: sometimes breakthrough requires stepping away from the storm. That sunny afternoon produced \"Here Comes the Sun,\" one of the most enduring lessons from The Beatles about navigating endings and embracing new beginnings.",
       "The Beatles generated unprecedented cultural and commercial success, but their most valuable legacy isn't their chart dominance. Four young men from Liverpool faced constant reinvention, from leather-clad club performers to suited television stars to studio innovators to solo artists. Their systematic approach to transitions, renewal, and fresh starts provides actionable frameworks for today's leaders navigating market disruptions, career pivots, and organizational transformations.",
