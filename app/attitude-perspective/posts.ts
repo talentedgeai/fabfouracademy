@@ -29,7 +29,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
   // JUNE 2025
   // ─────────────────────────────────────────
   {
-    slug: 'june-2025',
+    slug: 'june',
     month: 'June 2025',
     series: 'Attitude & Perspective: Monthly Deep Dive',
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
@@ -110,7 +110,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
   // JULY 2025
   // ─────────────────────────────────────────
   {
-    slug: 'july-2025',
+    slug: 'july',
     month: 'July 2025',
     series: 'Attitude & Perspective: Monthly Deep Dive',
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
@@ -186,7 +186,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
   // AUGUST 2025
   // ─────────────────────────────────────────
   {
-    slug: 'august-2025',
+    slug: 'august',
     month: 'August 2025',
     series: 'Attitude & Perspective: Monthly Deep Dive',
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
@@ -254,7 +254,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
   // SEPTEMBER 2025
   // ─────────────────────────────────────────
   {
-    slug: 'september-2025',
+    slug: 'september',
     month: 'September 2025',
     series: 'Attitude & Perspective: Monthly Deep Dive',
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
@@ -338,7 +338,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
   // OCTOBER 2025
   // ─────────────────────────────────────────
   {
-    slug: 'october-2025',
+    slug: 'october',
     month: 'October 2025',
     series: 'Attitude & Perspective: Monthly Deep Dive',
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
@@ -347,7 +347,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     youtubeId: 'C3_0GqPvr4U',
     intro: [
       "The Beatles created a cultural phenomenon in the 1960s that is still influencing the world today. When John Lennon wrote \"Give Peace a Chance\" during the 1969 Montreal Bed-In, he demonstrated a profound leadership principle: platforms create responsibility, and conscious leaders use their influence to address injustice rather than merely accumulate power.",
-      "Four working-class musicians evolved from entertainers to activists, showing how individual consciousness expansion naturally leads to social responsibility. Their systematic approach to controversial issues, principled stands, and sustained advocacy provides actionable frameworks for today's business leaders, entrepreneurs, and executives seeking to balance profit with purpose. Building on our [September exploration of Transformational Lessons from The Beatles: Leadership Through Attitude and Perspective](/attitude-perspective/september-2025), October examines how The Beatles' journey from \"Love Me Do\" to \"Imagine\" offers a blueprint for principled leadership that creates sustainable value while addressing societal challenges.",
+      "Four working-class musicians evolved from entertainers to activists, showing how individual consciousness expansion naturally leads to social responsibility. Their systematic approach to controversial issues, principled stands, and sustained advocacy provides actionable frameworks for today's business leaders, entrepreneurs, and executives seeking to balance profit with purpose. Building on our [September exploration of Transformational Lessons from The Beatles: Leadership Through Attitude and Perspective](/attitude-perspective/september), October examines how The Beatles' journey from \"Love Me Do\" to \"Imagine\" offers a blueprint for principled leadership that creates sustainable value while addressing societal challenges.",
     ],
     sections: [
       {
@@ -430,7 +430,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     ],
     closingCta: 'Get comprehensive implementation guides on Beatles business wisdom by [joining the Fab Four Academy Community](/join-fab-four-community) and [pre-ordering The Fab Four Pillars of Excellence](/dan-absher-books).',
     relatedLinks: [
-      { label: 'September 2025 Attitude & Perspective', href: '/attitude-perspective/september-2025' },
+      { label: 'September 2025 Attitude & Perspective', href: '/attitude-perspective/september' },
       { label: 'Join the Fab Four Academy Community', href: '/join-fab-four-community' },
       { label: 'Pre-order The Fab Four Pillars of Excellence', href: '/dan-absher-books' },
     ],
@@ -440,7 +440,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
   // NOVEMBER 2025
   // ─────────────────────────────────────────
   {
-    slug: 'november-2025',
+    slug: 'november',
     month: 'November 2025',
     series: 'Attitude & Perspective: Monthly Deep Dive',
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
@@ -449,7 +449,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     youtubeId: 'AW55J2zE3N4',
     intro: [
       "The Beatles generated over $1 billion in revenue and maintained cultural influence for six decades, but the most valuable lessons from the Beatles aren't about music marketing. When John composed \"In My Life\" during the transitional Rubber Soul sessions, he captured a profound business truth: organizational memory, not just innovation, determines lasting success.",
-      "Four working-class Liverpool teenagers demonstrated how gratitude becomes competitive advantage and strategic nostalgia builds sustainable relationships. Their systematic approach to honoring the past while driving future growth provides actionable frameworks for today's executives, entrepreneurs, and creative professionals seeking to build lasting legacy rather than short-term gains. Building on our [October exploration of social justice principles](/attitude-perspective/october-2025), November focuses on how The Beatles' approach to memory and appreciation offers a blueprint for transforming relationships into strategic assets in any industry.",
+      "Four working-class Liverpool teenagers demonstrated how gratitude becomes competitive advantage and strategic nostalgia builds sustainable relationships. Their systematic approach to honoring the past while driving future growth provides actionable frameworks for today's executives, entrepreneurs, and creative professionals seeking to build lasting legacy rather than short-term gains. Building on our [October exploration of social justice principles](/attitude-perspective/october), November focuses on how The Beatles' approach to memory and appreciation offers a blueprint for transforming relationships into strategic assets in any industry.",
     ],
     sections: [
       {
@@ -508,7 +508,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     ],
     closingCta: 'Get comprehensive relationship assessment tools and implementation guides by [joining the Fab Four Academy Community](/join-fab-four-community) and [pre-ordering The Fab Four Pillars of Excellence](/dan-absher-books).',
     relatedLinks: [
-      { label: 'October 2025 Attitude & Perspective', href: '/attitude-perspective/october-2025' },
+      { label: 'October 2025 Attitude & Perspective', href: '/attitude-perspective/october' },
       { label: 'Join the Fab Four Academy Community', href: '/join-fab-four-community' },
       { label: 'Pre-order The Fab Four Pillars of Excellence', href: '/dan-absher-books' },
     ],
@@ -518,7 +518,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
   // DECEMBER 2025
   // ─────────────────────────────────────────
   {
-    slug: 'december-2025',
+    slug: 'december',
     month: 'December 2025',
     series: 'Attitude & Perspective: Monthly Deep Dive',
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
@@ -527,7 +527,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     youtubeId: 'sa3948JzWCc',
     intro: [
       "The Beatles generated over $1 billion in revenue and influenced millions worldwide, but the most valuable lessons from The Beatles aren't about commercial success. When George recorded \"My Sweet Lord\" in 1970, it became the first solo Beatles single to top charts globally, proving that authentic spiritual seeking resonates even in mainstream markets. His journey from Beatlemania to meditation retreats revealed a profound leadership truth: sustainable success requires meaning beyond material achievement.",
-      "Four working-class Liverpool teenagers demonstrated how spiritual intelligence becomes competitive advantage. Their systematic approach to purpose, meaning, and transcendence during unprecedented success provides actionable wisdom for today's executives, entrepreneurs, and creative professionals seeking fulfillment alongside achievement. Throughout December, we'll explore how The Beatles' spiritual evolution offers a blueprint for integrating faith and purpose into professional excellence without sacrificing either. Building on the [attitude and perspective lessons explored in November](/attitude-perspective/november-2025), this month examines how spiritual depth transforms not just how we see challenges, but why we face them at all.",
+      "Four working-class Liverpool teenagers demonstrated how spiritual intelligence becomes competitive advantage. Their systematic approach to purpose, meaning, and transcendence during unprecedented success provides actionable wisdom for today's executives, entrepreneurs, and creative professionals seeking fulfillment alongside achievement. Throughout December, we'll explore how The Beatles' spiritual evolution offers a blueprint for integrating faith and purpose into professional excellence without sacrificing either. Building on the [attitude and perspective lessons explored in November](/attitude-perspective/november), this month examines how spiritual depth transforms not just how we see challenges, but why we face them at all.",
     ],
     sections: [
       {
@@ -584,7 +584,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     ],
     closingCta: 'Get comprehensive implementation guides and monthly deep dives on Beatles business wisdom by [joining the Fab Four Academy Community](/join-fab-four-community) and [pre-ordering The Fab Four Pillars of Excellence](/dan-absher-books).',
     relatedLinks: [
-      { label: 'November 2025 Attitude & Perspective', href: '/attitude-perspective/november-2025' },
+      { label: 'November 2025 Attitude & Perspective', href: '/attitude-perspective/november' },
       { label: 'Join the Fab Four Academy Community', href: '/join-fab-four-community' },
       { label: 'Pre-order The Fab Four Pillars of Excellence', href: '/dan-absher-books' },
     ],
@@ -594,7 +594,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
   // JANUARY 2026
   // ─────────────────────────────────────────
   {
-    slug: 'january-2026',
+    slug: 'january',
     month: 'January 2026',
     series: 'Attitude & Perspective: Monthly Deep Dive',
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
@@ -604,7 +604,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     intro: [
       "When George escaped a tense Apple Corps business meeting in 1969 and retreated to Eric's garden, he wasn't just avoiding conflict. He was demonstrating a crucial leadership principle: sometimes breakthrough requires stepping away from the storm. That sunny afternoon produced \"Here Comes the Sun,\" one of the most enduring lessons from The Beatles about navigating endings and embracing new beginnings.",
       "The Beatles generated unprecedented cultural and commercial success, but their most valuable legacy isn't their chart dominance. Four young men from Liverpool faced constant reinvention, from leather-clad club performers to suited television stars to studio innovators to solo artists. Their systematic approach to transitions, renewal, and fresh starts provides actionable frameworks for today's leaders navigating market disruptions, career pivots, and organizational transformations.",
-      "Throughout January, we'll explore how The Beatles' approach to new beginnings offers a blueprint for thriving during change in any field. Their wisdom applies whether you're launching a startup, pivoting strategy, rebuilding after setbacks, or simply seeking fresh perspective on familiar challenges. Building on our [December exploration of attitude and perspective](https://www.fabfouracademy.com/attitude-perspective/december-2025), this month focuses specifically on how the Beatles navigated transitions and embraced renewal.",
+      "Throughout January, we'll explore how The Beatles' approach to new beginnings offers a blueprint for thriving during change in any field. Their wisdom applies whether you're launching a startup, pivoting strategy, rebuilding after setbacks, or simply seeking fresh perspective on familiar challenges. Building on our [December exploration of attitude and perspective](https://www.fabfouracademy.com/attitude-perspective/december), this month focuses specifically on how the Beatles navigated transitions and embraced renewal.",
     ],
     sections: [
       {
@@ -668,7 +668,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     ],
     closingCta: 'Get comprehensive implementation guides, measurement tools, and monthly deep dives on Beatles business wisdom by [joining the Fab Four Academy Community](https://www.fabfouracademy.com/join-fab-four-community) and [pre-ordering The Fab Four Pillars of Excellence](/dan-absher-books).',
     relatedLinks: [
-      { label: 'December 2025 Attitude & Perspective', href: 'https://www.fabfouracademy.com/attitude-perspective/december-2025' },
+      { label: 'December 2025 Attitude & Perspective', href: 'https://www.fabfouracademy.com/attitude-perspective/december' },
       { label: 'Join the Fab Four Academy Community', href: '/join-fab-four-community' },
       { label: 'Pre-order The Fab Four Pillars of Excellence', href: '/dan-absher-books' },
     ],
@@ -678,7 +678,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
   // FEBRUARY 2026
   // ─────────────────────────────────────────
   {
-    slug: 'february-2026',
+    slug: 'february',
     month: 'February 2026',
     series: 'Attitude & Perspective: Monthly Deep Dive',
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
@@ -698,7 +698,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
           { type: 'p', text: "The lessons from The Beatles about communication authenticity apply directly to modern leadership challenges. Leaders who express what they genuinely value without hedging create psychological safety that enables team innovation. When executives hide behind corporate language and protective distance, they signal that authentic expression carries professional risk. Teams respond by withholding ideas, concerns, and creative contributions." },
           { type: 'p', text: 'Sincerity requires confidence that many professionals lack after years of criticism for "caring too much" or "being too emotional." Paul\'s willingness to defend straightforward devotion gave permission for authentic expression. In business contexts, this translates to leaders stating commitments clearly, acknowledging failures directly, and expressing appreciation without qualification.' },
           { type: 'p', text: "The neurological impact proves measurable. Studies from UCLA's Social Cognitive Neuroscience Laboratory demonstrate that authentic emotional expression activates trust responses in listeners' brains. When leaders mean what they say, teams instinctively recognize that authenticity. Conversely, performed emotions trigger skepticism responses that undermine leadership effectiveness regardless of message content." },
-          { type: 'p', text: "Just as our [January exploration of attitude and perspective](https://www.fabfouracademy.com/attitude-perspective/january-2026) revealed how The Beatles transformed circumstances through reframing, their approach to relationships demonstrates that authentic connection begins with choosing vulnerability over protective sophistication." },
+          { type: 'p', text: "Just as our [January exploration of attitude and perspective](https://www.fabfouracademy.com/attitude-perspective/january) revealed how The Beatles transformed circumstances through reframing, their approach to relationships demonstrates that authentic connection begins with choosing vulnerability over protective sophistication." },
         ],
         reflection: "Where in your leadership practice are you tempering genuine feelings with sophisticated distance or corporate language? What commitment, appreciation, or concern would become more powerful if you expressed it with Paul's directness? Consider one important message you've been hedging. How could stating it simply and sincerely transform your team's response?",
       },
@@ -766,7 +766,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     ],
     closingCta: 'Get comprehensive relationship assessment tools and implementation guides by [pre-ordering The Fab Four Pillars of Impact](/dan-absher-books).',
     relatedLinks: [
-      { label: 'January 2026 Attitude & Perspective', href: '/attitude-perspective/january-2026' },
+      { label: 'January 2026 Attitude & Perspective', href: '/attitude-perspective/january' },
       { label: 'Pre-order The Fab Four Pillars of Impact', href: '/dan-absher-books' },
       { label: 'Join the Fab Four Academy Community', href: '/join-fab-four-community' },
     ],
@@ -776,7 +776,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
   // MARCH 2026
   // ─────────────────────────────────────────
   {
-    slug: 'march-2026',
+    slug: 'march',
     month: 'March 2026',
     series: 'Attitude & Perspective: Monthly Deep Dive',
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
@@ -821,7 +821,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
           { type: 'p', text: "This lesson from The Beatles challenges productivity obsession pervading modern work culture. According to Gallup research, the average full-time employee works significantly longer hours than standard schedules, sacrificing sleep and recovery to meet endless demands. Yet research from Stanford University demonstrates productivity per hour declines sharply beyond certain thresholds, making excessive hours counterproductive." },
           { type: 'p', text: "John's approach provides permission for strategic withdrawal. Recovery time is performance time. Your brain processes information, consolidates learning, and generates creative connections during rest periods. Leaders who eliminate downtime in pursuit of constant output experience diminishing returns in decision quality, creativity, and emotional regulation." },
           { type: 'p', text: "\"I'm So Tired\" captures the opposite experience: John's sleepless nights in India despite peaceful surroundings. His frustration reveals important truth about individual differences in restoration. What works for one person leaves another depleted. Meditation retreats restored some Beatles but left John more exhausted." },
-          { type: 'p', text: "Similar to the [lessons from The Beatles about attitude and perspective explored last month](https://www.fabfouracademy.com/attitude-perspective/february-2026), understanding your individual needs requires honest self-assessment rather than forcing conventional approaches. Some people recharge through solitude; others need social connection. Some restore through movement; others through stillness." },
+          { type: 'p', text: "Similar to the [lessons from The Beatles about attitude and perspective explored last month](https://www.fabfouracademy.com/attitude-perspective/february), understanding your individual needs requires honest self-assessment rather than forcing conventional approaches. Some people recharge through solitude; others need social connection. Some restore through movement; others through stillness." },
           { type: 'p', text: "Lessons from The Beatles teach self-knowledge trumps best practices. John needed to discover what actually worked for him rather than forcing what worked for others. Leaders who help teams identify their individual recovery patterns create more sustainable performance than those imposing blanket solutions." },
           { type: 'p', text: 'George\'s "Blue Jay Way" offers wisdom for foggy periods when you can\'t see the path forward. Written while waiting for friends lost in Los Angeles fog, the disorienting production mirrors anxiety of unclear situations. Yet the message remains: fog doesn\'t mean the path disappeared. Patience during obscured moments becomes its own practice.' },
         ],
@@ -862,7 +862,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     ],
     closingCta: 'Get comprehensive mental wellness tools and implementation guides by [pre-ordering The Fab Four Pillars of Excellence](/dan-absher-books).',
     relatedLinks: [
-      { label: 'February 2026 Attitude & Perspective', href: '/attitude-perspective/february-2026' },
+      { label: 'February 2026 Attitude & Perspective', href: '/attitude-perspective/february' },
       { label: 'Pre-order The Fab Four Pillars of Excellence', href: '/dan-absher-books' },
       { label: 'Join the Fab Four Academy Community', href: '/join-fab-four-community' },
     ],
@@ -872,7 +872,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
   // APRIL 2026
   // ─────────────────────────────────────────
   {
-    slug: 'april-2026',
+    slug: 'april',
     month: 'April 2026',
     series: 'Attitude & Perspective: Monthly Deep Dive',
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
@@ -881,7 +881,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     youtubeId: 'KQetemT1sWc',
     intro: [
       "The Beatles generated over $1 billion in revenue across their career, but their most valuable business lesson came during their darkest period. When George walked out of a contentious 1969 Apple Corps meeting and into Eric Clapton's garden, he discovered something more valuable than any contract negotiation: the strategic power of renewal. The song he wrote that afternoon, \"Here Comes the Sun,\" would become their most-streamed track and a masterclass in navigating transitions.",
-      "Four musicians from Liverpool demonstrated how embracing endings creates space for extraordinary beginnings. Their systematic approach to creative exhaustion, partnership dissolution, and career reinvention provides actionable lessons from The Beatles for today's executives facing organizational transitions, market disruptions, and personal career pivots. Throughout April, we'll explore how The Beatles' approach to new beginnings offers a blueprint for transforming uncertainty into opportunity in any field, building on the [attitude and perspective principles explored in March](https://www.fabfouracademy.com/attitude-perspective/march-2026).",
+      "Four musicians from Liverpool demonstrated how embracing endings creates space for extraordinary beginnings. Their systematic approach to creative exhaustion, partnership dissolution, and career reinvention provides actionable lessons from The Beatles for today's executives facing organizational transitions, market disruptions, and personal career pivots. Throughout April, we'll explore how The Beatles' approach to new beginnings offers a blueprint for transforming uncertainty into opportunity in any field, building on the [attitude and perspective principles explored in March](https://www.fabfouracademy.com/attitude-perspective/march).",
     ],
     sections: [
       {
@@ -944,7 +944,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     ],
     closingCta: 'Discover how timeless music translates into practical leadership principles at [Fab Four Academy](https://www.fabfouracademy.com/), where Beatles wisdom meets contemporary business challenges. Learn more about transforming transitions into opportunities through lessons from The Beatles.',
     relatedLinks: [
-      { label: 'March 2026 Attitude & Perspective', href: '/attitude-perspective/march-2026' },
+      { label: 'March 2026 Attitude & Perspective', href: '/attitude-perspective/march' },
       { label: 'Fab Four Academy Home', href: '/' },
       { label: 'Join the Fab Four Academy Community', href: '/join-fab-four-community' },
     ],
@@ -953,7 +953,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
   // MAY 2026
   // ─────────────────────────────────────────
   {
-    slug: 'may-2026',
+    slug: 'may',
     month: 'May 2026',
     series: 'Attitude & Perspective: Monthly Deep Dive',
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
@@ -964,7 +964,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     intro: [
       'When Paul McCartney dreamed of his late mother Mary during the Beatles\' breakup, he woke with words that would comfort millions: "Let it be." This wasn\'t escapism. It was hard-won wisdom about acceptance. Four young men who grew up in public, navigating unprecedented fame and inevitable loss, created a roadmap for emotional maturity that remains profoundly relevant today.',
       'The Beatles generated over $1 billion in revenue, but the most valuable lessons from the Beatles aren\'t about commercial success. From "I Want to Hold Your Hand" to "Let It Be," their evolution from energetic twenty-somethings to reflective artists mirrors the universal journey toward acceptance and maturity we all navigate.',
-      'Just as we explored in [April how attitude and perspective shape our reality](/attitude-perspective/april-2026), this month we examine the deeper emotional wisdom that comes from accepting what we cannot change while developing the maturity to navigate life\'s transitions with grace.',
+      'Just as we explored in [April how attitude and perspective shape our reality](/attitude-perspective/april), this month we examine the deeper emotional wisdom that comes from accepting what we cannot change while developing the maturity to navigate life\'s transitions with grace.',
       'Throughout May, we\'ll explore how the Beatles\' approach to grief, relationships, change, and letting go offers practical wisdom for anyone seeking to grow through life\'s inevitable transitions with grace and authenticity.',
     ],
     sections: [
@@ -1024,7 +1024,7 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     ],
     closingCta: 'Discover how timeless music translates into practical leadership principles at [Fab Four Academy](https://www.fabfouracademy.com/). [Join the Fab Four Academy Community](/join-fab-four-community) and [pre-order The Fab Four Pillars of Excellence](/dan-absher-books).',
     relatedLinks: [
-      { label: 'April 2026 Attitude & Perspective', href: '/attitude-perspective/april-2026' },
+      { label: 'April 2026 Attitude & Perspective', href: '/attitude-perspective/april' },
       { label: 'Join the Fab Four Academy Community', href: '/join-fab-four-community' },
       { label: 'Pre-order The Fab Four Pillars of Excellence', href: '/dan-absher-books' },
     ],

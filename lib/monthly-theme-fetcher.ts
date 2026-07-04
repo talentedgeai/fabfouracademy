@@ -28,7 +28,7 @@ function stripTags(html: string): string {
 }
 
 function monthToSlug(month: string): string {
-  return month.toLowerCase().replace(/\s+/g, '-')
+  return month.split(/\s+/)[0].toLowerCase()
 }
 
 function parseDocHTML(html: string): MonthlyPost[] {
