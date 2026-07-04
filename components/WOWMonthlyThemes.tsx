@@ -9,7 +9,7 @@ const GAP = 24
 
 export default function WOWMonthlyThemes({ posts }: { posts: MonthlyPost[] }) {
   const THEMES = posts.slice(-12).map((p) => ({
-    month: p.month,
+    month: p.month.replace(/\s+\d{4}$/, ''),
     theme: p.boxTitle ?? p.subtitle,
     description: p.boxTitle
       ? p.subtitle

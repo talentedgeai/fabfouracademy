@@ -46,7 +46,7 @@ export default async function WOWMonthlyFeature({ published }: { published?: str
 
           {/* Right: text + button */}
           <div className={styles.textCol}>
-            <span className={styles.month}>{monthly.month}</span>
+            <span className={styles.month}>{monthly.month.replace(/\s+\d{4}$/, '')}</span>
             <h2 className={styles.title}>{monthly.title}</h2>
             <p className={styles.subtitle}>{monthly.subtitle}</p>
             <Link href={`/attitude-perspective/${monthly.slug}`} className="btn btn-primary" style={{ width: 'fit-content' }}>
