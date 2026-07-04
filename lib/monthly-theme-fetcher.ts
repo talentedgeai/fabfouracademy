@@ -193,7 +193,7 @@ function parseDocHTML(html: string): MonthlyPost[] {
 
 export async function fetchMonthlyPosts(): Promise<MonthlyPost[]> {
   try {
-    const res = await fetch(EXPORT_URL, { next: { revalidate: 60 } })
+    const res = await fetch(EXPORT_URL, { cache: 'no-store' })
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     const html = await res.text()
     const parsed = parseDocHTML(html)
