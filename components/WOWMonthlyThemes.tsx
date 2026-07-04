@@ -18,9 +18,12 @@ export default function WOWMonthlyThemes({ posts }: { posts: MonthlyPost[] }) {
     youtubeId: p.youtubeId,
   }))
 
-  /** On load, scroll so the latest post is visible on the right. */
+  /** On load, scroll so the current month is the first visible card. */
   function getInitialIndex(vc: number): number {
-    return Math.max(0, THEMES.length - vc)
+    const currentMonth = new Date().toLocaleString('en-US', { month: 'long' })
+    const idx = THEMES.findIndex(t => t.month === currentMonth)
+    const target = idx === -1 ? THEMES.length - vc : idx
+    return Math.min(Math.max(0, target), Math.max(0, THEMES.length - vc))
   }
   const [index, setIndex] = useState(0)
   const [itemWidth, setItemWidth] = useState(360)
