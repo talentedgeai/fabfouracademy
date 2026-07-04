@@ -959,7 +959,6 @@ export const MONTHLY_POSTS: MonthlyPost[] = [
     imageUrl: 'https://static.wixstatic.com/media/39abad_0a88f1c2634e42daac4539700074733a~mv2.png',
     title: "Let It Be: The Beatles' Guide to Acceptance and Emotional Maturity",
     subtitle: 'A Month of Emotional Wisdom, Personal Growth, and Beatles Life Lessons',
-    boxTitle: 'Finding Peace Through Acceptance',
     youtubeId: 'CGj85pVzRJs',
     intro: [
       'When Paul McCartney dreamed of his late mother Mary during the Beatles\' breakup, he woke with words that would comfort millions: "Let it be." This wasn\'t escapism. It was hard-won wisdom about acceptance. Four young men who grew up in public, navigating unprecedented fame and inevitable loss, created a roadmap for emotional maturity that remains profoundly relevant today.',
