@@ -76,14 +76,14 @@ const MONTH_NAMES = [
 ]
 
 function parseDate(str: string): Date | null {
-  // "June 2, 2026" or "June 2" or "June 2026"
+  // "June 2, 2026" | "June 2" | "June 2026" | "June"
   const parts = str.trim().split(/[\s,]+/).filter(Boolean)
   const monthIdx = MONTH_NAMES.indexOf(parts[0])
   if (monthIdx === -1) return null
-  const year = parts.find(p => /^\d{4}$/.test(p))
+  const currentYear = new Date().getFullYear()
+  const year = parseInt(parts.find(p => /^\d{4}$/.test(p)) ?? String(currentYear), 10)
   const day  = parts.find(p => /^\d{1,2}$/.test(p))
-  if (!year) return null
-  return new Date(parseInt(year), monthIdx, day ? parseInt(day) : 1)
+  return new Date(year, monthIdx, day ? parseInt(day) : 1)
 }
 
 function toSlug(title: string): string {
