@@ -7,9 +7,10 @@ export default async function WOWPageHero() {
   const post = await getTodaysPost()
   if (!post) return null
 
-  const teaser = post.content[0].length > 120
-    ? post.content[0].slice(0, 120) + '…'
-    : post.content[0]
+  const teaserSource = post.subtitle || post.content[0] || ''
+  const teaser = teaserSource.length > 160
+    ? teaserSource.slice(0, 160) + '…'
+    : teaserSource
 
   return (
     <section className={styles.section}>
