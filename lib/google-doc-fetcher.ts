@@ -137,7 +137,7 @@ function parseDocHTML(html: string): WOWPost[] {
       if (para.startsWith('Title: '))            { title    = para.slice(7).trim();  continue }
       if (para.startsWith('Subtitle/Snippet: ')) { subtitle = para.slice(18).trim(); continue }
       if (para.startsWith('Image URL: '))        { imageUrl = normalizeImageUrl(para.slice(11).trim()); continue }
-      if (para.startsWith('Image Alt: '))        { imageAlt = para.slice(11).trim(); continue }
+      if (/^Image ALT?:\s*/i.test(para))         { imageAlt = para.replace(/^Image ALT?:\s*/i, '').trim(); continue }
       if (para.startsWith('Song of the Day: '))  { songUrl  = para.slice(17).trim(); continue }
       if (para.startsWith('Monthly Theme: '))    { pastLabels = true; continue }
       // Skip until we've seen at least a title
