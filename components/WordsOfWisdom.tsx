@@ -24,11 +24,8 @@ export default function WordsOfWisdom({ post: todaysPost }: { post: WOWPost | nu
   }, [])
 
   const post = todaysPost ?? null
-  const teaser = post
-    ? post.content[0].length > 160
-      ? post.content[0].slice(0, 160) + '…'
-      : post.content[0]
-    : ''
+  const teaserSource = post ? (post.subtitle || post.content[0] || '') : ''
+  const teaser = teaserSource.length > 160 ? teaserSource.slice(0, 160) + '…' : teaserSource
 
   return (
     <section className={styles.section}>

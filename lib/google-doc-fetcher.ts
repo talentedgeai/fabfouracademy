@@ -135,7 +135,7 @@ function parseDocHTML(html: string): WOWPost[] {
     let pastLabels = false
     for (const para of paras) {
       if (para.startsWith('Title: '))            { title    = para.slice(7).trim();  continue }
-      if (para.startsWith('Subtitle/Snippet: ')) { subtitle = para.slice(18).trim(); continue }
+      if (/^Subtitle\/Snippet:\s*/i.test(para))   { subtitle = para.replace(/^Subtitle\/Snippet:\s*/i, '').trim(); continue }
       if (para.startsWith('Image URL: '))        { imageUrl = normalizeImageUrl(para.slice(11).trim()); continue }
       if (/^Image ALT?:\s*/i.test(para))         { imageAlt = para.replace(/^Image ALT?:\s*/i, '').trim(); continue }
       if (para.startsWith('Song of the Day: '))  { songUrl  = para.slice(17).trim(); continue }
