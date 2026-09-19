@@ -5,11 +5,13 @@
  */
 
 import { getBreakdown, getTotals, type AnalyticsRow } from '@/lib/vercel-analytics'
+import RangeTabs, { parseRange, rangeLabel, rangeStart } from '../_components/RangeTabs'
 import styles from '../_components/adminPage.module.css'
 
 export const dynamic = 'force-dynamic'
 
-const DAYS = 30
+// Web Analytics was switched on in September 2026; nothing exists before this.
+const ALL_TIME_START = new Date('2026-09-01T00:00:00Z')
 
 function BarList({ title, rows, dim }: { title: string; rows: AnalyticsRow[]; dim: string }) {
   const max = Math.max(1, ...rows.map((r) => r.visitors))
@@ -32,9 +34,16 @@ function BarList({ title, rows, dim }: { title: string; rows: AnalyticsRow[]; di
   )
 }
 
-export default async function AdminAnalyticsPage() {
+export default async function AdminAnalyticsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ range?: string }>
+}) {
+  const period = parseRange((await searchParams).range)
   const until = new Date()
-  const since = new Date(until.getTime() - DAYS * 24 * 60 * 60 * 1000)
+  const since = rangeStart(period) ?? ALL_TIME_START
+  // Daily bars get unreadable past a few months, so all time groups by week.
+  const bucket = period === 'all' ? 'week' : 'day'
   const range = [since.toISOString(), until.toISOString()] as const
 
   const totals = await getTotals(...range)
@@ -71,7 +80,7 @@ export default async function AdminAnalyticsPage() {
   }
 
   const [daily, pages, referrers, countries, devices] = await Promise.all([
-    getBreakdown('day', ...range, 100),
+    getBreakdown(bucket, ...range, 100),
     getBreakdown('requestPath', ...range),
     getBreakdown('referrerHostname', ...range),
     getBreakdown('country', ...range),
@@ -86,8 +95,10 @@ export default async function AdminAnalyticsPage() {
       <header className={styles.header}>
         <p className={styles.eyebrow}>Website</p>
         <h1 className={styles.title}>Analytics</h1>
-        <p className={styles.lede}>Last {DAYS} days, from Vercel Web Analytics. Refreshes every 5 minutes.</p>
+        <p className={styles.lede}>From Vercel Web Analytics. Refreshes every 5 minutes.</p>
       </header>
+
+      <RangeTabs path="/admin/analytics" active={period} />
 
       <section className={styles.stats}>
         <div className={styles.stat}>
@@ -101,8 +112,8 @@ export default async function AdminAnalyticsPage() {
       </section>
 
       <section className={styles.card}>
-        <h2 className={styles.cardTitle}>Visitors per day</h2>
-        {days.length === 0 && (
+        <h2 className={styles.cardTitle}>Visitors per {bucket}, {rangeLabel(period)}</h2>
+        {days.every((d) => d.visitors === 0) && (
           <p className={styles.cardMeta}>
             No visits recorded yet. Counting starts once the site is deployed with the analytics
             script.

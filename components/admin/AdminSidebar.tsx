@@ -25,7 +25,6 @@ const NAV_ITEMS: NavItem[] = [
   { href: '/admin',            label: 'Dashboard',  icon: '◈' },
   { href: '/admin/people',     label: 'People',     icon: '◉' },
   { href: '/admin/inquiries',  label: 'Inquiries',  icon: '☰' },
-  { href: '/admin/newsletter', label: 'Newsletter', icon: '✉' },
   { href: '/admin/emails',     label: 'Emails',     icon: '➤' },
   { href: '/admin/content',    label: 'Content',    icon: '❏' },
   { href: '/admin/analytics',  label: 'Analytics',  icon: '▲' },

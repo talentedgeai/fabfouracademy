@@ -196,7 +196,7 @@ export default async function AdminDashboardPage() {
         <StatCard
           label="Active subscribers"
           value={subscribers}
-          href="/admin/newsletter"
+          href="/admin/people?filter=subscribers"
           sub={`${total - subscribers} opted out`}
         />
         <StatCard
