@@ -7,6 +7,7 @@
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
 import { fetchWOWPosts } from '@/lib/google-doc-fetcher'
+import RangeTabs, { parseRange, rangeLabel, rangeStart } from '../_components/RangeTabs'
 import styles from '../_components/adminPage.module.css'
 
 export const dynamic = 'force-dynamic'
@@ -26,20 +27,26 @@ type CampaignRow = {
 
 const pct = (n: number, of: number) => (of > 0 ? `${Math.round((n / of) * 100)}%` : '-')
 
-export default async function AdminEmailsPage() {
-  const [{ data, error }, posts] = await Promise.all([
-    supabase
-      .from('email_campaign_stats')
-      .select('*')
-      .order('send_date', { ascending: false })
-      .limit(120),
-    fetchWOWPosts(),
-  ])
+export default async function AdminEmailsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ range?: string }>
+}) {
+  const range = parseRange((await searchParams).range)
+  const since = rangeStart(range)
+
+  let query = supabase
+    .from('email_campaign_stats')
+    .select('*')
+    .order('send_date', { ascending: false })
+    .limit(2000)
+  if (since) query = query.gte('send_date', since.toISOString().slice(0, 10))
+
+  const [{ data, error }, posts] = await Promise.all([query, fetchWOWPosts()])
 
   const rows = (data ?? []) as CampaignRow[]
   const titles = new Map(posts.map((p) => [p.slug, p.title]))
-  const last30 = rows.slice(0, 30)
-  const sum = (k: keyof CampaignRow) => last30.reduce((t, r) => t + Number(r[k]), 0)
+  const sum = (k: keyof CampaignRow) => rows.reduce((t, r) => t + Number(r[k]), 0)
   const sent = sum('recipients') - sum('failed')
   const tracked = sum('delivered') > 0
 
@@ -67,9 +74,11 @@ export default async function AdminEmailsPage() {
         </p>
       )}
 
+      <RangeTabs path="/admin/emails" active={range} />
+
       <section className={styles.stats}>
         <div className={styles.stat}>
-          <span className={styles.statLabel}>Sent, last 30 sends</span>
+          <span className={styles.statLabel}>Sent, {rangeLabel(range)}</span>
           <span className={styles.statValue}>{sent.toLocaleString()}</span>
           <span className={styles.statSub}>{sum('failed')} failed</span>
         </div>
@@ -111,7 +120,7 @@ export default async function AdminEmailsPage() {
           <tbody>
             {rows.length === 0 && (
               <tr>
-                <td colSpan={9} className={styles.empty}>No sends logged yet.</td>
+                <td colSpan={9} className={styles.empty}>No sends in this period.</td>
               </tr>
             )}
             {rows.map((r) => (

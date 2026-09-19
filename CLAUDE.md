@@ -25,7 +25,7 @@ There are no lint or test scripts configured.
 ### Route Structure
 
 - **Public pages** — `/blog`, `/books`, `/daily-words-of-wisdom`, `/daily-email-signup`, `/join-fab-four-community`, `/sign-in`, etc.
-- **Admin dashboard** — `/admin`, `/admin/inquiries`, `/admin/people`, `/admin/newsletter`, `/admin/emails` (campaign log), `/admin/content` (read-only posts), `/admin/analytics` (Vercel Web Analytics), `/admin/account` — gated by Supabase Auth in middleware; `/admin/login` is the sign-in page, with `/admin/login/forgot` and `/admin/login/reset` (emailed one-time link) left open. Every password field uses `components/admin/PasswordInput.tsx` (eye toggle)
+- **Admin dashboard** — `/admin`, `/admin/inquiries`, `/admin/people`, `/admin/emails` (campaign log), `/admin/content` (read-only posts), `/admin/analytics` (Vercel Web Analytics), `/admin/account` — gated by Supabase Auth in middleware; `/admin/login` is the sign-in page, with `/admin/login/forgot` and `/admin/login/reset` (emailed one-time link) left open. Every password field uses `components/admin/PasswordInput.tsx` (eye toggle)
 - **API routes** — `/api/contacts` (public form), `/api/admin/contacts/[id]` (CRUD), `/api/unsubscribe`, `/api/auth/forgot-password` (emails admins a reset link via Resend), `/api/cron/daily-wow`, `/api/cron/admin-daily-wow`, `/api/dev/send-test-wow`, `/api/webhooks/resend` (signed Resend events → `record_email_event()`)
 
 ### Auth Model
