@@ -3,16 +3,16 @@
  * the routes that exist on fab-four today (no Members / Orders / Affiliates
  * / Retreat - those land in Phase 3 once their schema exists).
  *
- * No sign-out button: fab-four's middleware uses HTTP basic auth via
- * ADMIN_PASSWORD, and there's no Supabase Auth session to sign out of.
- * Closing the browser ends the basic-auth session.
+ * Sign out ends the Supabase Auth session that middleware.ts checks. The
+ * sidebar hides itself on /admin/login, which shares the admin layout.
  */
 
 'use client'
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { createBrowserClient } from '@/lib/supabase-browser'
 import styles from './AdminSidebar.module.css'
 
 type NavItem = {
@@ -26,11 +26,23 @@ const NAV_ITEMS: NavItem[] = [
   { href: '/admin/people',     label: 'People',     icon: '◉' },
   { href: '/admin/inquiries',  label: 'Inquiries',  icon: '☰' },
   { href: '/admin/newsletter', label: 'Newsletter', icon: '✉' },
+  { href: '/admin/emails',     label: 'Emails',     icon: '➤' },
+  { href: '/admin/content',    label: 'Content',    icon: '❏' },
+  { href: '/admin/analytics',  label: 'Analytics',  icon: '▲' },
+  { href: '/admin/account',    label: 'Account',    icon: '⚙' },
 ]
 
 export default function AdminSidebar() {
   const pathname = usePathname()
+  const router = useRouter()
   const [open, setOpen] = useState(false)
+
+  if (pathname.startsWith('/admin/login')) return null
+
+  const signOut = async () => {
+    await createBrowserClient().auth.signOut()
+    router.replace('/admin/login')
+  }
 
   const isActive = (href: string) =>
     pathname === href || (href !== '/admin' && pathname.startsWith(href))
@@ -87,6 +99,9 @@ export default function AdminSidebar() {
           <Link href="/" className={styles.exitLink}>
             ← Exit to site
           </Link>
+          <button type="button" onClick={signOut} className={styles.exitLink}>
+            Sign out
+          </button>
         </div>
       </aside>
     </>

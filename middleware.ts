@@ -1,39 +1,45 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { createServerClient } from '@supabase/ssr'
 
-// Basic-auth gate for /admin/*. Set ADMIN_PASSWORD in env. Username is ignored.
-export function middleware(request: NextRequest) {
-  const expected = process.env.ADMIN_PASSWORD
-
-  if (!expected) {
-    return new NextResponse('ADMIN_PASSWORD not configured', { status: 500 })
-  }
-
-  const authHeader = request.headers.get('authorization')
-  if (!authHeader || !authHeader.toLowerCase().startsWith('basic ')) {
-    return new NextResponse('Authentication required', {
-      status: 401,
-      headers: { 'WWW-Authenticate': 'Basic realm="Fab Four Admin"' },
-    })
-  }
-
-  let pass = ''
-  try {
-    const base64 = authHeader.slice(6).trim()
-    const decoded = atob(base64)
-    pass = decoded.split(':').slice(1).join(':')
-  } catch {
-    return new NextResponse('Invalid auth header', { status: 400 })
-  }
-
-  if (pass === expected) {
+// Supabase Auth gate for /admin/* and /api/admin/*. A visitor must be signed
+// in AND carry app_metadata.role = 'admin' (only settable with the secret key,
+// see scripts/create-admin.mjs). Pages redirect to /admin/login; API routes 401.
+// /admin/login and the forgot/reset pages under it stay open.
+export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl
+  if (pathname === '/admin/login' || pathname.startsWith('/admin/login/')) {
     return NextResponse.next()
   }
 
-  return new NextResponse('Authentication required', {
-    status: 401,
-    headers: { 'WWW-Authenticate': 'Basic realm="Fab Four Admin"' },
-  })
+  let response = NextResponse.next({ request })
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+    {
+      cookies: {
+        getAll: () => request.cookies.getAll(),
+        setAll: (cookiesToSet) => {
+          response = NextResponse.next({ request })
+          cookiesToSet.forEach(({ name, value, options }) =>
+            response.cookies.set(name, value, options),
+          )
+        },
+      },
+    },
+  )
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (user?.app_metadata?.role === 'admin') return response
+
+  if (pathname.startsWith('/api/')) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+  return NextResponse.redirect(new URL('/admin/login', request.url))
 }
 
 export const config = {
