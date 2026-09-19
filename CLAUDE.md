@@ -25,12 +25,12 @@ There are no lint or test scripts configured.
 ### Route Structure
 
 - **Public pages** — `/blog`, `/books`, `/daily-words-of-wisdom`, `/daily-email-signup`, `/join-fab-four-community`, `/sign-in`, etc.
-- **Admin dashboard** — `/admin`, `/admin/inquiries`, `/admin/people`, `/admin/newsletter` — gated by HTTP Basic Auth in middleware
-- **API routes** — `/api/contacts` (public form), `/api/admin/contacts/[id]` (CRUD), `/api/unsubscribe`, `/api/cron/daily-wow`, `/api/cron/admin-daily-wow`, `/api/dev/send-test-wow`
+- **Admin dashboard** — `/admin`, `/admin/inquiries`, `/admin/people`, `/admin/newsletter`, `/admin/emails` (campaign log), `/admin/content` (read-only posts), `/admin/analytics` (Vercel Web Analytics), `/admin/account` — gated by Supabase Auth in middleware; `/admin/login` is the sign-in page, with `/admin/login/forgot` and `/admin/login/reset` (emailed one-time link) left open. Every password field uses `components/admin/PasswordInput.tsx` (eye toggle)
+- **API routes** — `/api/contacts` (public form), `/api/admin/contacts/[id]` (CRUD), `/api/unsubscribe`, `/api/auth/forgot-password` (emails admins a reset link via Resend), `/api/cron/daily-wow`, `/api/cron/admin-daily-wow`, `/api/dev/send-test-wow`, `/api/webhooks/resend` (signed Resend events → `record_email_event()`)
 
 ### Auth Model
 
-Admin routes (`/admin/*` and `/api/admin/*`) are protected by HTTP Basic Auth in [middleware.ts](middleware.ts) using the `ADMIN_PASSWORD` env var. There is no user session — it's a single shared password.
+Admin routes (`/admin/*` and `/api/admin/*`) are protected by Supabase Auth in [middleware.ts](middleware.ts): the visitor must be signed in and have `app_metadata.role = 'admin'`. Admins are created (or have their password reset) with `node --env-file=.env.local scripts/create-admin.mjs <email> [...]`, which prints a one-time random password.
 
 ### Supabase Clients
 
@@ -62,9 +62,12 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY   # Browser-safe anon key
 RESEND_API_KEY                         # Resend email delivery
 EMAIL_FROM                             # Sender address
 ADMIN_EMAILS                           # Comma-separated admin email list
-ADMIN_PASSWORD                         # HTTP Basic Auth password for /admin
 CRON_SECRET                            # Vercel Cron bearer token
+RESEND_WEBHOOK_SECRET                  # Svix signing secret for /api/webhooks/resend
+VERCEL_API_TOKEN                       # Reads Web Analytics for /admin/analytics
+VERCEL_PROJECT_ID                      # Vercel project that owns the site
+VERCEL_TEAM_ID                         # Vercel team that owns the project
 SITE_URL                               # Production domain (https://fabfouracademy.com)
 ```
 
-See [.env.local copy.example](.env.local%20copy.example) for a template.
+The full list lives in the gitignored `.env.local` at the repo root. Do not add a committed env example file.

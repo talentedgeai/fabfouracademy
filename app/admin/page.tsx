@@ -55,6 +55,7 @@ function relTime(iso: string): string {
 
 export default async function AdminDashboardPage() {
   const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
+  const todayUtc = `${new Date().toISOString().slice(0, 10)}T00:00:00Z`
 
   const [
     peopleCount,
@@ -62,6 +63,8 @@ export default async function AdminDashboardPage() {
     inquiries7d,
     typeCounts,
     sends7d,
+    sendsToday,
+    failedToday,
     recentInquiries,
     recentSends,
   ] = await Promise.all([
@@ -81,6 +84,18 @@ export default async function AdminDashboardPage() {
       .eq('campaign', 'daily_wow')
       .eq('status', 'sent')
       .gte('created_at', sevenDaysAgo),
+    supabase
+      .from('email_sends')
+      .select('id', { count: 'exact', head: true })
+      .eq('campaign', 'daily_wow')
+      .neq('status', 'failed')
+      .gte('created_at', todayUtc),
+    supabase
+      .from('email_sends')
+      .select('id', { count: 'exact', head: true })
+      .eq('campaign', 'daily_wow')
+      .eq('status', 'failed')
+      .gte('created_at', todayUtc),
     supabase
       .from('inquiries')
       .select(
@@ -192,7 +207,8 @@ export default async function AdminDashboardPage() {
         <StatCard
           label="Daily emails · 7d"
           value={sendsWeek}
-          sub="status = sent"
+          sub={`today: ${sendsToday.count ?? 0} sent, ${failedToday.count ?? 0} failed`}
+          href="/admin/emails"
         />
       </section>
 
