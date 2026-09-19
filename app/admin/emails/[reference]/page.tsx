@@ -1,10 +1,18 @@
 /**
- * One send, per recipient: status plus delivery / open / click timestamps.
- * A send is identified by campaign + reference + UTC date (?date=YYYY-MM-DD).
+ * One send: the email itself, then per recipient status plus delivery / open /
+ * click timestamps. A send is identified by campaign + reference + UTC date
+ * (?date=YYYY-MM-DD).
+ *
+ * Sent HTML is not stored, so the preview re-renders the DailyWow template
+ * from the post as it reads today.
  */
 
 import Link from 'next/link'
+import { render } from '@react-email/render'
 import { supabase } from '@/lib/supabase'
+import { fetchWOWPosts } from '@/lib/google-doc-fetcher'
+import { getMonthlyPostForDate } from '@/lib/wow-utils'
+import DailyWow from '@/emails/DailyWow'
 import styles from '../../_components/adminPage.module.css'
 
 export const dynamic = 'force-dynamic'
@@ -51,16 +59,48 @@ export default async function AdminEmailSendPage({
   const { data, error } = await query
   const rows = (data ?? []) as SendRow[]
 
+  const post =
+    campaign === 'daily_wow' ? (await fetchWOWPosts()).find((p) => p.slug === slug) : undefined
+  const previewHtml = post
+    ? await render(
+        DailyWow({ post, unsubscribeUrl: '#', monthly: getMonthlyPostForDate(post.published) }),
+      )
+    : null
+
   return (
     <div className={styles.page}>
       <header className={styles.header}>
         <Link href="/admin/emails" className={styles.back}>← Campaign log</Link>
         <p className={styles.eyebrow}>{campaign}{date ? ` · ${date}` : ''}</p>
-        <h1 className={styles.title}>{slug}</h1>
+        <h1 className={styles.title}>{post?.title ?? slug}</h1>
         <p className={styles.lede}>{rows.length} recipients. Times are UTC.</p>
       </header>
 
       {error && <p className={styles.notice}>Could not load sends: {error.message}</p>}
+
+      <section className={styles.card}>
+        <h2 className={styles.cardTitle}>The email</h2>
+        {previewHtml ? (
+          <>
+            <p className={styles.cardMeta}>
+              Rendered from the post as it reads today; the unsubscribe link is a placeholder.{' '}
+              <Link href={`/words-of-wisdom-content/${slug}`} target="_blank">
+                Open the web page
+              </Link>
+            </p>
+            <iframe
+              title="Email preview"
+              srcDoc={previewHtml}
+              sandbox=""
+              className={styles.emailFrame}
+            />
+          </>
+        ) : (
+          <p className={styles.cardMeta}>
+            No preview: the post &quot;{slug}&quot; is no longer in the content source.
+          </p>
+        )}
+      </section>
 
       <div className={styles.tableWrap}>
         <table className={styles.table}>
