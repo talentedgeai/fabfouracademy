@@ -209,7 +209,7 @@ export default function PeopleTable({ people }: { people: PersonListRow[] }) {
 
                 <dl className={styles.facts}>
                   <dt>Favorite Beatles song</dt>
-                  <dd>{detail.favoriteSong || 'Not given'}</dd>
+                  <dd>{detail.favoriteSong || 'Not on record'}</dd>
                   <dt>Company</dt>
                   <dd>{detail.person.company || '-'}</dd>
                   <dt>Role</dt>
