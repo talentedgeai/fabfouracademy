@@ -1,6 +1,6 @@
 /**
  * Admin-only single-inquiry API. Mounted under /api/admin/* so middleware.ts
- * (HTTP basic auth via ADMIN_PASSWORD) gates it; the public POST handler at
+ * (Supabase Auth session with the admin role) gates it; the public POST handler at
  * /api/contacts stays open for form submissions.
  *
  *   GET    /api/admin/contacts/[id] → full inquiry + person via get_inquiry_detail RPC

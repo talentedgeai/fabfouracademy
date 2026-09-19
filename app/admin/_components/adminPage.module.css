@@ -65,3 +65,4 @@
   .title { font-size: 28px; }
 }
 .steps { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; line-height: 1.5; color: var(--text-muted); }
+.emailFrame { width: 100%; max-width: 720px; height: 720px; border: 1px solid var(--gray-mid); border-radius: 6px; background: var(--white); }
