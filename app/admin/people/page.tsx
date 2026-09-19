@@ -11,6 +11,7 @@
 
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
+import PeopleTable from './PeopleTable'
 import styles from './page.module.css'
 
 export const dynamic = 'force-dynamic'
@@ -44,28 +45,6 @@ type PersonView = PersonRow & {
   inquiry_types: Set<string>
   pipeline_inquiries: number  // any inquiry that's not type=newsletter
   last_activity: string
-}
-
-const TYPE_LABEL: Record<string, string> = {
-  newsletter:   'Newsletter',
-  keynote:      'Keynote',
-  consultation: 'Consultation',
-  general:      'General',
-}
-
-function relTime(iso: string): string {
-  const then = new Date(iso).getTime()
-  const now = Date.now()
-  const s = Math.max(1, Math.round((now - then) / 1000))
-  if (s < 60) return `${s}s ago`
-  const m = Math.round(s / 60)
-  if (m < 60) return `${m}m ago`
-  const h = Math.round(m / 60)
-  if (h < 24) return `${h}h ago`
-  const d = Math.round(h / 24)
-  if (d < 30) return `${d}d ago`
-  const mo = Math.round(d / 30)
-  return `${mo}mo ago`
 }
 
 export default async function AdminPeoplePage({
@@ -171,73 +150,9 @@ export default async function AdminPeoplePage({
         </Tab>
       </nav>
 
-      <div className={styles.tableWrap}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Company / Role</th>
-              <th>Tags</th>
-              <th>Source</th>
-              <th>Last activity</th>
-              <th>First seen</th>
-              <th>Consent</th>
-            </tr>
-          </thead>
-          <tbody>
-            {visible.length === 0 && (
-              <tr>
-                <td colSpan={8} className={styles.empty}>
-                  Nothing matches this filter yet.
-                </td>
-              </tr>
-            )}
-            {visible.map((p) => (
-              <tr key={p.id}>
-                <td className={styles.cellName}>{p.name || '-'}</td>
-                <td>
-                  <a href={`mailto:${p.email}`} className={styles.cellEmail}>
-                    {p.email}
-                  </a>
-                </td>
-                <td className={styles.cellCompany}>
-                  {p.company || '-'}
-                  {p.role && <div className={styles.cellRole}>{p.role}</div>}
-                </td>
-                <td>
-                  <div className={styles.tags}>
-                    {Array.from(p.inquiry_types).map((t) => (
-                      <span
-                        key={t}
-                        className={`${styles.tag} ${styles[`tag_${t}`] ?? ''}`}
-                      >
-                        {TYPE_LABEL[t] ?? t}
-                      </span>
-                    ))}
-                  </div>
-                </td>
-                <td className={styles.cellMuted}>{p.source_site}</td>
-                <td className={styles.cellTime} title={new Date(p.last_activity).toLocaleString()}>
-                  {relTime(p.last_activity)}
-                </td>
-                <td className={styles.cellTime} title={new Date(p.created_at).toLocaleString()}>
-                  {new Date(p.created_at).toLocaleDateString()}
-                </td>
-                <td>
-                  <span
-                    className={`${styles.pill} ${
-                      p.ok_to_contact ? styles.pillIn : styles.pillOut
-                    }`}
-                  >
-                    {p.ok_to_contact ? '✓ in' : '✕ out'}
-                  </span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <PeopleTable
+        people={visible.map((p) => ({ ...p, inquiry_types: Array.from(p.inquiry_types) }))}
+      />
     </div>
   )
 }
