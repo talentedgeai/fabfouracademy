@@ -63,7 +63,7 @@ RESEND_API_KEY                         # Resend email delivery
 EMAIL_FROM                             # Sender address
 ADMIN_EMAILS                           # Comma-separated admin email list
 CRON_SECRET                            # Vercel Cron bearer token
-RESEND_WEBHOOK_SECRET                  # Svix signing secret for /api/webhooks/resend
+RESEND_WEBHOOK_SECRET                  # Svix signing secret for /api/webhooks/resend (starts with whsec_, NOT the re_ API key)
 VERCEL_API_TOKEN                       # Reads Web Analytics for /admin/analytics
 VERCEL_PROJECT_ID                      # Vercel project that owns the site
 VERCEL_TEAM_ID                         # Vercel team that owns the project
