@@ -24,6 +24,7 @@ type PersonRow = {
   id: string
   email: string
   name: string | null
+  phone: string | null
   company: string | null
   role: string | null
   source_site: string
@@ -38,14 +39,18 @@ type InquiryRow = {
   type: string
   status: string
   source: string | null
+  message: string | null
   created_at: string
 }
 
 type PersonView = PersonRow & {
+  favorite_song: string | null  // only used by the CSV export
   inquiry_types: Set<string>
   pipeline_inquiries: number  // any inquiry that's not type=newsletter
   last_activity: string
 }
+
+const SONG_PREFIX = 'Favorite Beatles song:'
 
 export default async function AdminPeoplePage({
   searchParams,
@@ -58,11 +63,11 @@ export default async function AdminPeoplePage({
   const [peopleRes, inquiriesRes] = await Promise.all([
     supabase
       .from('people')
-      .select('id, email, name, company, role, source_site, ok_to_contact, created_at, updated_at')
+      .select('id, email, name, phone, company, role, source_site, ok_to_contact, created_at, updated_at')
       .order('created_at', { ascending: false }),
     supabase
       .from('inquiries')
-      .select('id, person_id, type, status, source, created_at'),
+      .select('id, person_id, type, status, source, message, created_at'),
   ])
 
   const peopleRows  = (peopleRes.data    ?? []) as PersonRow[]
@@ -88,8 +93,13 @@ export default async function AdminPeoplePage({
       .filter(Boolean)
       .sort()
       .reverse()[0] ?? p.created_at
+    // The signup form stores the song as a line in the inquiry message.
+    const songLine = ins
+      .flatMap((i) => (i.message ?? '').split('\n'))
+      .find((l) => l.startsWith(SONG_PREFIX))
     return {
       ...p,
+      favorite_song: songLine ? songLine.slice(SONG_PREFIX.length).trim() : null,
       inquiry_types: inquiryTypes,
       pipeline_inquiries: pipeline,
       last_activity: lastActivity,

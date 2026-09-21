@@ -2,12 +2,15 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import ExportCsvButton from './ExportCsvButton'
 import styles from './page.module.css'
 
 export type PersonListRow = {
   id: string
   email: string
   name: string | null
+  phone: string | null
+  favorite_song: string | null
   company: string | null
   role: string | null
   source_site: string
@@ -18,7 +21,7 @@ export type PersonListRow = {
 }
 
 type Detail = {
-  person: PersonListRow & { phone: string | null; updated_at: string }
+  person: PersonListRow & { updated_at: string }
   favoriteSong: string | null
   inquiries: { id: string; type: string; subject: string | null; message: string | null; source: string | null; status: string; created_at: string }[]
   sends: { id: string; campaign: string; reference: string; status: string; created_at: string; delivered_at: string | null; first_opened_at: string | null; first_clicked_at: string | null }[]
@@ -112,14 +115,36 @@ export default function PeopleTable({ people }: { people: PersonListRow[] }) {
 
   return (
     <>
-      <input
-        type="search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search name, email, company…"
-        aria-label="Search people"
-        className={styles.search}
-      />
+      <div className={styles.toolbar}>
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search name, email, company…"
+          aria-label="Search people"
+          className={styles.search}
+        />
+        <ExportCsvButton
+          rows={visible.map((p) => ({
+            ...p,
+            inquiry_types: p.inquiry_types.join('; '),
+            ok_to_contact: p.ok_to_contact ? 'yes' : 'no',
+          }))}
+          headers={[
+            { key: 'name', label: 'Name' },
+            { key: 'email', label: 'Email' },
+            { key: 'phone', label: 'Phone' },
+            { key: 'favorite_song', label: 'Favorite Beatles song' },
+            { key: 'company', label: 'Company' },
+            { key: 'role', label: 'Role' },
+            { key: 'inquiry_types', label: 'Tags' },
+            { key: 'source_site', label: 'Source' },
+            { key: 'ok_to_contact', label: 'Subscribed' },
+            { key: 'created_at', label: 'First seen' },
+          ]}
+          filename={`fab-four-people-${new Date().toISOString().slice(0, 10)}.csv`}
+        />
+      </div>
 
       <div className={styles.tableWrap}>
         <table className={styles.table}>
